@@ -33,6 +33,8 @@ namespace :deploy do
   end
 end
 
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
+
 
 
 
