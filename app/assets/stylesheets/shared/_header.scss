@@ -1,0 +1,20 @@
+.header{
+  font-family: $main_font;
+  &__box{
+    width: 1020px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    &__logo{
+      font-size: 20px;
+    }
+    &__content{
+      display: flex;
+      &__new-member{
+        margin-right: 20px;
+      }
+    }
+  }
+}
