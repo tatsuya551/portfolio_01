@@ -1,0 +1,31 @@
+.signup-new{
+  &__main{
+    background-color: #eee;
+    width: 700px;
+    margin: 0 auto;
+    &__title{
+      font-size: 22px;
+      padding: 32px;
+    }
+    &__content{
+      width: 100%;
+      margin: 8px 0 0;
+      &__list{
+        input{
+          @include height_width(40px, 50%);
+        }
+        ::placeholder{
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+      &--bottom{
+        margin: 10px auto 0;
+        input{
+          @include height_width(40px, 50%);
+          background-color: rgb(110, 152, 190);
+        }
+      }
+    }
+  }
+}

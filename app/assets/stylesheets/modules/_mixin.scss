@@ -1,0 +1,5 @@
+/* 高さ幅指定 */
+@mixin height_width($height, $width){
+  height: $height;
+  width: $width;
+}

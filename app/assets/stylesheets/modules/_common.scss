@@ -1,7 +1,28 @@
+/////////////////////////
+/******テキスト関連*******/
+/////////////////////////
+
+/* アンダーラインなし */
 .text-line-none{
   text-decoration: none;
 }
 
+/* 黒色 */
 .text-brack{
   color: black;
 }
+
+/* 中央寄せ */
+.text-center{
+  text-align: center;
+}
+
+/////////////////////////
+/******フォント関連*******/
+/////////////////////////
+
+/* メイン */
+.main-font{
+  font-family: HelveticaNeueW01-55Roma,Helvetica,Arial,Verdana,"Noto Sans Japanese","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+}
+

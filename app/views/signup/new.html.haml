@@ -1,0 +1,18 @@
+.signup-new.text-center.main-font
+  .signup-new__main
+    .signup-new__main__title
+      新規会員登録
+    .signup-new__main__content
+    = form_with(model: @user, url: signup_index_path(@user), method: :POST, local: true) do |f|
+      .signup-new__main__content__list
+        = f.text_field :nickname, placeholder: "ニックネーム", autofocus: true, autocomplete: "nickname"
+      .signup-new__main__content__list
+        = f.email_field :email, placeholder: "メールアドレス", autocomplete: "email"
+      .signup-new__main__content__list
+        = f.text_field :birth_day, placeholder: "生年月日", autocomplete: "birth_day"
+      .signup-new__main__content__list
+        = f.password_field :password, placeholder: "パスワード", autocomplete: "new-password"
+      .signup-new__main__content__list
+        = f.password_field :password_confirmation, placeholder: "パスワード(確認用)", autocomplete: "new-password"
+      .signup-new__main__content--bottom
+        = f.submit " 登録 "
