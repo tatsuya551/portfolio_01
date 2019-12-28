@@ -4,9 +4,8 @@ class SignupController < ApplicationController
   end
 
   def create
-    User.create(user_params)
     if User.create(user_params)
-      redirect_to root_path
+      redirect_to users_path
     else
       render 'new'
     end

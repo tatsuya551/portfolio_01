@@ -5,9 +5,19 @@
         Book bank
     %ul.header__box__content
       %li.header__box__content__new-member
+        = link_to users_path, class:"text-line-none text-brack" do
+          ユーザーマイページ
+      %li.header__box__content__new-member
+        = link_to new_book_path, class:"text-line-none text-brack" do
+          book登録
+      %li.header__box__content__new-member
         = link_to new_signup_path, class:"text-line-none text-brack" do
           新規会員登録
-      %li.header__box__content__login
-        = link_to new_user_session_path, class:"text-line-none text-brack" do
-          ログイン
-    
+      - if user_signed_in?
+        %li.header__box__content__login
+          = link_to destroy_user_session_path, method: :delete, class:"text-line-none text-brack" do
+            ログアウト
+      - else
+        %li.header__box__content__login
+          = link_to new_user_session_path, class:"text-line-none text-brack" do
+            ログイン
