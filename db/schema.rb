@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_034225) do
+ActiveRecord::Schema.define(version: 2019_12_27_091531) do
+
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title", null: false
+    t.string "author", null: false
+    t.string "publisher", null: false
+    t.integer "reason", null: false
+    t.integer "status", default: 0, null: false
+    t.string "image"
+    t.date "date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author"], name: "index_books_on_author"
+    t.index ["publisher"], name: "index_books_on_publisher"
+    t.index ["reason"], name: "index_books_on_reason"
+    t.index ["title"], name: "index_books_on_title"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
