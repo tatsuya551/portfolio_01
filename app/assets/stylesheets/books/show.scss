@@ -1,0 +1,14 @@
+.book-show{
+  width: 50%;
+  margin: 0 auto;
+  &__main{
+    margin-top: 60px;
+    &__box{
+      display: flex;
+      justify-content: space-between;
+      &__text{
+        display: flex;
+      }
+    }
+  }
+}
