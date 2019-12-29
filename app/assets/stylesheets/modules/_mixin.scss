@@ -3,3 +3,12 @@
   height: $height;
   width: $width;
 }
+
+/* ヘッダー用位置調整 */
+@mixin text_size_height($size, $height){
+  font-size: $size;
+  a {
+    line-height: $height;
+  }
+}
+

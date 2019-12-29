@@ -1,2 +1,7 @@
-ユーザーマイページ
-= Date.today
+.user-mypage
+  .user-mypage__main
+    .user-mypage__main__box
+      %ul.user-mypage__main__box__list
+        %li.user-mypage__main__box__list__title.font-bold
+          ユーザーマイページ
+  = render partial: "shared/book_list", locals: {books: @books}

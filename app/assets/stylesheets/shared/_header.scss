@@ -1,17 +1,21 @@
 .header{
   &__box{
-    @include height_width(50px, 1020px);
-    line-height: 50px;
+    @include height_width(90px, 100%);
+    background-color: #202020;
     margin: 0px auto;
-    display: flex;
-    justify-content: space-between;
     &__logo{
-      font-size: 20px;
+      @include text_size_height(22px, 60px);
     }
     &__content{
+      width: 60%;
+      margin: 0px auto;
       display: flex;
+      justify-content: space-between;
       &__new-member{
-        margin-right: 20px;
+        @include text_size_height(14px, 10px);
+      }
+      &__login{
+        @include text_size_height(14px, 10px);
       }
     }
   }

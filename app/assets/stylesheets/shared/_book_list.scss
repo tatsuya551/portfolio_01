@@ -1,0 +1,33 @@
+.book-list{
+  width: 80%;
+  margin: 0 auto;
+  &__main{
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__box{
+      @include height_width(250px, 180px);
+      margin: 10px;
+      box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+      &__content{
+        .book-image{
+          @include height_width(190px, 180px);
+          background-color: #eee;
+          position: relative;
+        }
+        .book-title{
+          @include height_width(60px, 180px);
+          line-height: 60px;
+          font-size: 16px;
+          max-width: 160px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          margin: 0 10px 0 10px;
+        }
+      }
+    }
+  }
+}

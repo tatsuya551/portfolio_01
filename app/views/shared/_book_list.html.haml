@@ -1,0 +1,10 @@
+.book-list
+  .book-list__main
+    - books.each do |book|
+      .book-list__main__box.text-center
+        = link_to "#", class: "book-list__main__box__content text-line-none text-brack" do
+          .book-image
+            = image_tag book.image.to_s, class: "image-set"
+          .book-title
+            = book.title
+        
