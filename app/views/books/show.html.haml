@@ -1,0 +1,42 @@
+= render "shared/content_header"
+.book-show
+  .book-show__main
+    .book-show__main__box
+      .book-show__main__box__text
+        .book-show__main__box__text__item
+          .book-item
+            タイトル：
+          .book-item
+            著者：
+          .book-item
+            出版社：
+          .book-item
+            きっかけ：
+          .book-item
+            購入日：
+        .book-show__main__box__text__content
+          .book-content
+            = link_to "#",class: "text-brack text-line-none" do
+              = @book.title
+          .book-content
+            = link_to "#",class: "text-brack text-line-none" do
+              = @book.author
+          .book-content
+            = link_to "#",class: "text-brack text-line-none" do
+              = @book.publisher
+          .book-content
+            = link_to "#",class: "text-brack text-line-none" do
+              = @book.reason
+          .book-content
+            = link_to "#",class: "text-brack text-line-none" do
+              = @book.date
+      .book-content
+        = link_to "#",class: "text-brack text-line-none" do
+          読み終わった
+      .book-show__main__box__photo
+        = image_tag @book.image.to_s
+      
+
+      
+
+    

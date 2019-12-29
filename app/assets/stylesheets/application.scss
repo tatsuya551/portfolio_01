@@ -5,9 +5,12 @@
 @import "modules/variable";
 
 @import "shared/header";
+@import "shared/content_header";
 @import "shared/book_list";
 
 @import "signup/new";
 
 @import "users/index";
+
+@import "books/show";
 
