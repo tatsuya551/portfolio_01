@@ -55,12 +55,19 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |book_id|bigint|null: false, foreign_key: true|
-|note|text|
-|reread_timing|integer|null: false, index: true|
+|read_day|integer|null: false, index: true|
+|interest|integer|null: false, index: true|
+|impressed|integer|null: false, index: true|
+|awareness|integer|null: false, index: true|
+|impact|integer|null: false, index: true|
+|practice|integer|null: false, index: true|
+|knowledge|integer|null: false, index: true|
 |rating|integer|null: false|
+|reread_timing|integer|null: false, index: true|
+|note|text|
 
 ### Association
-- belongs_to :user
+- belongs_to :book
 
 
 
