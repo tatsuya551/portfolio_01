@@ -1,0 +1,45 @@
+.impression-new
+  .impression-new__main
+    = form_with(model: [@book,@impression], local: true) do |f|
+      .read-day
+        読書期間
+        .text
+          = f.text_field :read_day
+      .interest
+        面白さ
+        .text
+          = f.text_field :interest
+      .impressed
+        感動
+        .text
+          = f.text_field :impressed
+      .awareness
+        気付き
+        .text
+          = f.text_field :awareness
+      .impact
+        衝撃
+        .text
+          = f.text_field :impact
+      .practice
+        実践度
+        .text
+          = f.text_field :practice
+      .knowledge
+        知識の深さ
+        .text
+          = f.text_field :knowledge
+      .rating
+        評価
+        .text
+          = f.text_field :rating
+      .reread_timing
+        また読みたい時
+        .text
+          = f.text_field :reread_timing
+      .note
+        メモ
+        .text
+          = f.text_field :note
+      .submi
+        = f.submit "決定"

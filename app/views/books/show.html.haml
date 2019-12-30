@@ -31,7 +31,7 @@
             = link_to "#",class: "text-brack text-line-none" do
               = @book.date
       .book-content
-        = link_to "#",class: "text-brack text-line-none" do
+        = link_to new_book_impression_path(@book), class: "text-brack text-line-none" do
           読み終わった
       .book-show__main__box__photo
         = image_tag @book.image.to_s
