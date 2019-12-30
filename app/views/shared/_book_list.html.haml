@@ -1,10 +1,18 @@
 .book-list
   .book-list__main
     - books.each do |book|
-      .book-list__main__box.text-center
-        = link_to book_path(book), class: "book-list__main__box__content text-line-none text-brack" do
-          .book-image
-            = image_tag book.image.to_s, class: "image-set"
-          .book-title
-            = book.title
+      - if book.impression.present?
+        .book-list__main__box.text-center
+          = link_to book_path(book), class: "book-list__main__box__content text-line-none text-gray" do
+            .book-image
+              = image_tag book.image.to_s, class: "image-set"
+            .book-title
+              = book.title
+      - else
+        .book-list__main__box.text-center
+          = link_to book_path(book), class: "book-list__main__box__content text-line-none text-brack" do
+            .book-image
+              = image_tag book.image.to_s, class: "image-set"
+            .book-title
+              = book.title
         
