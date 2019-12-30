@@ -33,6 +33,9 @@
       .book-content
         = link_to new_book_impression_path(@book), class: "text-brack text-line-none" do
           読み終わった
+      .book-content
+        = link_to edit_book_path(@book), class: "text-brack text-line-none" do
+          編集する
       .book-show__main__box__photo
         = image_tag @book.image.to_s
       
