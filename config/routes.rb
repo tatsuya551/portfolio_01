@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "home#index"
   resources :signup, only: [:new, :create]
   resources :users, only: [:index]
-  resources :books, only: [:new, :create, :show, :edit, :update] do
+  resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :impressions, only: [:new, :create]
   end
 end

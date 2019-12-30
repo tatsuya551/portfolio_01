@@ -36,6 +36,9 @@
       .book-content
         = link_to edit_book_path(@book), class: "text-brack text-line-none" do
           編集する
+      .book-content
+        = link_to book_path(@book), method: :delete, class: "text-brack text-line-none" do
+          削除する
       .book-show__main__box__photo
         = image_tag @book.image.to_s
       
