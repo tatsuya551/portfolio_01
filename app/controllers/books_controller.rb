@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_books, only: [:show, :edit]
+  before_action :set_books, only: [:show, :edit, :destroy]
   
   def new
     @book = Book.new
@@ -21,6 +21,14 @@ class BooksController < ApplicationController
 
   def update
     if Book.update(book_params)
+      redirect_to users_path
+    else
+      render 'show'
+    end
+  end
+
+  def destroy
+    if @book.destroy
       redirect_to users_path
     else
       render 'show'
