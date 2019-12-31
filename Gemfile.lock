@@ -85,6 +85,8 @@ GEM
       image_processing (~> 1.1)
       mimemagic (>= 0.3.0)
       mini_mime (>= 0.1.3)
+    chart-js-rails (0.1.7)
+      railties (> 3.1)
     childprocess (3.0.0)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
@@ -133,6 +135,10 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.2.1)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -231,6 +237,8 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
+    request_store (1.5.0)
+      rack (>= 1.4)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -311,12 +319,14 @@ DEPENDENCIES
   capistrano3-unicorn
   capybara (>= 2.15)
   carrierwave
+  chart-js-rails (~> 0.1.4)
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
   erb2haml
   fog-aws
   font-awesome-sass
+  gon (~> 6.2.0)
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails

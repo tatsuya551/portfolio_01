@@ -1,5 +1,7 @@
 {
   "name": "portfolio_01",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chart.js": "^2.7.1"
+  }
 }

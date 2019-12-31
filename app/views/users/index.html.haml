@@ -1,2 +1,15 @@
 = render "shared/content_header"
+.mypage-top
+  .mypage-top__main
+    .mypage-top__main__box
+      .user-box
+        .user-box__photo
+          %img.user-photo
+        .user-box__name
+          User Name
+      .user-book
+        .user-book__category{style: "position: relative; height:50vh;width:45vw"}
+          %canvas#categoryChart
+          :javascript
+            draw_category_graph();
 = render partial: "shared/book_list", locals: {books: @books}

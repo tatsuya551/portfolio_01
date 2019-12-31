@@ -4,7 +4,7 @@
       %ul.content-headdr__main__box__list
         %li.content-headdr__main__box__list__title.font-bold
           - if params[:controller] == "users" && params[:action] == "index"
-            ユーザーマイページ
+            ユーザーマイページ・ジャンル別・きっかけ別・評価別・読んでない本
           - elsif params[:controller] == "books" && params[:action] == "show"
             BOOK INFORMATION
           - else 
