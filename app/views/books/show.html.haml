@@ -26,10 +26,10 @@
               = @book.publisher
           .book-content
             = link_to "#",class: "text-brack text-line-none" do
-              = @book.reason
+              = @book.category
           .book-content
             = link_to "#",class: "text-brack text-line-none" do
-              = @book.date
+              = @book.buy_date
       .book-content
         = link_to new_book_impression_path(@book), class: "text-brack text-line-none" do
           読み終わった

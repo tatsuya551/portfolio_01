@@ -6,7 +6,7 @@ window.draw_category_graph = ->
             labels: ["小説", "経営戦略", "政治経済", "ファイナンス", "IT", "自己啓発", "タレント系", "その他"],
             datasets: [{
                 label: '# of Votes',
-                data: [gon.reason, 19, 3, 5, 2, 3],
+                data: [1, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

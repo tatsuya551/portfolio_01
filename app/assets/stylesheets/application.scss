@@ -1,7 +1,7 @@
 @import "reset";
 
-@import "modules/common";
 @import "modules/mixin";
+@import "modules/common";
 @import "modules/variable";
 
 @import "shared/header";
@@ -14,5 +14,6 @@
 
 @import "users/index";
 
+@import "books/new";
 @import "books/show";
 

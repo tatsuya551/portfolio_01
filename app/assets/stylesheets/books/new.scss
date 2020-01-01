@@ -1,0 +1,48 @@
+.book-new{
+  &__main{
+    width: 30%;
+    margin-top:50px;
+    .book-image{
+      &__top{
+        margin-top: 30px;
+        margin-bottom: 4px;
+        font-size: 10px;
+      }
+    }
+    .book-detail{
+      &__top{
+        margin-top: 30px;
+        margin-bottom: 4px;
+        font-size: 10px;
+      }
+      &__category-input{
+        .select-box{
+          margin-top: 4px;
+        }
+      }
+    }
+    .botton-box{
+      margin-top: 50px;
+      display: flex;
+      float: left;
+      &__book-new{
+        .new-btn{
+          @include btn-set(180px, 44px);
+          color: #fff;
+          background-color: #333333;
+          font-size: 14px;
+        }
+      }
+      &__back{
+        .back-btn{
+          @include btn-set(100px, 44px);
+          display: inline-block;
+          margin-left: 40px;
+          color: #333333;
+          background-color: #ccc;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

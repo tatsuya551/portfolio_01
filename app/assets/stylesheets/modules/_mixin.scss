@@ -12,3 +12,32 @@
   }
 }
 
+/* プルダウン設定 */
+@mixin pull_down($width) {
+  width: $width;
+  position: relative;
+  z-index: 2;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 14px;
+  line-height: 30px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* ボタン設定 */
+@mixin btn-set($width, $height) {
+  width: $width;
+  height: $height;
+  line-height: $height;
+  text-align: center;
+  border-radius: 22px;
+  cursor: pointer;
+}
+
+
