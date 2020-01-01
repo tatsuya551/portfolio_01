@@ -41,11 +41,10 @@ Things you may want to cover:
 |title|string|null: false, index: true|
 |author|string|null: false, index: true|
 |publisher|string|null: false, index: true|
-|reason|integer|null: false, index: true|
+|category|integer|null: false, index: true|
 |status|integer|null: false|
 |image|string|
 |date|date|null: false|
-|category_id|bigint|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user

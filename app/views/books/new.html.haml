@@ -1,36 +1,36 @@
+= render "shared/content_header"
 .book-new
-  .book-new__main
+  .book-new__main.box-center
     = form_with(model: @book, local: true) do |f|
-      .title-box
-        本の登録
       .book-image
-        .book-image__title
+        .book-image__top
           写真のアップロード
         .book-image__photo
         = f.file_field :image
       .book-detail
-        .book-detail__title
+        .book-detail__top
           タイトル
         .book-detail__title-input
-        = f.text_field :title
-        .book-detail__author
+          = f.text_field :title, placeholder: "例）book title", class:"text-input"
+        .book-detail__top
           著者
         .book-detail__author-input
-        = f.text_field :author
-        .book-detail__publisher
+        = f.text_field :author, placeholder: "例）book author", class:"text-input"
+        .book-detail__top
           出版社
         .book-detail__publisher-input
-        = f.text_field :publisher
-        .book-rating__reason
-          きっかけ
-        .book-rating__reason-input
-        = f.text_field :reason
-        .book-rating__date
+        = f.text_field :publisher, placeholder: "例）book publisher", class:"text-input"
+        .book-detail__top
+          ジャンル
+        .book-detail__category-input
+          = f.select :category, options_for_select(Book.categories.keys, selected: @book.category), {}, {class: 'select-box'}
+        .book-detail__top
           購入日
-        .book-rating__date-input
-        = f.text_field :date, value: Date.today
+        .book-rating__buydate-input
+          != sprintf(f.date_select(:buy_date, prefix:'buy_date', with_css_classes:'select-box', selected: Date.today,use_month_numbers:true, start_year:Time.now.year, end_year:Time.now.year-2, date_separator:'%s'),'年','月')+'日'
       .botton-box
-        = f.submit class: "botton-box__book-new"
-        .botton-box__back-button
-          = link_to "#" do
+        .botton-box__book-new
+          = f.submit " 本を登録する ", class: "new-btn text-line-none"
+        .botton-box__back
+          = link_to "#", class: "back-btn text-line-none" do
             もどる

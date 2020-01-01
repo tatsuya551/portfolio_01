@@ -68,3 +68,43 @@
   max-height: 80%;
   margin: auto;
 }
+
+/* プロックの中央寄せ */
+.box-center{
+  margin: 0 auto;
+}
+
+
+/////////////////////////
+/******フォーム関連*******/
+/////////////////////////
+
+/* 下線のみのフォーム */
+.text-input{
+  width: 100%;
+  height: 30px;
+  border-bottom:1px solid #ccc;
+  border-right:none;
+  border-left:none;
+  border-top:none;
+}
+
+/* セレクトフォームのプルダウン設定 */
+.select-box{
+  @include pull_down(100%);
+  margin-top: 8px;
+}
+
+/* 日付セレクトフォーム設定 */
+.day, .month {
+  @include pull_down(40px);
+  margin-top: 8px;
+  option{
+    text-align: center;
+  }
+}
+.year {
+  @include pull_down(60px);
+  margin-top: 8px;
+  text-align: center;
+}
