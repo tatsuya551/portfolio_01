@@ -6,10 +6,11 @@
         .user-box__photo
           %img.user-photo
         .user-box__name
-          User Name
+          = current_user.nickname
       .user-book
         .user-book__category{style: "position: relative; height:50vh;width:45vw"}
           %canvas#categoryChart
           :javascript
             draw_category_graph();
-= render partial: "shared/book_list", locals: {books: @books}
+- if @books.present?
+  = render partial: "shared/book_list", locals: {books: @books}

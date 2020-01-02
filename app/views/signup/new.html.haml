@@ -1,18 +1,30 @@
-.signup-new.text-center.main-font
-  .signup-new__main
-    .signup-new__main__title
-      新規会員登録
-    .signup-new__main__content
+.signup-new
+  .signup-new__main.box-center
     = form_with(model: @user, url: signup_index_path(@user), method: :POST, local: true) do |f|
-      .signup-new__main__content__list
-        = f.text_field :nickname, placeholder: "ニックネーム", autofocus: true, autocomplete: "nickname"
-      .signup-new__main__content__list
-        = f.email_field :email, placeholder: "メールアドレス", autocomplete: "email"
-      .signup-new__main__content__list
-        = f.text_field :birth_day, placeholder: "生年月日", autocomplete: "birth_day"
-      .signup-new__main__content__list
-        = f.password_field :password, placeholder: "パスワード", autocomplete: "new-password"
-      .signup-new__main__content__list
-        = f.password_field :password_confirmation, placeholder: "パスワード(確認用)", autocomplete: "new-password"
-      .signup-new__main__content--bottom
-        = f.submit " 登録 "
+      .user-detail
+        .user-detail__top.form-content
+          ニックネーム
+        .user-detail__nickname-input
+          = f.text_field :nickname, placeholder: "> nickname", class:"text-input"
+        .user-detail__top.form-content
+          メールアドレス
+        .user-detail__email-input
+          = f.email_field :email, placeholder: "> e-mail", class:"text-input"
+        .user-detail__top.form-content
+          生年月日
+        .user-detail__birthday-input
+          != sprintf(f.date_select(:birth_day, prefix:'birth_day', with_css_classes:'select-box', prompt: "---",use_month_numbers:true, start_year:2010, end_year:1920, date_separator:'%s'),'年','月')+'日'
+        .user-detail__top.form-content
+          パスワード
+        .user-detail__password-input
+          = f.password_field :password, placeholder: "> password", class:"text-input"
+        .user-detail__top.form-content
+          パスワード(確認用)
+        .user-detail__password-input
+          = f.password_field :password_confirmation, placeholder: "> password", class:"text-input"
+      .botton-box
+        .botton-box__user-new
+          = f.submit " 新規登録する ", class: "new-btn text-line-none"
+        .botton-box__back
+          = link_to root_path, class: "back-btn text-line-none" do
+            もどる
