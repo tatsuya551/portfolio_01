@@ -87,24 +87,58 @@
   border-right:none;
   border-left:none;
   border-top:none;
+  &:focus{
+    outline: none;
+    border-bottom: 1px solid #4ba53a;
+  }
 }
 
 /* セレクトフォームのプルダウン設定 */
 .select-box{
   @include pull_down(100%);
   margin-top: 8px;
+  &:focus{
+    outline: none;
+    border: 1px solid #4ba53a;
+  }
 }
 
 /* 日付セレクトフォーム設定 */
 .day, .month {
   @include pull_down(40px);
   margin-top: 8px;
-  option{
-    text-align: center;
-  }
 }
 .year {
   @include pull_down(60px);
   margin-top: 8px;
-  text-align: center;
+}
+
+/* フォームのコンテンツタイトル */
+.form-content{
+  margin-top: 30px;
+  margin-bottom: 4px;
+  font-size: 10px;
+}
+
+
+/////////////////////////
+/******ボタン関連*********/
+/////////////////////////
+
+/* 送信ボタン */
+.new-btn{
+  @include btn-set(180px, 44px);
+  color: #fff;
+  background-color: #333333;
+  font-size: 14px;
+}
+
+/* もどるボタン */
+.back-btn{
+  @include btn-set(100px, 44px);
+  display: inline-block;
+  margin-left: 40px;
+  color: #333333;
+  background-color: #ccc;
+  font-size: 14px;
 }

@@ -1,9 +1,8 @@
 class BooksController < ApplicationController
   before_action :set_books, only: [:show, :edit, :destroy]
-  before_action :buy_date_join, only: [:create]
+  before_action :buydate_add, only: [:create]
 
   def new
-    # 空のインスタンス
     @book = Book.new
   end
 
@@ -55,7 +54,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-  def buy_date_join
+  def buydate_add
     date = params[:buy_date]
     @buy_date = Date.new(date["buy_date(1i)"].to_i,date["buy_date(2i)"].to_i,date["buy_date(3i)"].to_i)
   end
