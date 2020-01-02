@@ -12,5 +12,4 @@
           %canvas#categoryChart
           :javascript
             draw_category_graph();
-- if @books.present?
   = render partial: "shared/book_list", locals: {books: @books}

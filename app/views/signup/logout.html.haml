@@ -1,0 +1,13 @@
+.logout.main-font
+  .logout__main.box-center
+    .content-top
+      .content-top__title.content-title
+        = icon 'fas', 'sign-out-alt', class: 'icon-sign-out'
+        ログアウト
+    .botton-box
+      .botton-box__user-new
+        = link_to destroy_user_session_path, method: :delete, class:"logout-btn text-line-none" do
+          ログアウト
+      .botton-box__back
+        = link_to root_path, class: "back-btn text-line-none" do
+          もどる
