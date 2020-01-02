@@ -1,29 +1,45 @@
-.mypage-top{
+.user-index{
+  margin-top: 50px;
   &__main{
-    width: 90%;
-    margin: 0 auto;
+    width: 85%;
     &__box{
-      margin-top: 50px;
+      @include height_width(120px, 320px);
+      box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+      display: flex;
+      position: relative;
+      margin: 20px 10px 0 10px;
       .user-box{
-        width: 60%;
-        margin: 0 auto;
         display: flex;
+        margin-left: 20px;
         &__photo{
           .user-photo{
-            width: 40px;
-            height: 40px;
+            @include height_width(40px, 40px);
+            line-height: 120px;
             background-color: #eee;
+            margin-top: 40px;
           }
         }
         &__name{
-          line-height: 40px;
-          font-size: 20px;
+          @include height_width(120px, 120px);
+          font-size: 18px;
           margin-left: 20px;
+          line-height: 120px;
         }
       }
       .user-book{
         &__category{
-          margin: 50px auto 100px;
+          .chartjs-render-monitor{
+            position: absolute;
+            top:10px;
+            right: 20px;
+            z-index: 1;
+          }
+        }
+        &__count{
+          position: absolute;
+          top:45px;
+          right: 60px;
+          font-size: 20px;
         }
       }
     }

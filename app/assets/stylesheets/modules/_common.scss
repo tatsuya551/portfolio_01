@@ -74,6 +74,14 @@
   margin: 0 auto;
 }
 
+/* ボックスの一覧 */
+.box-list{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 
 /////////////////////////
 /******フォーム関連*******/
