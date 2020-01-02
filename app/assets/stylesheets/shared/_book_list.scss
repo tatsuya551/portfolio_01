@@ -3,10 +3,6 @@
   margin: 0 auto;
   &__main{
     margin-top: 30px;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
     &__box{
       @include height_width(250px, 180px);
       margin: 10px;

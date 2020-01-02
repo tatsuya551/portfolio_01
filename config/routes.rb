@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
   resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :impressions, only: [:new, :create]
   end
