@@ -1,4 +1,6 @@
 @import "reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 @import "modules/mixin";
 @import "modules/common";
@@ -11,6 +13,9 @@
 @import "home/index";
 
 @import "signup/new";
+@import "signup/login";
+@import "signup/logout";
+
 
 @import "users/index";
 
