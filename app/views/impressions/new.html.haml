@@ -1,45 +1,60 @@
-.impression-new
-  .impression-new__main
+.impression-new.main-font
+  .impression-new__main.box-center
+    = render "shared/content_top"
     = form_with(model: [@book,@impression], local: true) do |f|
-      .read-day
-        読書期間
-        .text
-          = f.text_field :read_day
-      .interest
-        面白さ
-        .text
-          = f.text_field :interest
-      .impressed
-        感動
-        .text
-          = f.text_field :impressed
-      .awareness
-        気付き
-        .text
-          = f.text_field :awareness
-      .impact
-        衝撃
-        .text
-          = f.text_field :impact
-      .practice
-        実践度
-        .text
-          = f.text_field :practice
-      .knowledge
-        知識の深さ
-        .text
-          = f.text_field :knowledge
-      .rating
-        評価
-        .text
-          = f.text_field :rating
-      .reread_timing
-        また読みたい時
-        .text
-          = f.text_field :reread_timing
-      .note
-        メモ
-        .text
-          = f.text_field :note
-      .submi
-        = f.submit "決定"
+      .impression-detail
+        .impression-detail__top.form-content
+          読書期間
+        .impression-detail__read-day
+          = f.select :read_day, options_for_select(Impression.read_days.keys, selected: @impression.read_day), {}, {class: 'select-box'}
+        .impression-detail__top.form-content
+          総評価
+        .impression-detail__rating
+          = f.select :rating, options_for_select(Impression.ratings.keys, selected: @impression.rating), {}, {class: 'select-box'}
+        .impression-detail__top.form-content
+          また読みたい時
+        .impression-detail__reread_timing
+          = f.select :reread_timing, options_for_select(Impression.reread_timings.keys, selected: @impression.reread_timing), {}, {class: 'select-box'}
+      .impression-graph
+        .impression-graph__box
+          .impression-graph__box__top.form-content
+            面白さ
+          .impression-graph__box__interest
+            = f.select :interest, options_for_select(Impression.interests.keys, selected: @impression.interest), {}, {class: 'select-box'}
+        .impression-graph__box
+          .impression-graph__box__top.form-content
+            感動
+          .impression-graph__box__impressed
+            = f.select :impressed, options_for_select(Impression.impresseds.keys, selected: @impression.impressed), {}, {class: 'select-box'}
+        .impression-graph__box
+          .impression-graph__box__top.form-content
+            気付き
+          .impression-graph__box__awareness
+            = f.select :awareness, options_for_select(Impression.awarenesses.keys, selected: @impression.awareness), {}, {class: 'select-box'}
+      .impression-graph
+        .impression-graph__box
+          .impression-graph__box__top.form-content
+            衝撃度
+          .impression-graph__box__impact
+            = f.select :impact, options_for_select(Impression.impacts.keys, selected: @impression.impact), {}, {class: 'select-box'}
+        .impression-graph__box
+          .impression-graph__box__top.form-content
+            実践度
+          .impression-graph__box__practice
+            = f.select :practice, options_for_select(Impression.practices.keys, selected: @impression.practice), {}, {class: 'select-box'}
+        .impression-graph__box
+          .impression-graph__box__top.form-content
+            知識の深さ
+          .impression-graph__box__knowledge
+            = f.select :knowledge, options_for_select(Impression.knowledges.keys, selected: @impression.knowledge), {}, {class: 'select-box'}
+      .impression-note
+        .impression-note__top.form-content
+          メモ
+        .impression-note__note
+          = f.text_area :note, class: "note-box note-area"
+      .btn-box
+        .btn-box__book-new
+          = f.submit " 感想を登録する ", class: "submit-btn text-line-none"
+        .btn-box__back
+          = link_to users_path, class: "gray-btn text-line-none" do
+            もどる

@@ -1,12 +1,12 @@
-= render "shared/content_header"
-.book-new
+.book-new.main-font
   .book-new__main.box-center
+    = render "shared/content_top"
     = form_with(model: @book, local: true) do |f|
       .book-image
         .book-image__top.form-content
           写真のアップロード
         .book-image__photo
-        = f.file_field :image
+          = f.file_field :image
       .book-detail
         .book-detail__top.form-content
           タイトル
@@ -28,9 +28,9 @@
           購入日
         .book-rating__buydate-input
           != sprintf(f.date_select(:buy_date, prefix:'buy_date', with_css_classes:'select-box', selected: Date.today,use_month_numbers:true, start_year:Time.now.year, end_year:Time.now.year-2, date_separator:'%s'),'年','月')+'日'
-      .botton-box
-        .botton-box__book-new
+      .btn-box
+        .btn-box__book-new
           = f.submit " 本を登録する ", class: "submit-btn text-line-none"
-        .botton-box__back
+        .btn-box__back
           = link_to users_path, class: "gray-btn text-line-none" do
             もどる
