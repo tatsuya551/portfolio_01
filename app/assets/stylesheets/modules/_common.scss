@@ -8,7 +8,7 @@
 }
 
 /* 黒色 */
-.text-brack{
+.text-black{
   color: black;
 }
 
@@ -141,8 +141,8 @@
   font-size: 14px;
 }
 
-/* もどるボタン */
-.back-btn{
+/* 灰色リンクボタン */
+.gray-btn{
   @include btn-set(100px, 44px);
   display: inline-block;
   margin-left: 40px;
@@ -151,13 +151,22 @@
   font-size: 14px;
 }
 
-/* ログアウトボタン */
-.logout-btn{
+/* 黒色リンクボタン */
+.black-link-btn{
   @include btn-set(180px, 44px);
   display: inline-block;
   color: #fff;
   background-color: #333333;
   font-size: 14px;
+}
+
+/* 緑色リンクボタン */
+.mini-green-link-btn{
+  @include btn-set(60px, 20px);
+  display: inline-block;
+  color: #4ba53a;
+  border:1px solid #4ba53a;
+  font-size: 12px;
 }
 
 
