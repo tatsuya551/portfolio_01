@@ -29,18 +29,18 @@
           購入日
         .book-rating__date-input
         = f.text_field :date, value: Date.today
-      .botton-box
-        = f.submit class: "botton-box__book-new"
-        .botton-box__back-button
+      .btn-box
+        = f.submit class: "btn-box__book-new"
+        .btn-box__back-button
           = link_to "#" do
             もどる
-  .botton-box
-    .botton-box__book-destroy
+  .btn-box
+    .btn-box__book-destroy
       = link_to book_path(@book), method: :delete, class:"black-link-btn text-line-none" do
         削除する
-    .botton-box__book-raiting
+    .btn-box__book-raiting
       = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
         読み終わった
-    .botton-box__back
+    .btn-box__back
       = link_to user_path(@book.user_id), class: "gray-btn text-line-none" do
         もどる

@@ -1,0 +1,25 @@
+.impression-new{
+  &__main{
+    width: 30%;
+    margin-top: 60px;
+    .impression-graph{
+      display: flex;
+      justify-content: space-between;
+      &__box{
+        width: 30%;
+      }
+    }
+    .impression-note{
+      &__note{
+        .note-box{
+          margin-top: 8px;
+        }
+      }
+    }
+    .btn-box{
+      margin-top: 50px;
+      display: flex;
+      float: left;
+    }
+  }
+}

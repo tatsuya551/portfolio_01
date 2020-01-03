@@ -1,12 +1,10 @@
 .mypage-top{
   &__main{
     width: 90%;
-    margin: 0 auto;
     &__box{
       margin-top: 50px;
       .user-box{
         width: 60%;
-        margin: 0 auto;
         display: flex;
         &__photo{
           .user-photo{

@@ -1,10 +1,7 @@
 .login-new.main-font
   .login-new__main.box-center
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .content-top
-        .content-top__title.content-title
-          = icon 'fas', 'sign-in-alt', class: 'icon-sign-out'
-          ログイン
+      = render "shared/content_top"
       .user-detail
         .user-detail__top.form-content
           メールアドレス
@@ -14,9 +11,9 @@
           パスワード
         .user-detail__password-input
           = f.password_field :password, placeholder: "> password", class:"text-input"
-      .botton-box
-        .botton-box__user-new
+      .btn-box
+        .btn-box__user-new
           = f.submit " ログイン ", class: "submit-btn text-line-none"
-        .botton-box__back
+        .btn-box__back
           = link_to root_path, class: "gray-btn text-line-none" do
             もどる

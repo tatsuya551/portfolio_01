@@ -1,12 +1,6 @@
-.book-show.main-font
+.book-show.main-font.box-center
   .book-show__main
-    .content-top
-      .content-top__title.content-title
-        = icon 'fas', 'book', class: 'icon-book'
-        本の詳細
-      .content-top__book-edit
-        = link_to edit_book_path(@book), class:"mini-green-link-btn text-line-none" do
-          編集する
+    = render "shared/content_top"
     .book-show__main__box
       .book-show__main__box__photo
         = image_tag @book.image.to_s, class: "book-show-image image-set"
@@ -36,11 +30,11 @@
             購入日
           .book-detail__content
             = @book.buy_date
-    .botton-box
-      .botton-box__book-raiting
+    .btn-box
+      .btn-box__book-raiting
         = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
           読み終わった
-      .botton-box__back
+      .btn-box__back
         = link_to user_path(@book.user_id), class: "gray-btn text-line-none" do
           もどる
 
