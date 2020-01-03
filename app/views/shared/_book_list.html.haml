@@ -10,7 +10,7 @@
               = book.title
       - else
         .book-list__main__box.text-center
-          = link_to book_path(book), class: "book-list__main__box__content text-line-none text-brack" do
+          = link_to book_path(book), class: "book-list__main__box__content text-line-none text-black" do
             .book-image
               = image_tag book.image.to_s, class: "image-set"
             .book-title

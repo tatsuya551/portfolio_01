@@ -1,32 +1,31 @@
 - users.each do |user|
   - if user.books.present?
-    .user-index__main__box
-      = link_to user_path(user), class: "text-line-none" do
-        .user-box 
-          .user-box__photo
-            %img.user-photo
-          .user-box__name.text-brack
-            = user.nickname
-          .user-book
-            .user-book__category
-              = pie_chart [['小説', user.books.category_小説.count], 
-                          ['経営・戦略', user.books.category_経営・戦略.count],
-                          ['政治・経済', user.books.category_政治・経済.count],
-                          ['ファイナンス', user.books.category_金融・ファイナンス.count],
-                          ['IT', user.books.category_IT.count],
-                          ['自己啓発', user.books.category_自己啓発.count],
-                          ['タレント本', user.books.category_タレント本.count],
-                          ['その他', user.books.category_その他.count]], 
-                          colors: ["rgba(255, 99, 132, 0.7)",
-                                  "rgba(54, 162, 235, 0.7)",
-                                  "rgba(255, 206, 86, 0.7)",
-                                  "rgba(75, 192, 192, 0.7)",
-                                  "rgba(153, 102, 255, 0.7)", 
-                                  "rgba(255, 159, 64, 0.7)",
-                                  "rgba(255, 159, 64, 0.7)", 
-                                  "rgba(255, 159, 64, 0.7)",],
-                          donut: true,
-                          legend: false,
-                          width: "100px", height: "100px"
-          .user-book__count.text-line-none.text-brack
-            = user.books.count
+    = link_to user_path(user), class: "user-index__main__box text-line-none" do
+      .user-box 
+        .user-box__photo
+          %img.user-photo
+        .user-box__name.text-black
+          = user.nickname
+        .user-book
+          .user-book__category
+            = pie_chart [['小説', user.books.category_小説.count], 
+                        ['経営・戦略', user.books.category_経営・戦略.count],
+                        ['政治・経済', user.books.category_政治・経済.count],
+                        ['ファイナンス', user.books.category_金融・ファイナンス.count],
+                        ['IT', user.books.category_IT.count],
+                        ['自己啓発', user.books.category_自己啓発.count],
+                        ['タレント本', user.books.category_タレント本.count],
+                        ['その他', user.books.category_その他.count]], 
+                        colors: ["rgba(255, 99, 132, 0.7)",
+                                "rgba(54, 162, 235, 0.7)",
+                                "rgba(255, 206, 86, 0.7)",
+                                "rgba(75, 192, 192, 0.7)",
+                                "rgba(153, 102, 255, 0.7)", 
+                                "rgba(255, 159, 64, 0.7)",
+                                "rgba(255, 159, 64, 0.7)", 
+                                "rgba(255, 159, 64, 0.7)",],
+                        donut: true,
+                        legend: false,
+                        width: "100px", height: "100px"
+        .user-book__count.text-line-none.text-black
+          = user.books.count

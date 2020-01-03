@@ -1,47 +1,48 @@
-= render "shared/content_header"
-.book-show
+.book-show.main-font
   .book-show__main
-    .book-show__main__box
-      .book-show__main__box__text
-        .book-show__main__box__text__item
-          .book-item
-            タイトル：
-          .book-item
-            著者：
-          .book-item
-            出版社：
-          .book-item
-            きっかけ：
-          .book-item
-            購入日：
-        .book-show__main__box__text__content
-          .book-content
-            = link_to "#",class: "text-brack text-line-none" do
-              = @book.title
-          .book-content
-            = link_to "#",class: "text-brack text-line-none" do
-              = @book.author
-          .book-content
-            = link_to "#",class: "text-brack text-line-none" do
-              = @book.publisher
-          .book-content
-            = link_to "#",class: "text-brack text-line-none" do
-              = @book.category
-          .book-content
-            = link_to "#",class: "text-brack text-line-none" do
-              = @book.buy_date
-      .book-content
-        = link_to new_book_impression_path(@book), class: "text-brack text-line-none" do
-          読み終わった
-      .book-content
-        = link_to edit_book_path(@book), class: "text-brack text-line-none" do
+    .content-top
+      .content-top__title.content-title
+        = icon 'fas', 'book', class: 'icon-book'
+        本の詳細
+      .content-top__book-edit
+        = link_to edit_book_path(@book), class:"mini-green-link-btn text-line-none" do
           編集する
-      .book-content
-        = link_to book_path(@book), method: :delete, class: "text-brack text-line-none" do
-          削除する
+    .book-show__main__box
       .book-show__main__box__photo
-        = image_tag @book.image.to_s
-      
+        = image_tag @book.image.to_s, class: "book-show-image image-set"
+      .book-show__main__box__text
+        .book-detail
+          .book-detail__top
+            タイトル
+          .book-detail__content
+            = @book.title
+        .book-detail
+          .book-detail__top
+            著者
+          .book-detail__content
+            = @book.author
+        .book-detail
+          .book-detail__top
+            出版社
+          .book-detail__content
+            = @book.publisher
+        .book-detail
+          .book-detail__top
+            ジャンル
+          .book-detail__content
+            = @book.category
+        .book-detail
+          .book-detail__top
+            購入日
+          .book-detail__content
+            = @book.buy_date
+    .botton-box
+      .botton-box__book-raiting
+        = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
+          読み終わった
+      .botton-box__back
+        = link_to user_path(@book.user_id), class: "gray-btn text-line-none" do
+          もどる
 
       
 
