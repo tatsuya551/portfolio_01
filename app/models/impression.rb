@@ -2,11 +2,11 @@ class Impression < ApplicationRecord
   belongs_to :book
 
   validates :read_day,
-    inclusion: {in: ["１日",
-                     "２日〜３日",
-                     "４週間",
-                     "２週間〜３週間",
-                     "１ヶ月以上"],
+    inclusion: {in: ["1日",
+                     "2日〜3日",
+                     "1週間",
+                     "2週間〜4週間",
+                     "1ヶ月以上"],
                }
   validates :interest,
             :impressed,
@@ -35,11 +35,11 @@ class Impression < ApplicationRecord
 
     enum read_day: {
       "-----":              0,
-      "１日":                1,
-      "２日〜３日":           2,
-      "１週間":              3,
-      "２週間〜３週間":        4,
-      "１ヶ月以上":           5
+      "1日":                1,
+      "2日〜3日":            2,
+      "1週間":               3,
+      "2週間〜4週間":         4,
+      "1ヶ月以上":            5
     }, _prefix: true
 
     enum interest: {

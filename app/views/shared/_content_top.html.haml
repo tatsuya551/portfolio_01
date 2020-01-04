@@ -26,4 +26,11 @@
     .content-top__title.content-title
       = icon 'fas', 'comment-dots', class: 'icon-sign-out'
       感想の登録
+  - elsif params[:controller] == "impressions" && params[:action] == "show"
+    .content-top__title.content-title
+      = icon 'fas', 'sticky-note', class: 'icon-sign-out'
+      本の思い出
+    .content-top__book-show
+      = link_to book_path(@book), class:"mini-green-link-btn text-line-none" do
+        本の詳細
   - else
