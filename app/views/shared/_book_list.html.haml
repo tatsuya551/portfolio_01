@@ -1,9 +1,9 @@
 .book-list.box-center
   .book-list__main.box-list
     - books.each do |book|
-      - if book.impression.present?
+      - if book.impressions.present?
         .book-list__main__box.text-center
-          = link_to book_path(book), class: "book-list__main__box__content text-line-none text-gray" do
+          = link_to book_impression_path(book), class: "book-list__main__box__content text-line-none text-gray" do
             .book-image
               = image_tag book.image.to_s, class: "image-set"
             .book-title

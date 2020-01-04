@@ -3,25 +3,27 @@ window.draw_category_graph = ->
     categoryChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["小説", "経営戦略", "政治経済", "ファイナンス", "IT", "自己啓発", "タレント系", "その他"],
+            labels: ["小説", "経営戦略", "政治経済", "ファイナンス", "IT", "自己啓発", "タレント本", "その他"],
             datasets: [{
                 label: '# of Votes',
-                data: [1, 19, 3, 5, 2, 3],
+                data: [gon.novel, gon.management, gon.economy, gon.finance, gon.it, gon.motivation, gon.talent, gon.etc],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'rgba(209, 46, 31, 0.6)',
+                    'rgba(246, 202, 6, 0.7)',
+                    'rgba(187, 212, 26, 0.7)',
+                    'rgba(0, 146, 80, 0.7)',
+                    'rgba(0, 131, 174, 0.7)',
+                    'rgba(50, 97, 171, 0.7)',
+                    'rgba(143, 51, 150, 0.7)',
+                    'rgba(182, 25, 114, 0.6)'
                 ],
             }]
         },
         options: {
-          cutoutPercentage: 65,
+          cutoutPercentage: 60,
           title: {
             display: true,
-            text: 'ジャンル別'
+            text: '登録ジャンル',
             fontSize: 14
           },
           legend: {

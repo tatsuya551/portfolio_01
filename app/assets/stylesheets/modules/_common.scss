@@ -43,6 +43,11 @@
   font-weight: 600;
 }
 
+/* フォントサイズ20px */
+.font-size-20{
+  font-size: 20px;
+}
+
 /////////////////////////
 /********配置関連********/
 /////////////////////////
@@ -160,7 +165,6 @@
 .gray-btn{
   @include btn-set(100px, 44px);
   display: inline-block;
-  margin-left: 40px;
   color: #333333;
   background-color: #ccc;
   font-size: 14px;
@@ -189,8 +193,64 @@
 /******共通設定関連********/
 /////////////////////////
 
-
 /* コンテンツタイトル設定 */
 .content-title{
   font-size: 30px;
 }
+
+
+/////////////////////////
+/******背景設定関連********/
+/////////////////////////
+
+/* 小説色設定 */
+.background-novel{
+  background-color:rgba(209, 46, 31, 0.6);
+}
+
+/* 経営戦略色設定 */
+.background-management{
+  background-color:rgba(246, 202, 6, 0.7);
+}
+
+/* 政治経済色設定 */
+.background-economy{
+  background-color:rgba(187, 212, 26, 0.7);
+}
+
+/* ファイナンス色設定 */
+.background-finance{
+  background-color:rgba(0, 146, 80, 0.7);
+}
+
+/* IT色設定 */
+.background-it{
+  background-color:rgba(0, 131, 174, 0.7)
+}
+
+/* 自己啓発色設定 */
+.background-motivation{
+  background-color:rgba(50, 97, 171, 0.7);
+}
+
+/* タレント本色設定 */
+.background-talent{
+  background-color:rgba(143, 51, 150, 0.7);
+}
+
+/* その他色設定 */
+.background-etc{
+  background-color:rgba(182, 25, 114, 0.6);
+}
+
+
+/////////////////////////
+/******マージン設定関連********/
+/////////////////////////
+
+/* 左40px設定 */
+.margin-left-40{
+  margin-left: 40px;
+}
+
+

@@ -6,6 +6,9 @@
     %ul.header__box__content.text-center
       %li.header__box__content__new-member
         = link_to users_path, class:"text-line-none text-gray" do
+          ユーザー一覧
+      %li.header__box__content__new-member
+        = link_to user_path(current_user), class:"text-line-none text-gray" do
           ユーザーマイページ
       %li.header__box__content__new-member
         = link_to new_book_path, class:"text-line-none text-gray" do

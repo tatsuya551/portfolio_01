@@ -1,6 +1,7 @@
 .book-show.main-font.box-center
   .book-show__main
     = render "shared/content_top"
+    = render "shared/book_tag"
     .book-show__main__box
       .book-show__main__box__photo
         = image_tag @book.image.to_s, class: "book-show-image image-set"
@@ -33,11 +34,7 @@
     .btn-box
       .btn-box__book-raiting
         = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
-          読み終わった
+          感想を登録する
       .btn-box__back
-        = link_to user_path(@book.user_id), class: "gray-btn text-line-none" do
+        = link_to user_path(@book.user_id), class: "gray-btn margin-left-40 text-line-none" do
           もどる
-
-      
-
-    

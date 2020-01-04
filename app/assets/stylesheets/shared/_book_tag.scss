@@ -1,0 +1,20 @@
+.book-tag{
+  margin-top: 40px;
+  &__box{
+    display: flex;
+    &__category{
+      @include height_width(36px, 120px);
+      line-height: 36px;
+      font-size: 12px;
+    }
+    &__reread-timing{
+      @include height_width(36px, 200px);
+      line-height: 36px;
+      font-size: 14px;
+      background-color: #4ba53a;
+      border-radius: 18px;
+      color: #fff;
+      margin-left: 30px;
+    }
+  }
+}
