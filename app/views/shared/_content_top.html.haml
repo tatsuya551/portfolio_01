@@ -31,15 +31,20 @@
     .content-top__title.content-title
       = icon 'fas', 'comment-dots', class: 'icon-sign-out'
       感想の登録
-- elsif params[:controller] == "impressions" && params[:action] == "show"
+- elsif params[:controller] == "impressions" && params[:action] == "index"
   .content-top.box-center
     .content-top__box.display-flex.box-center
       .content-top__box__title.content-title
         = icon 'fas', 'sticky-note', class: 'icon-sign-out'
         本の思い出
-      .content-top__box__book-show
+      .content-top__box__book-index
         = link_to book_path(@book), class:"mini-green-link-btn text-line-none" do
           本の詳細
+- elsif params[:controller] == "impressions" && params[:action] == "show"
+  .content-top.box-center
+    .content-top__title.content-title
+      = icon 'fas', 'book-reader', class: 'icon-sign-out'
+      ノート
 - elsif params[:controller] == "books" && params[:action] == "edit" || params[:controller] == "books" && params[:action] == "update"
   .content-top.display-flex
     .content-top__title.content-title
