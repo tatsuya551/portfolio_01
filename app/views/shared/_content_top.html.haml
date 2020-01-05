@@ -1,36 +1,51 @@
-.content-top
-  - if params[:controller] == "books" && params[:action] == "show"
+- if params[:controller] == "books" && params[:action] == "show"
+  .content-top.display-flex
     .content-top__title.content-title
       = icon 'fas', 'book-open', class: 'icon-book'
       本の詳細
     .content-top__book-edit
       = link_to edit_book_path(@book), class:"mini-green-link-btn text-line-none" do
         編集する
-  - elsif params[:controller] == "signup" && params[:action] == "logout"
+- elsif params[:controller] == "signup" && params[:action] == "logout"
+  .content-top
     .content-top__title.content-title
       = icon 'fas', 'sign-out-alt', class: 'icon-sign-out'
       ログアウト
-  - elsif params[:controller] == "devise/sessions" && params[:action] == "new" || params[:controller] == "devise/sessions" && params[:action] == "create"
+- elsif params[:controller] == "devise/sessions" && params[:action] == "new" || params[:controller] == "devise/sessions" && params[:action] == "create"
+  .content-top
     .content-top__title.content-title
       = icon 'fas', 'sign-in-alt', class: 'icon-sign-out'
       ログイン
-  - elsif params[:controller] == "signup" && params[:action] == "new" || params[:controller] == "signup" && params[:action] == "create"
+- elsif params[:controller] == "signup" && params[:action] == "new" || params[:controller] == "signup" && params[:action] == "create"
+  .content-top
     .content-top__title.content-title
       = icon 'fas', 'user', class: 'icon-sign-out'
       新規会員登録
-  - elsif params[:controller] == "books" && params[:action] == "new" || params[:controller] == "books" && params[:action] == "create"
+- elsif params[:controller] == "books" && params[:action] == "new" || params[:controller] == "books" && params[:action] == "create"
+  .content-top
     .content-top__title.content-title
       = icon 'fas', 'book', class: 'icon-sign-out'
       本の登録
-  - elsif params[:controller] == "impressions" && params[:action] == "new" || params[:controller] == "impressions" && params[:action] == "create"
+- elsif params[:controller] == "impressions" && params[:action] == "new" || params[:controller] == "impressions" && params[:action] == "create"
+  .content-top
     .content-top__title.content-title
       = icon 'fas', 'comment-dots', class: 'icon-sign-out'
       感想の登録
-  - elsif params[:controller] == "impressions" && params[:action] == "show"
+- elsif params[:controller] == "impressions" && params[:action] == "show"
+  .content-top.box-center
+    .content-top__box.display-flex.box-center
+      .content-top__box__title.content-title
+        = icon 'fas', 'sticky-note', class: 'icon-sign-out'
+        本の思い出
+      .content-top__box__book-show
+        = link_to book_path(@book), class:"mini-green-link-btn text-line-none" do
+          本の詳細
+- elsif params[:controller] == "books" && params[:action] == "edit" || params[:controller] == "books" && params[:action] == "update"
+  .content-top.display-flex
     .content-top__title.content-title
-      = icon 'fas', 'sticky-note', class: 'icon-sign-out'
-      本の思い出
-    .content-top__book-show
-      = link_to book_path(@book), class:"mini-green-link-btn text-line-none" do
-        本の詳細
-  - else
+      = icon 'fas', 'edit', class: 'icon-book'
+      本の編集
+    .content-top__book-destroy
+      = link_to book_path(@book), method: :delete, class:"mini-green-link-btn text-line-none" do
+        削除する
+- else

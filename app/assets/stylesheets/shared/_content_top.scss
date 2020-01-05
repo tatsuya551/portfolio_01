@@ -1,0 +1,17 @@
+.content-top{
+  &__book-edit{
+    margin-left: 15px;
+    line-height: 44px;
+  }
+  &__book-destroy{
+    margin-left: 15px;
+    line-height: 44px;
+  }
+  &__box{
+    width: 270px;
+    &__book-show{
+      margin-left: 15px;
+      line-height: 44px;
+    }
+  }
+}

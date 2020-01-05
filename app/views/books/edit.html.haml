@@ -1,46 +1,36 @@
-.book-edit
-  .book-edit__main
+.book-new.main-font
+  .book-new__main.box-center
+    = render "shared/content_top"
     = form_with(model: @book, local: true) do |f|
-      .title-box
-        本の登録
       .book-image
-        .book-image__title
+        .book-image__top.form-content
           写真のアップロード
         .book-image__photo
-        = f.file_field :image
+          = f.file_field :image
       .book-detail
-        .book-detail__title
+        .book-detail__top.form-content
           タイトル
         .book-detail__title-input
-        = f.text_field :title
-        .book-detail__author
+          = f.text_field :title, placeholder: "> book title", class:"text-input"
+        .book-detail__top.form-content
           著者
         .book-detail__author-input
-        = f.text_field :author
-        .book-detail__publisher
+        = f.text_field :author, placeholder: "> book author", class:"text-input"
+        .book-detail__top.form-content
           出版社
         .book-detail__publisher-input
-        = f.text_field :publisher
-        .book-rating__category
-          きっかけ
-        .book-rating__category-input
-        = f.text_field :category
-        .book-rating__date
+        = f.text_field :publisher, placeholder: "> book publisher", class:"text-input"
+        .book-detail__top.form-content
+          ジャンル
+        .book-detail__category-input
+          = f.select :category, options_for_select(Book.categories.keys, selected: @book.category), {}, {class: 'select-box'}
+        .book-detail__top.form-content
           購入日
-        .book-rating__date-input
-        = f.text_field :date, value: Date.today
+        .book-rating__buydate-input
+          != sprintf(f.date_select(:buy_date, prefix:'buy_date', with_css_classes:'select-box', selected: @book.buy_date,use_month_numbers:true, start_year:Time.now.year, end_year:Time.now.year-2, date_separator:'%s'),'年','月')+'日'
       .btn-box
-        = f.submit class: "btn-box__book-new"
-        .btn-box__back-button
-          = link_to "#" do
-            もどる
-  .btn-box
-    .btn-box__book-destroy
-      = link_to book_path(@book), method: :delete, class:"black-link-btn text-line-none" do
-        削除する
-    .btn-box__book-raiting
-      = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
-        読み終わった
-    .btn-box__back
-      = link_to user_path(@book.user_id), class: "gray-btn margin-left-40 text-line-none" do
-        もどる
+        .btn-box__book-new
+          = f.submit " 編集を登録する ", class: "submit-btn text-line-none"
+        .btn-box__back
+          = link_to :back, class: "white-btn margin-left-40 text-line-none" do
+            もどる  
