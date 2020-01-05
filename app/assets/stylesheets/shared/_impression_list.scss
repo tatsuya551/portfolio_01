@@ -1,0 +1,36 @@
+.impression-list{
+  margin-top: 120px;
+  &__note{
+    &__top{
+      .note-icon{
+        font-size: 40px;
+      }
+      .note-title{
+        font-size: 50px;
+      }
+    }
+    &__content{
+      margin-top: 40px;
+      .note-active{
+        @include tag-set(40px, 16px);
+        display: inline-block;
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+      .note-date{
+        font-size: 20px;
+      }
+      .note-reread-timing{
+        width: 175px;
+        height: 25px;
+        line-height: 25px;
+        border-radius: 13px;
+        font-size: 12px;
+        margin-top: 10px;
+      }
+      .note-content{
+        margin-top: 20px;
+      }
+    }
+  }
+}

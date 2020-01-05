@@ -1,0 +1,66 @@
+.impression-index{
+  width: 60%;
+  &__main{
+    margin-top: 60px;
+    &__box{
+      margin-top: 60px;
+      display: flex;
+      justify-content: space-between;
+      &__book{
+        &__photo{
+          @include height_width(180px, 180px);
+          position: relative;
+          margin-bottom: 20px;
+        }
+        &__text{
+          .book-detail{
+            @include height_width(30px, 350px);
+            border-bottom:1px solid #ccc;
+            margin-top: 15px;
+            margin-left: 30px;
+            line-height: 30px;
+            &__top{
+              text-align: right;
+              font-size: 10px;
+              width: 70px;
+              color: #aaa;
+            }
+            &__content{
+              margin-left: 40px;
+            }
+          }
+        }
+      }
+      &__rating{
+        .rating-title{
+          @include height_width(40px, 200px);
+          line-height: 40px;
+          background-color: #039be5;
+          color: #fff;
+          border-radius: 20px;
+          margin-top: 80px;
+        }
+        .rating-point{
+          @include height_width(40px, 100px);
+          line-height: 40px;
+          color: #039be5;
+          margin-top: 40px;
+          font-size: 40px;
+          &__main{
+            position: relative;
+            margin-left: 10px;
+          }
+          &__sub{
+            position: absolute;
+            left: 250px;
+            bottom: -123px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .btn-box{
+      margin-top: 85px;
+    }
+  }
+}

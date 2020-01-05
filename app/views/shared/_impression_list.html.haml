@@ -1,0 +1,44 @@
+.impression-list
+  .impression-list__note
+  - if params[:controller] == "impressions" && params[:action] == "index"
+    .impression-list__note__top
+      .note-icon
+        = icon 'fas', 'book-reader', class: 'icon-book'
+      .note-title
+        ノート
+    - @impressions.each do |impression|
+      = link_to book_impression_path(impression.book_id,impression), class: "text-line-none" do
+        .impression-list__note__content
+          .note-date.text-black
+            = simple_time(impression.created_at)
+          .note-reread-timing.box-center.text-center
+            = impression.reread_timing
+          .note-content.text-black
+            = impression.note
+  - elsif params[:controller] == "impressions" && params[:action] == "show"
+    .impression-list__note__top
+      .note-icon
+        = icon 'fas', 'book-reader', class: 'icon-book'
+      .note-title
+        その他のノート
+    - @impressions.each do |impression|
+      - if impression == @impression
+        .impression-list__note__content
+          .note-active.text-white.background-orange
+            表示中
+          .note-date.text-orange
+            = simple_time(impression.created_at)
+          .note-reread-timing.box-center.text-center.background-orange.text-white
+            = impression.reread_timing
+          .note-content.text-orange
+            = impression.note
+      - else
+        = link_to book_impression_path(impression.book_id,impression), class: "text-line-none" do
+          .impression-list__note__content
+            .note-date.text-black
+              = simple_time(impression.created_at)
+            .note-reread-timing.box-center.text-center.background-green.text-white
+              = impression.reread_timing
+            .note-content.text-black
+              = impression.note
+    

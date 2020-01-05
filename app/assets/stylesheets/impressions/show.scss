@@ -1,42 +1,60 @@
 .impression-show{
-  width: 60%;
+  width: 70%;
   &__main{
     margin-top: 60px;
-    .content-top{
-      &__book-show{
-        margin-left: 15px;
-        line-height: 44px;
+    &__title{
+      margin-top: 60px;
+      &__box{
+        &__book-title{
+          font-size: 20px;
+        }
+        &__note{
+          width: 450px;
+          margin-top: 30px;
+          justify-content: space-between;
+          .note-title{
+            &__top{
+              font-size: 10px;
+              color: #aaa;
+            }
+            &__date{
+              font-size: 20px;
+              margin-top: 10px;
+            }
+            &__reread-timing{
+              @include height_width(25px, 175px);
+              line-height: 25px;
+              background-color: #4ba53a;
+              color: #fff;
+              border-radius: 13px;
+              font-size: 12px;
+              margin-top: 10px;
+            }
+          }
+        }
       }
     }
     &__box{
       margin-top: 60px;
-      display: flex;
       justify-content: space-between;
-      &__book{
-        &__photo{
-          @include height_width(180px, 180px);
-          position: relative;
-          margin: 0 auto;
-          margin-bottom: 20px;
+      &__note{
+        .note-top{
+          @include tag-set(60px, 20px);
+          display: inline-block;
+          color: #fff;
+          background-color: black;
+          font-size: 12px;
         }
-        &__text{
-          .book-detail{
-            @include height_width(30px, 350px);
-            border-bottom:1px solid #ccc;
-            display: flex;
-            margin-top: 15px;
-            margin-left: 30px;
-            line-height: 30px;
-            &__top{
-              text-align: right;
-              font-size: 10px;
-              width: 70px;
-              color: #aaa;
-            }
-            &__content{
-              margin-left: 40px;
-            }
-          }
+        .note-content{
+          @include height_width(350px, 450px);
+          margin: 20px 20px 0 20px;
+          text-align: left;
+          font-size: 14px;
+        }
+        .note-content-empty{
+          @include height_width(350px, 450px);
+          margin-top: 30px;
+          font-size: 20px;
         }
       }
       &__rating{
@@ -55,47 +73,15 @@
           margin-top: 40px;
           font-size: 40px;
           display: flex;
-          &__main{
+          &__main-one{
             position: relative;
-            margin-left: 10px;
+            margin-left: 40px;
           }
-          &__sub{
+          &__sub-one{
             position: absolute;
             left: 250px;
-            bottom: -123px;
+            bottom: -120px;
             font-size: 20px;
-          }
-        }
-      }
-    }
-    &__note{
-      margin-top: 120px;
-      &__box{
-        &__top{
-          .note-icon{
-            font-size: 40px;
-          }
-          .note-title{
-            font-size: 50px;
-          }
-        }
-        &__content{
-          margin-top: 40px;
-          .note-date{
-            font-size: 20px;
-          }
-          .note-reread-timing{
-            width: 160px;
-            height: 25px;
-            line-height: 25px;
-            background-color: #4ba53a;
-            color: #fff;
-            border-radius: 13px;
-            font-size: 12px;
-            margin-top: 10px;
-          }
-          .note-content{
-            margin-top: 20px;
           }
         }
       }

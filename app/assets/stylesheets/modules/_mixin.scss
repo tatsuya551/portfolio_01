@@ -44,4 +44,11 @@
   cursor: pointer;
 }
 
+/* タグ設定 */
+@mixin tag-set($width, $height) {
+  width: $width;
+  height: $height;
+  line-height: $height;
+  text-align: center;
+}
 

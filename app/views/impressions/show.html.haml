@@ -1,67 +1,48 @@
 .impression-show.main-font.box-center.text-center
   .impression-show__main
     = render "shared/content_top"
-    = render "shared/book_tag"
-    .impression-show__main__box
-      .impression-show__main__box__book
-        .impression-show__main__box__book__photo
-          = image_tag @book.image.to_s, class: "impression-show-image image-set"
-        .impression-show__main__box__book__text
-          .book-detail
-            .book-detail__top
-              タイトル
-            .book-detail__content.font-size-20
-              = @book.title
-          .book-detail
-            .book-detail__top
-              著者
-            .book-detail__content
-              = @book.author
-          .book-detail
-            .book-detail__top
-              読んだ回数
-            .book-detail__content
-              = @book.impressions.count.to_s + " 回"
-          .book-detail
-            .book-detail__top
-              読み終えた期間
-            .book-detail__content
-              = @book.impressions.last.read_day
-          .book-detail
-            .book-detail__top
-              最後に読んだ日
-            .book-detail__content
-              = simple_time(@book.impressions.last.created_at)
-      .impression-show__main__box__rating{style: "position: relative; height:40vh;width:40vw"}
+    .impression-show__main__title
+      .impression-show__main__title__box
+        .impression-show__main__title__box__book-title
+          = @book.title
+        .impression-show__main__title__box__note.display-flex.box-center
+          .note-title
+            .note-title__top
+              読んだ日
+            .note-title__date
+              = simple_time(@impression.created_at)
+          .note-title
+            .note-title__top
+              読んだ期間
+            .note-title__date
+              = @impression.read_day
+          .note-title
+            .note-title__top
+              また読みたい時
+            .note-title__reread-timing.box-center.text-center
+              = @impression.reread_timing
+    .impression-show__main__box.display-flex
+      .impression-show__main__box__note.box-center
+        .note-top
+          感想メモ
+        - if @impression.note == ""
+          .note-content-empty.text-center
+            感想書いてみよう。
+        - else
+          .note-content
+            = @impression.note
+      .impression-show__main__box__rating{style: "position: relative; height:40vh;width:30vw"}
         %canvas#hexagonChart
         :javascript
           draw_hexagon_graph();
         .rating-title.box-center.text-center
           総合評価
         .rating-point.box-center
-          .rating-point__main.font-bold.text-center
+          .rating-point__main-one.font-bold.text-center
             = @rating
-          .rating-point__sub
+          .rating-point__sub-one
             点
-    .btn-box
-      .btn-box__book-raiting
-        = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
-          新しい感想を登録する
-    .impression-show__main__note
-      .impression-show__main__note__box
-        .impression-show__main__note__box__top
-          .note-icon
-            = icon 'fas', 'book-reader', class: 'icon-book'
-          .note-title
-            ノート
-        - @impressions.each do |impression|
-          .impression-show__main__note__box__content
-            .note-date
-              = simple_time(impression.created_at)
-            .note-reread-timing.box-center.text-center
-              = impression.reread_timing
-            .note-content
-              = impression.note
+    = render "shared/impression_list"
     .btn-box
       .btn-box__back
         = link_to user_path(@book.user_id), class: "gray-btn text-line-none" do
