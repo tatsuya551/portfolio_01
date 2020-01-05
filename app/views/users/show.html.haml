@@ -6,7 +6,7 @@
         .user-box__photo
           %img.user-photo
         .user-box__name
-          = current_user.nickname
+          = @user.nickname
       .user-book
         .user-book__category{style: "position: relative; height:50vh;width:40vw"}
           %canvas#categoryChart

@@ -87,6 +87,11 @@
   flex-wrap: wrap;
 }
 
+/* プロックの中央寄せ */
+.display-flex{
+  display: flex;
+}
+
 
 /////////////////////////
 /******フォーム関連*******/
@@ -158,6 +163,15 @@
   @include btn-set(180px, 44px);
   color: #fff;
   background-color: #333333;
+  font-size: 14px;
+}
+
+/* 白色リンクボタン */
+.white-btn{
+  @include btn-set(100px, 44px);
+  display: inline-block;
+  color: #333333;
+  border:1px solid #333333;
   font-size: 14px;
 }
 

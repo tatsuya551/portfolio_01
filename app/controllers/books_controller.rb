@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_books, only: [:show, :edit, :destroy]
-  before_action :buydate_add, only: [:create]
+  before_action :set_books, only: [:show, :edit, :update, :destroy]
+  before_action :buydate_add, only: [:create, :update]
 
   def new
     @book = Book.new
@@ -10,7 +10,7 @@ class BooksController < ApplicationController
     params[:book][:buy_date] = @buy_date.to_s
     @book = Book.new(book_params)
     if @book.save(book_params)
-      redirect_to users_path
+      redirect_to user_path(@book.user_id)
     else
       render 'new'
     end
@@ -23,8 +23,9 @@ class BooksController < ApplicationController
   end
 
   def update
-    if Book.update(book_params)
-      redirect_to users_path
+    @book[:buy_date] = @buy_date.to_s
+    if @book.update(book_params)
+      redirect_to user_path(@book.user_id)
     else
       render 'show'
     end
@@ -32,7 +33,7 @@ class BooksController < ApplicationController
 
   def destroy
     if @book.destroy
-      redirect_to users_path
+      redirect_to user_path(@book.user_id)
     else
       render 'show'
     end
