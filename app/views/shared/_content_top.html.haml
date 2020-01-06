@@ -31,6 +31,14 @@
     .content-top__title.content-title
       = icon 'fas', 'comment-dots', class: 'icon-sign-out'
       感想の登録
+- elsif params[:controller] == "impressions" && params[:action] == "edit" || params[:controller] == "impressions" && params[:action] == "update"
+  .content-top.display-flex
+    .content-top__title.content-title
+      = icon 'fas', 'edit', class: 'icon-book'
+      感想の編集
+    .content-top__book-destroy
+      = link_to book_impression_path(@book), method: :delete, class:"mini-green-link-btn text-line-none" do
+        削除する
 - elsif params[:controller] == "impressions" && params[:action] == "index"
   .content-top.box-center
     .content-top__box.display-flex.box-center
@@ -42,9 +50,13 @@
           本の詳細
 - elsif params[:controller] == "impressions" && params[:action] == "show"
   .content-top.box-center
-    .content-top__title.content-title
-      = icon 'fas', 'book-reader', class: 'icon-sign-out'
-      ノート
+    .content-top__box.display-flex.box-center
+      .content-top__box__title.content-title
+        = icon 'fas', 'book-reader', class: 'icon-sign-out'
+        ノート
+      .content-top__book-edit
+        = link_to edit_book_impression_path(@book, @impression), class:"mini-green-link-btn text-line-none" do
+          編集する
 - elsif params[:controller] == "books" && params[:action] == "edit" || params[:controller] == "books" && params[:action] == "update"
   .content-top.display-flex
     .content-top__title.content-title

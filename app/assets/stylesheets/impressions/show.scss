@@ -18,14 +18,15 @@
               color: #aaa;
             }
             &__date{
-              font-size: 20px;
-              margin-top: 10px;
+              @include height_width(25px, 100px);
+              line-height: 25px;
+              border-radius: 13px;
+              font-size: 12px;
+              margin-top: 10px
             }
             &__reread-timing{
               @include height_width(25px, 175px);
               line-height: 25px;
-              background-color: #4ba53a;
-              color: #fff;
               border-radius: 13px;
               font-size: 12px;
               margin-top: 10px;

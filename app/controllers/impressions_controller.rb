@@ -1,19 +1,20 @@
 class ImpressionsController < ApplicationController
+  before_action :set_books, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+  before_action :set_impression, only: [:show, :edit, :update, :destroy]
+
   def new
-    @book = Book.find(params[:book_id])
     @impression = Impression.new
   end
 
   def create
     if Impression.create(impression_params)
-      redirect_to users_path
+      redirect_to book_impressions_path(@book)
     else
       render 'new'
     end
   end
 
   def index
-    @book = Book.find(params[:book_id])
     @impressions = Impression.where(book_id: @book.id)
     # 総合評価の平均点の計算
     @rating =       ((@book.impressions.rating_１点.count +
@@ -55,8 +56,6 @@ class ImpressionsController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:book_id])
-    @impression  = Impression.find(params[:id])
     @impressions = Impression.where(book_id: @book.id)
     # 総合評価の値の取り出し
     if @impression.rating == "１点"
@@ -145,6 +144,29 @@ class ImpressionsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @impression.update(impression_params)
+      redirect_to book_impression_path(@book,@impression)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    if @impression.destroy
+      if @book.impressions.present?
+        redirect_to book_impressions_path(@book)
+      else
+        redirect_to book_path(@book)
+      end
+    else
+      render 'edit'
+    end
+  end
+
   private
   def impression_params
     params.require(:impression).permit(
@@ -160,5 +182,13 @@ class ImpressionsController < ApplicationController
       :reread_timing,
       :note
     ).merge(book_id: params[:book_id])
+  end
+
+  def set_books
+    @book = Book.find(params[:book_id])
+  end
+
+  def set_impression
+    @impression  = Impression.find(params[:id])
   end
 end
