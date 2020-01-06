@@ -1,0 +1,12 @@
+.user-edit{
+  &__main{
+    width: 30%;
+    margin-top:50px;
+    margin-bottom: 220px;
+    .btn-box{
+      margin-top: 50px;
+      display: flex;
+      float: left;
+    }
+  }
+}
