@@ -1,0 +1,19 @@
+.user-edit.main-font
+  .user-edit__main.box-center
+    = render "shared/content_top"
+    = form_with(model: @user, local: true) do |f|
+      .user-detail
+        .user-detail__top.form-content
+          ニックネーム
+        .user-detail__nickname-input
+          = f.text_field :nickname, placeholder: "> nickname", class:"text-input"
+        .user-detail__top.form-content
+          生年月日
+        .user-detail__birthday-input
+          != sprintf(f.date_select(:birth_day, prefix:'birth_day', with_css_classes:'select-box', prompt: "---",use_month_numbers:true, start_year:2010, end_year:1920, date_separator:'%s'),'年','月')+'日'
+      .btn-box
+        .btn-box__user-new
+          = f.submit " 新規登録する ", class: "submit-btn text-line-none"
+        .btn-box__back
+          = link_to :back, class: "gray-btn margin-left-40 text-line-none" do
+            もどる

@@ -6,7 +6,8 @@
         .user-box__photo
           %img.user-photo
         .user-box__name
-          = @user.nickname
+          = link_to edit_user_path do
+            = @user.nickname
       .user-book
         .user-book__category{style: "position: relative; height:50vh;width:40vw"}
           %canvas#categoryChart

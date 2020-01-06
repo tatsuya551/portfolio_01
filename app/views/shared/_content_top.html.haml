@@ -53,4 +53,9 @@
     .content-top__book-destroy
       = link_to book_path(@book), method: :delete, class:"mini-green-link-btn text-line-none" do
         削除する
+- elsif params[:controller] == "users" && params[:action] == "edit" || params[:controller] == "users" && params[:action] == "update"
+  .content-top
+    .content-top__title.content-title
+      = icon 'fas', 'user-edit', class: 'icon-sign-out'
+      ユーザー情報編集
 - else

@@ -11,7 +11,7 @@
         .impression-list__note__content
           .note-date.text-black
             = simple_time(impression.created_at)
-          .note-reread-timing.box-center.text-center
+          .note-reread-timing.box-center.text-center.background-green.text-white
             = impression.reread_timing
           .note-content.text-black
             = impression.note
