@@ -1,8 +1,8 @@
-.book-list{
+.mypage-book-list{
   width: 85%;
   &__main{
     margin-top: 30px;
-    justify-content: left;
+    justify-content: center;
     &__box{
       @include height_width(250px, 180px);
       margin: 10px;
@@ -24,11 +24,5 @@
         }
       }
     }
-  }
-  &__none{
-    font-size: 30px;
-    color: gray;
-    height: 250px;
-    line-height: 180px;
   }
 }

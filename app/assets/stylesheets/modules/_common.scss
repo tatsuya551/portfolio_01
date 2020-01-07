@@ -27,6 +27,11 @@
   color: #e59703;
 }
 
+/* 灰色 */
+.text-green{
+  color: #4ba53a;
+}
+
 /* 中央寄せ */
 .text-center{
   text-align: center;
@@ -281,9 +286,20 @@
   margin-left: 40px;
 }
 
-/* 上40px設定 */
+/* 左20px設定 */
+.margin-left-20{
+  margin-left: 20px;
+}
+
+/* 上100px設定 */
 .margin-top-100{
   margin-top: 100px;
 }
+
+/* 上60px設定 */
+.margin-top-60{
+  margin-top: 60px;
+}
+
 
 

@@ -2,13 +2,26 @@
   .content-headdr__main
     .content-headdr__main__box.box-center
       .content-headdr__main__box__list.display-flex
-        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category"
+        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc"
           .content-title.font-bold
             マイページ
           .content-list.display-flex
-            .content-list__link
-              = link_to category_user_path(@user), class: "text-black text-line-none" do
-                ジャンル
+            - if params[:controller] == "users" && params[:action] == "show"
+              .content-list__link
+                = link_to user_path(@user), class: "text-green font-bold text-line-none" do
+                  トップ
+            - else
+              .content-list__link
+                = link_to user_path(@user), class: "text-black text-line-none" do
+                  トップ
+            - if params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc"
+              .content-list__link
+                = link_to category_user_path(@user), class: "text-green font-bold text-line-none" do
+                  ジャンル
+            - else
+              .content-list__link
+                = link_to category_user_path(@user), class: "text-black text-line-none" do
+                  ジャンル
             .content-list__link
               = link_to "#", class: "text-black text-line-none" do
                 また読みたい時別

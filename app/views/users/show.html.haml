@@ -20,9 +20,9 @@
       .user-book-list.text-center
         .user-book-list__title.margin-top-100
           これから読む本
-        = render partial: "shared/book_list", locals: {books: @buy_books}
+        = render partial: "shared/mypage_book_list", locals: {books: @buy_books}
       .user-book-list.text-center
         .user-book-list__title.margin-top-100
           最近読んだ本
-        = render partial: "shared/book_list", locals: {books: @read_books}
+        = render partial: "shared/mypage_book_list", locals: {books: @read_books}
       

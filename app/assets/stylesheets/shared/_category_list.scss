@@ -1,7 +1,7 @@
 .category-list{
   &__main{
-    width: 55%;
-    margin-top: 50px;
+    width: 65%;
+    margin-top: 80px;
     &__title{
       @include height_width(38px, 200px);
       line-height: 40px;
@@ -15,8 +15,8 @@
           @include height_width(430px, 330px);
           background-color: #fff;
           margin-top: 15px;
+          margin-left: 40px;
           box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
-
           &__photo{
             @include height_width(330px, 330px);
             background-color: rgb(247, 247, 247);
@@ -35,7 +35,7 @@
           margin-left: 30px;
           &__box{
             @include height_width(200px, 150px);
-            margin: 15px;
+            margin: 15px 30px;
             background-color: #fff;
             box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
             &__photo{
