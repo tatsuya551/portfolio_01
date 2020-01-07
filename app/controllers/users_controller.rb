@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :birthday_add, only: [:update]
-  before_action :set_user, only: [:show, :edit, :update, :category]
+  before_action :set_user, only: [:show, :edit, :update, :category, :novel, :management, :economy, :finance, :it, :motivation, :talent, :etc]
 
   def index
     @users = User.order("created_at DESC").limit(10)
@@ -9,9 +9,6 @@ class UsersController < ApplicationController
   def show
     @buy_books = @user.books.where(status:0).order("created_at DESC").limit(5)
     @read_books = @user.books.where(status:1).order("created_at DESC").limit(5)
-    # @novels = @user.books.category_小説
-    # @managements = @user.books.category_経営・戦略
-
     # グラフ用の値の取り出し
     gon.novel = @user.books.category_小説.count
     gon.management = @user.books.category_経営・戦略.count
@@ -36,9 +33,46 @@ class UsersController < ApplicationController
   end
 
   def category
-    @novels = @user.books.category_小説
-    @sample = @user.books[0]
-    @books = @user.books
+    @novels = @user.books.category_小説.order("created_at DESC").limit(5)
+    @managements = @user.books.category_経営・戦略.order("created_at DESC").limit(5)
+    @economys = @user.books.category_政治・経済.order("created_at DESC").limit(5)
+    @finances = @user.books.category_金融・ファイナンス.order("created_at DESC").limit(5)
+    @its = @user.books.category_IT.order("created_at DESC").limit(5)
+    @motivations = @user.books.category_自己啓発.order("created_at DESC").limit(5)
+    @talents = @user.books.category_タレント本.order("created_at DESC").limit(5)
+    @etcs = @user.books.category_その他.order("created_at DESC").limit(5)
+  end
+
+  def novel
+    @novels = @user.books.category_小説.order("created_at DESC")
+  end
+
+  def management
+    @managements = @user.books.category_経営・戦略.order("created_at DESC")
+  end
+
+  def economy
+    @economys = @user.books.category_政治・経済.order("created_at DESC")
+  end
+
+  def finance
+    @finances = @user.books.category_金融・ファイナンス.order("created_at DESC")
+  end
+
+  def it
+    @its = @user.books.category_IT.order("created_at DESC")
+  end
+
+  def motivation
+    @motivations = @user.books.category_自己啓発.order("created_at DESC")
+  end
+
+  def talent
+    @talents = @user.books.category_タレント本.order("created_at DESC")
+  end
+
+  def etc
+    @etcs = @user.books.category_その他.order("created_at DESC")
   end
 
   private

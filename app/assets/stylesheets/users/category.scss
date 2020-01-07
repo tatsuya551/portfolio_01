@@ -1,56 +1,15 @@
 .category-top{
   &__main{
-    width: 55%;
     margin-top: 50px;
-    &__title{
-      @include height_width(38px, 200px);
-      line-height: 40px;
-      font-size: 16px;
-    }
-    &__box{
-      margin-top: 40px;
-      justify-content: space-between;
-      &__list{
-        .category-big{
-          @include height_width(430px, 330px);
-          background-color: #fff;
-          margin-top: 15px;
-          box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
-
-          &__photo{
-            @include height_width(330px, 330px);
-            background-color: rgb(247, 247, 247);
-            position: relative;
-          }
-          &__text{
-            @include height_width(100px, 330px);
-            @include photo-title-set;
-            line-height: 100px;
-            font-size: 16px;
-            max-width: 290px;
-            margin: 0 20px 0 20px; 
-          }
-        }
-        .category-small{
-          margin-left: 30px;
-          &__box{
-            @include height_width(200px, 150px);
-            margin: 15px;
-            background-color: #fff;
-            box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
-            &__photo{
-              @include height_width(150px, 150px);
-              background-color: rgb(247, 247, 247);
-              position: relative;
-            }
-            &__text{
-              @include height_width(50px, 150px);
-              @include photo-title-set;
-              line-height: 50px;
-              font-size: 16px;
-              max-width: 130px;
-              margin: 0 10px 0 10px;  
-            }
+    &__category-tag{
+      &__box{
+        width: 60%;
+        margin-top: 10px;
+        justify-content: center;
+        .category-btn{
+          @include btn-set( 160px, 35px);
+          a{
+            display: block;
           }
         }
       }

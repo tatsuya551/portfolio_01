@@ -70,4 +70,9 @@
     .content-top__title.content-title
       = icon 'fas', 'user-edit', class: 'icon-sign-out'
       ユーザー情報編集
+- elsif params[:controller] == "users" && params[:action] == "category"
+  .content-top
+    .content-top__title.content-title.text-center
+      = icon 'fas', 'bars', class: 'icon-sign-out'
+      ジャンル一覧
 - else
