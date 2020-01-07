@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
   before_action :birthday_add, only: [:update]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :category]
 
   def index
     @users = User.order("created_at DESC").limit(10)
   end
 
   def show
-    @books = @user.books
+    @buy_books = @user.books.where(status:0).order("created_at DESC").limit(5)
+    @read_books = @user.books.where(status:1).order("created_at DESC").limit(5)
+    # @novels = @user.books.category_小説
+    # @managements = @user.books.category_経営・戦略
+
     # グラフ用の値の取り出し
     gon.novel = @user.books.category_小説.count
     gon.management = @user.books.category_経営・戦略.count
@@ -29,6 +33,12 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def category
+    @novels = @user.books.category_小説
+    @sample = @user.books[0]
+    @books = @user.books
   end
 
   private

@@ -1,14 +1,14 @@
-.book-list.box-center
+.book-list.box-center.main-font
   .book-list__main.box-list
     - books.each do |book|
-      - if book.impressions.present?
+      - if book.status == 1
         .book-list__main__box.text-center
           = link_to book_impressions_path(book), class: "book-list__main__box__content text-line-none text-gray" do
             .book-image
               = image_tag book.image.to_s, class: "image-set"
             .book-title
               = book.title
-      - else
+      - elsif book.status == 0
         .book-list__main__box.text-center
           = link_to book_path(book), class: "book-list__main__box__content text-line-none text-black" do
             .book-image

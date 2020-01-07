@@ -17,20 +17,23 @@ window.draw_category_graph = ->
                     'rgba(143, 51, 150, 0.7)',
                     'rgba(182, 25, 114, 0.6)'
                 ],
+                borderWidth: "0",
             }]
         },
         options: {
-          cutoutPercentage: 60,
+          cutoutPercentage: 65,
           title: {
-            display: true,
+            display: false,
             text: '登録ジャンル',
             fontSize: 14
           },
           legend: {
-            position: "top",
+            position: "right",
+            align: "center"
             labels: {
-              fontSize: 10
-              boxWidth: 12
+              fontSize: 12
+              boxWidth: 25
+              padding: 10
             }
           }
         }

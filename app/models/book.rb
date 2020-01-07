@@ -25,4 +25,12 @@ class Book < ApplicationRecord
       "タレント本":          7,
       "その他":             8,
     }, _prefix: true
+
+    def book_read
+      self.status = 1
+    end
+
+    def book_impression_none
+      self.status = 0
+    end
 end

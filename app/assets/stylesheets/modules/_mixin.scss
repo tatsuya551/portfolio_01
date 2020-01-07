@@ -52,3 +52,11 @@
   text-align: center;
 }
 
+/* 写真タイトル設定 */
+@mixin photo-title-set{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
