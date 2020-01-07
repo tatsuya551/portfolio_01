@@ -7,7 +7,10 @@ class ImpressionsController < ApplicationController
   end
 
   def create
-    if Impression.create(impression_params)
+    @impression = Impression.create(impression_params)
+    if @impression.save
+      @impression.book.book_read
+      @impression.book.save
       redirect_to book_impressions_path(@book)
     else
       render 'new'
@@ -160,6 +163,8 @@ class ImpressionsController < ApplicationController
       if @book.impressions.present?
         redirect_to book_impressions_path(@book)
       else
+        @book.book_impression_none
+        @book.save
         redirect_to book_path(@book)
       end
     else

@@ -4,12 +4,19 @@
     box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2);
     position: relative;
     &__box{
-      width: 70%;
-      &__list{
+      width: 65%;
+      .content-title{
         position: absolute;
         bottom: 10px;
-        &__title{
-          font-size: 18px;
+        font-size: 18px;
+      }
+      .content-list{
+        position: absolute;
+        left: 350px;
+        bottom: 10px;
+        font-size: 14px;
+        &__link{
+          margin-left: 20px;
         }
       }
     }

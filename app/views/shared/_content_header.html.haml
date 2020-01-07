@@ -1,13 +1,29 @@
-.content-headdr
+.content-headdr.main-font
   .content-headdr__main
     .content-headdr__main__box.box-center
-      %ul.content-headdr__main__box__list
-        %li.content-headdr__main__box__list__title.font-bold
-          - if params[:controller] == "users" && params[:action] == "index"
-            ユーザーマイページ・ジャンル別・また読みたい時別・評価別・読んでない本
-          - elsif params[:controller] == "books" && params[:action] == "show"
+      .content-headdr__main__box__list.display-flex
+        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category"
+          .content-title.font-bold
+            マイページ
+          .content-list.display-flex
+            .content-list__link
+              = link_to category_user_path(@user), class: "text-black text-line-none" do
+                ジャンル
+            .content-list__link
+              = link_to "#", class: "text-black text-line-none" do
+                また読みたい時別
+            .content-list__link
+              = link_to "#", class: "text-black text-line-none" do
+                評価別
+            .content-list__link
+              = link_to "#", class: "text-black text-line-none" do
+                読んでない本
+        - elsif params[:controller] == "books" && params[:action] == "show"
+          .content-title.font-bold
             BOOK INFORMATION
-          - elsif params[:controller] == "books" && params[:action] == "new" || params[:controller] == "books" && params[:action] == "create"
+        - elsif params[:controller] == "books" && params[:action] == "new" || params[:controller] == "books" && params[:action] == "create"
+          .content-title.font-bold
             本の登録
-          - else 
+        - else 
+          .content-title.font-bold
             title

@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    member do
+      get 'category'
+    end
+  end
   resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :impressions
   end

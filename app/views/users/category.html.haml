@@ -1,0 +1,37 @@
+= render "shared/content_header"
+.category-top.main-font
+  .category-top__main.box-center
+    .category-top__main__title.text-center.background-novel
+      = @books[0].category
+    .category-top__main__box
+      .category-top__main__box__list.display-flex
+        - if @books[0].impressions.present?
+          = link_to book_impressions_path(@books[0]), class: "text-line-none text-gray" do
+            .category-big
+              .category-big__photo
+                = image_tag @books[0].image.to_s, class: "image-set"
+              .category-big__text.text-center
+                = @books[0].title
+        - else
+          = link_to book_path(@books[0]), class: "text-line-none text-gray" do
+            .category-big
+              .category-big__photo
+                = image_tag @books[0].image.to_s, class: "image-set"
+              .category-big__text.text-center
+                = @books[0].title
+        .category-small.display-flex.box-list
+          - @books.each.with_index(0) do |book, i|
+            - if i >= 1 && i <= 4 && book.impressions.present?
+              = link_to book_impressions_path(book), class: "text-line-none text-gray" do
+                .category-small__box
+                  .category-small__box__photo
+                    = image_tag book.image.to_s, class: "image-set"
+                  .category-small__box__text.text-center
+                    = book.title
+            - elsif i >= 1 && i <= 4
+              = link_to book_path(book), class: "text-line-none text-black" do
+                .category-small__box
+                  .category-small__box__photo
+                    = image_tag book.image.to_s, class: "image-set"
+                  .category-small__box__text.text-center
+                    = book.title
