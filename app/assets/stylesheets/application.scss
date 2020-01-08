@@ -13,6 +13,7 @@
 @import "shared/book_list";
 @import "shared/book_tag";
 @import "shared/category_list";
+@import "shared/reread_timing_list";
 @import "shared/impression_list";
 @import "shared/footer";
 
@@ -27,6 +28,7 @@
 @import "users/edit";
 @import "users/category";
 @import "users/single_category";
+@import "users/reread_timing";
 
 @import "books/new";
 @import "books/show";

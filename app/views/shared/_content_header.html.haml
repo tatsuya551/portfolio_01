@@ -2,7 +2,7 @@
   .content-headdr__main
     .content-headdr__main__box.box-center
       .content-headdr__main__box__list.display-flex
-        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc"
+        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc" || params[:action] == "reread_timing" || params[:action] == "timing_knowledge" || params[:action] == "timing_motivation" || params[:action] == "timing_decision" || params[:action] == "timing_stress" || params[:action] == "timing_feel_down" || params[:action] == "timing_lost_love" || params[:action] == "timing_diversion" || params[:action] == "timing_relax"
           .content-title.font-bold
             マイページ
           .content-list.display-flex
@@ -14,7 +14,7 @@
               .content-list__link
                 = link_to user_path(@user), class: "text-black text-line-none" do
                   トップ
-            - if params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc"
+            - if params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc" 
               .content-list__link
                 = link_to category_user_path(@user), class: "text-green font-bold text-line-none" do
                   ジャンル
@@ -22,9 +22,14 @@
               .content-list__link
                 = link_to category_user_path(@user), class: "text-black text-line-none" do
                   ジャンル
-            .content-list__link
-              = link_to "#", class: "text-black text-line-none" do
-                また読みたい時別
+            - if params[:controller] == "users" && params[:action] == "reread_timing" || params[:action] == "timing_knowledge" || params[:action] == "timing_motivation" || params[:action] == "timing_decision" || params[:action] == "timing_stress" || params[:action] == "timing_feel_down" || params[:action] == "timing_lost_love" || params[:action] == "timing_diversion" || params[:action] == "timing_relax"
+              .content-list__link
+                = link_to reread_timing_user_path(@user), class: "text-green font-bold text-line-none" do
+                  また読みたい時
+            - else
+              .content-list__link
+                = link_to reread_timing_user_path(@user), class: "text-black text-line-none" do
+                  また読みたい時
             .content-list__link
               = link_to "#", class: "text-black text-line-none" do
                 評価別

@@ -1,0 +1,19 @@
+.reread-timing-top{
+  &__main{
+    margin-top: 50px;
+    &__timing-tag{
+      &__box{
+        width: 60%;
+        margin-top: 10px;
+        justify-content: center;
+        .timing-btn{
+          @include btn-set( 200px, 35px);
+          font-size: 12px;
+          a{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
