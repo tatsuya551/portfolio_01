@@ -39,6 +39,11 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+    @books = Book.search(params[:keyword]).where.not(user_id: current_user.id)
+    @keyword = params[:keyword]
+  end
+
   private
   def book_params
     params.require(:book).permit(

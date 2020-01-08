@@ -76,6 +76,9 @@
                 .book-info-list__link
                   = link_to new_book_impression_path(@book), class: "text-black text-line-none" do
                     ノート(未登録)
+            .book-info-list__link
+              = link_to user_path(@book.user_id), class: "text-black text-line-none" do
+                本のユーザー情報
         - elsif params[:controller] == "books" && params[:action] == "new" || params[:controller] == "books" && params[:action] == "create"
           .content-title.font-bold
             本の登録

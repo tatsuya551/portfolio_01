@@ -33,5 +33,8 @@ Rails.application.routes.draw do
   end
   resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :impressions
+    collection do
+      get 'search'
+    end
   end
 end

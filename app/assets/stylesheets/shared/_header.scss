@@ -1,18 +1,42 @@
 .header{
   &__box{
-    @include height_width(90px, 100%);
+    @include height_width(100px, 100%);
     background-color: #202020;
-    margin: 0px auto;
     &__logo{
       @include text_size_height(22px, 60px);
     }
     &__content{
       width: 60%;
-      margin: 0px auto;
-      display: flex;
       justify-content: space-between;
       &__new-member{
         @include text_size_height(14px, 10px);
+        .search-form{
+          .search-input{
+            @include height_width(25px, 200px);
+            padding-left: 20px;
+            padding-right: 20px;
+            border: none;
+            border-radius: 15px;
+            &:focus{
+              outline: none;
+              border-bottom: 3px solid #4ba53a;
+            }
+          }
+          .search-btn{
+            @include height_width(25px, 40px);
+            line-height: 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            &:focus{
+              outline: none;
+              background-color: #ccc;
+            }
+            .search-icon{
+              font-size: 14px;
+            }
+          }
+        }
       }
       &__login{
         @include text_size_height(14px, 10px);
