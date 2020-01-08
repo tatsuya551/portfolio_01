@@ -17,6 +17,15 @@ Rails.application.routes.draw do
       get 'motivation'
       get 'talent'
       get 'etc'
+      get 'reread_timing'
+      get 'timing_knowledge'
+      get 'timing_motivation'
+      get 'timing_decision'
+      get 'timing_stress'
+      get 'timing_feel_down'
+      get 'timing_lost_love'
+      get 'timing_diversion'
+      get 'timing_relax'
     end
   end
   resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do

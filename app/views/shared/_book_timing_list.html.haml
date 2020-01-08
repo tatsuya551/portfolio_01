@@ -1,0 +1,21 @@
+.book-list.box-center.main-font
+  - if books.present?
+    .book-list__main.box-list
+      - books.each do |book|
+        - if book.book.status == 1
+          .book-list__main__box.text-center
+            = link_to book_impressions_path(book.book), class: "book-list__main__box__content text-line-none text-gray" do
+              .book-image
+                = image_tag book.book.image.to_s, class: "image-set"
+              .book-title
+                = book.book.title
+        - elsif book.book.status == 0
+          .book-list__main__box.text-center
+            = link_to book_path(book.book), class: "book-list__main__box__content text-line-none text-black" do
+              .book-image
+                = image_tag book.book.image.to_s, class: "image-set"
+              .book-title
+                = book.book.title
+  - else
+    .book-list__none.text-center
+      登録された本がありません

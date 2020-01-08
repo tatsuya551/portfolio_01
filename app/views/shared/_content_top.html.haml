@@ -75,4 +75,9 @@
     .content-top__title.content-title.text-center
       = icon 'fas', 'bars', class: 'icon-sign-out'
       ジャンル一覧
+- elsif params[:controller] == "users" && params[:action] == "reread_timing"
+  .content-top
+    .content-top__title.content-title.text-center
+      = icon 'fas', 'bars', class: 'icon-sign-out'
+      また読みたい時一覧
 - else

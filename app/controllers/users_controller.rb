@@ -1,6 +1,26 @@
 class UsersController < ApplicationController
   before_action :birthday_add, only: [:update]
-  before_action :set_user, only: [:show, :edit, :update, :category, :novel, :management, :economy, :finance, :it, :motivation, :talent, :etc]
+  before_action :set_user, only: [:show,
+                                  :edit,
+                                  :update,
+                                  :category,
+                                  :novel,
+                                  :management,
+                                  :economy,
+                                  :finance,
+                                  :it,
+                                  :motivation,
+                                  :talent,
+                                  :etc,
+                                  :reread_timing,
+                                  :timing_knowledge,
+                                  :timing_motivation,
+                                  :timing_decision,
+                                  :timing_stress,
+                                  :timing_feel_down,
+                                  :timing_lost_love,
+                                  :timing_diversion,
+                                  :timing_relax]
 
   def index
     @users = User.order("created_at DESC").limit(10)
@@ -73,6 +93,49 @@ class UsersController < ApplicationController
 
   def etc
     @etcs = @user.books.category_その他.order("created_at DESC")
+  end
+
+  def reread_timing
+    @timing_knowledges = Impression.where(book_id:@user.books.ids).where(reread_timing:"知識を付けたい時")
+    @timing_motivations = Impression.where(book_id:@user.books.ids).where(reread_timing:"モチベーションをあげたい時")
+    @timing_decisions = Impression.where(book_id:@user.books.ids).where(reread_timing:"なにか決断をする時")
+    @timing_stresses = Impression.where(book_id:@user.books.ids).where(reread_timing:"ストレスが溜まっている時")
+    @timing_feel_downs = Impression.where(book_id:@user.books.ids).where(reread_timing:"落ち込んでいる時")
+    @timing_lost_loves = Impression.where(book_id:@user.books.ids).where(reread_timing:"失恋した時")
+    @timing_diversions = Impression.where(book_id:@user.books.ids).where(reread_timing:"気分転換したい時")
+    @timing_relaxes = Impression.where(book_id:@user.books.ids).where(reread_timing:"リラックスしたい時")
+  end
+
+  def timing_knowledge
+    @timing_knowledges = Impression.where(book_id:@user.books.ids).where(reread_timing:"知識を付けたい時").order("created_at DESC")
+  end
+
+  def timing_motivation
+    @timing_motivations = Impression.where(book_id:@user.books.ids).where(reread_timing:"モチベーションをあげたい時").order("created_at DESC")
+  end
+
+  def timing_decision
+    @timing_decisions = Impression.where(book_id:@user.books.ids).where(reread_timing:"なにか決断をする時").order("created_at DESC")
+  end
+
+  def timing_stress
+    @timing_stresses = Impression.where(book_id:@user.books.ids).where(reread_timing:"ストレスが溜まっている時").order("created_at DESC")
+  end
+
+  def timing_feel_down
+    @timing_feel_downs = Impression.where(book_id:@user.books.ids).where(reread_timing:"落ち込んでいる時").order("created_at DESC")
+  end
+
+  def timing_lost_love
+    @timing_lost_loves = Impression.where(book_id:@user.books.ids).where(reread_timing:"失恋した時").order("created_at DESC")
+  end
+
+  def timing_diversion
+    @timing_diversions = Impression.where(book_id:@user.books.ids).where(reread_timing:"気分転換したい時").order("created_at DESC")
+  end
+
+  def timing_relax
+    @timing_relaxes = Impression.where(book_id:@user.books.ids).where(reread_timing:"リラックスしたい時").order("created_at DESC")
   end
 
   private
