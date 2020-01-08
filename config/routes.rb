@@ -26,6 +26,9 @@ Rails.application.routes.draw do
       get 'timing_lost_love'
       get 'timing_diversion'
       get 'timing_relax'
+      get 'all_books'
+      get 'read_books'
+      get 'will_read_books'
     end
   end
   resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do

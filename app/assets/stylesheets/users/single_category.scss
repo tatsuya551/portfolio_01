@@ -6,6 +6,10 @@
       &__title{
        width: 80%;
        font-size: 25px;
+       .link-btn{
+         line-height: 30px;
+         margin-left: 5px;
+       }
       }
       &__books{
         margin-top: 60px;

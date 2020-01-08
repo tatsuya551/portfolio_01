@@ -202,12 +202,21 @@
   font-size: 14px;
 }
 
-/* 緑色リンクボタン */
+/* ミニ緑色リンクボタン */
 .mini-green-link-btn{
   @include btn-set(60px, 20px);
   display: inline-block;
   color: #4ba53a;
   border:1px solid #4ba53a;
+  font-size: 12px;
+}
+
+/* ミニオレンジ色リンクボタン */
+.mini-orange-link-btn{
+  @include btn-set(60px, 20px);
+  display: inline-block;
+  background-color: #e59703;
+  color: #fff;
   font-size: 12px;
 }
 
