@@ -33,4 +33,13 @@ class Book < ApplicationRecord
     def book_impression_none
       self.status = 0
     end
+
+    def self.search(search)
+      return " " unless search
+      Book.where('title LIKE(?)', "%#{search}%")
+      .or(
+      Book.where('author LIKE(?)', "%#{search}%"))
+      .or(
+      Book.where('publisher LIKE(?)', "%#{search}%"))
+    end
 end

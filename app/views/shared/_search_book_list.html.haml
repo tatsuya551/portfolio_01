@@ -1,0 +1,78 @@
+.search-book-list.box-center.main-font.box-list
+  - if books.present?
+    - books.each do |book|
+      - if book.status == 1
+        = link_to book_impressions_path(book), class: "search-book-list__main box-list text-line-none text-black" do
+          .search-book-list__main__book.text-center
+            .search-book-list__main__book__box
+              .book-image
+                = image_tag book.image.to_s, class: "image-set"
+              .book-title
+                = book.title
+          .search-book-list__main__user.display-flex
+            .search-book-list__main__user__photo
+              %img.user-photo
+            .search-book-list__main__user__name.text-black
+              = book.user.nickname
+          .search-book-list__main__graph
+            .search-book-list__main__graph__category
+              = pie_chart [['小説', book.user.books.category_小説.count], 
+                          ['経営・戦略', book.user.books.category_経営・戦略.count],
+                          ['政治・経済', book.user.books.category_政治・経済.count],
+                          ['ファイナンス', book.user.books.category_金融・ファイナンス.count],
+                          ['IT', book.user.books.category_IT.count],
+                          ['自己啓発', book.user.books.category_自己啓発.count],
+                          ['タレント本', book.user.books.category_タレント本.count],
+                          ['その他', book.user.books.category_その他.count]], 
+                          colors: ['rgba(209, 46, 31, 0.6)',
+                                  'rgba(246, 202, 6, 0.7)',
+                                  'rgba(187, 212, 26, 0.7)',
+                                  'rgba(0, 146, 80, 0.7)',
+                                  'rgba(0, 131, 174, 0.7)',
+                                  'rgba(50, 97, 171, 0.7)',
+                                  'rgba(143, 51, 150, 0.7)',
+                                  'rgba(182, 25, 114, 0.6)',],
+                          donut: true,
+                          legend: false,
+                          width: "100px", height: "100px"
+            .search-book-list__main__graph__count.text-line-none.text-black.text-center
+              = book.user.books.count
+      - elsif book.status == 0
+        = link_to book_path(book), class: "search-book-list__main box-list text-line-none text-black" do
+          .search-book-list__main__book.text-center
+            .search-book-list__main__book__box
+              .book-image
+                = image_tag book.image.to_s, class: "image-set"
+              .book-title
+                = book.title
+          .search-book-list__main__user.display-flex
+            .search-book-list__main__user__photo
+              %img.user-photo
+            .search-book-list__main__user__name.text-black
+              = book.user.nickname
+          .search-book-list__main__graph
+            .search-book-list__main__graph__category
+              = pie_chart [['小説', book.user.books.category_小説.count], 
+                          ['経営・戦略', book.user.books.category_経営・戦略.count],
+                          ['政治・経済', book.user.books.category_政治・経済.count],
+                          ['ファイナンス', book.user.books.category_金融・ファイナンス.count],
+                          ['IT', book.user.books.category_IT.count],
+                          ['自己啓発', book.user.books.category_自己啓発.count],
+                          ['タレント本', book.user.books.category_タレント本.count],
+                          ['その他', book.user.books.category_その他.count]], 
+                          colors: ['rgba(209, 46, 31, 0.6)',
+                                  'rgba(246, 202, 6, 0.7)',
+                                  'rgba(187, 212, 26, 0.7)',
+                                  'rgba(0, 146, 80, 0.7)',
+                                  'rgba(0, 131, 174, 0.7)',
+                                  'rgba(50, 97, 171, 0.7)',
+                                  'rgba(143, 51, 150, 0.7)',
+                                  'rgba(182, 25, 114, 0.6)',],
+                          donut: true,
+                          legend: false,
+                          width: "100px", height: "100px"
+            .search-book-list__main__graph__count.text-line-none.text-black.text-center
+              = book.user.books.count
+  - else
+    .search-book-list__none.box-center.text-center
+      登録された本がありません

@@ -1,0 +1,12 @@
+.search-book.main-font
+  .search-book__main.box-center
+    .search-book__main__box
+      - if @books.count == 0
+        .search-book__main__box__title.box-center.font-bold
+          該当がありませんでした
+      - else
+        .search-book__main__box__title.box-center.font-bold
+          = icon 'fas', 'search', class: 'icon-search'
+          "#{@keyword}" の検索結果
+      .search-book__main__box__books
+        = render partial: "shared/search_book_list", locals: {books: @books}

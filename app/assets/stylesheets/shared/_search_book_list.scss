@@ -1,0 +1,70 @@
+.search-book-list{
+  width: 90%;
+  margin-top: 30px;
+  &__main{
+    margin: 15px 10px;
+    justify-content: space-between;
+    box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+    &__book{
+      @include height_width(190px, 150px);
+      margin: 10px;
+      background-color: rgb(247, 247, 247);
+      &__box{
+        .book-image{
+          @include height_width(140px, 150px);
+          position: relative;
+          background-color: rgb(231, 231, 231);
+        }
+        .book-title{
+          @include height_width(50px, 150px);
+          @include photo-title-set;
+          line-height: 50px;
+          font-size: 14px;
+          max-width: 130px;
+          margin: 0 10px 0 10px;
+        }
+      }
+    }
+    &__user{
+      margin-left: 20px;
+      &__photo{
+        .user-photo{
+          @include height_width(50px, 50px);
+          line-height: 120px;
+          background-color: #eee;
+          margin-top: 75px;
+        }
+      }
+      &__name{
+        @include height_width(200px, 120px);
+        font-size: 18px;
+        margin-left: 20px;
+        line-height: 200px;
+      }
+    }
+    &__graph{
+      position: relative;
+      &__category{
+        .chartjs-render-monitor{
+          position: absolute;
+          top:50px;
+          right: 30px;
+          z-index: 1;
+        }
+      }
+      &__count{
+        position: absolute;
+        top:85px;
+        right:60px;
+        font-size: 20px;
+        width: 40px;
+      }
+    }
+  }
+  &__none{
+    font-size: 30px;
+    color: gray;
+    height: 250px;
+    line-height: 180px;
+  }
+}
