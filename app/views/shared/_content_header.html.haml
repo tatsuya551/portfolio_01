@@ -2,43 +2,80 @@
   .content-headdr__main
     .content-headdr__main__box.box-center
       .content-headdr__main__box__list.display-flex
-        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc" || params[:action] == "reread_timing" || params[:action] == "timing_knowledge" || params[:action] == "timing_motivation" || params[:action] == "timing_decision" || params[:action] == "timing_stress" || params[:action] == "timing_feel_down" || params[:action] == "timing_lost_love" || params[:action] == "timing_diversion" || params[:action] == "timing_relax"
-          .content-title.font-bold
-            マイページ
-          .content-list.display-flex
+        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc" || params[:action] == "reread_timing" || params[:action] == "timing_knowledge" || params[:action] == "timing_motivation" || params[:action] == "timing_decision" || params[:action] == "timing_stress" || params[:action] == "timing_feel_down" || params[:action] == "timing_lost_love" || params[:action] == "timing_diversion" || params[:action] == "timing_relax" || params[:action] == "all_books" || params[:action] == "read_books" || params[:action] == "will_read_books"
+          .mypage-title.font-bold
+            MYPAGE
+          .mypage-list.display-flex
             - if params[:controller] == "users" && params[:action] == "show"
-              .content-list__link
+              .mypage-list__link
                 = link_to user_path(@user), class: "text-green font-bold text-line-none" do
                   トップ
             - else
-              .content-list__link
+              .mypage-list__link
                 = link_to user_path(@user), class: "text-black text-line-none" do
                   トップ
+            - if params[:action] == "all_books" || params[:action] == "read_books" || params[:action] == "will_read_books"
+              .mypage-list__link
+                = link_to all_books_user_path(@user), class: "text-green font-bold text-line-none" do
+                  登録本
+            - else
+              .mypage-list__link
+                = link_to all_books_user_path(@user), class: "text-black text-line-none" do
+                  登録本
             - if params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc" 
-              .content-list__link
+              .mypage-list__link
                 = link_to category_user_path(@user), class: "text-green font-bold text-line-none" do
                   ジャンル
             - else
-              .content-list__link
+              .mypage-list__link
                 = link_to category_user_path(@user), class: "text-black text-line-none" do
                   ジャンル
             - if params[:controller] == "users" && params[:action] == "reread_timing" || params[:action] == "timing_knowledge" || params[:action] == "timing_motivation" || params[:action] == "timing_decision" || params[:action] == "timing_stress" || params[:action] == "timing_feel_down" || params[:action] == "timing_lost_love" || params[:action] == "timing_diversion" || params[:action] == "timing_relax"
-              .content-list__link
+              .mypage-list__link
                 = link_to reread_timing_user_path(@user), class: "text-green font-bold text-line-none" do
                   また読みたい時
             - else
-              .content-list__link
+              .mypage-list__link
                 = link_to reread_timing_user_path(@user), class: "text-black text-line-none" do
                   また読みたい時
-            .content-list__link
-              = link_to "#", class: "text-black text-line-none" do
-                評価別
-            .content-list__link
-              = link_to "#", class: "text-black text-line-none" do
-                読んでない本
-        - elsif params[:controller] == "books" && params[:action] == "show"
-          .content-title.font-bold
+        - elsif params[:controller] == "books" && params[:action] == "show" || params[:controller] == "impressions" && params[:action] == "index" || params[:controller] == "impressions" && params[:action] == "show"
+          .book-info-title.font-bold
             BOOK INFORMATION
+          .book-info-list.display-flex
+            - if params[:controller] == "books" && params[:action] == "show"
+              .book-info-list__link
+                = link_to book_path(@book), class: "text-green font-bold text-line-none" do
+                  詳細
+            - else
+              .book-info-list__link
+                = link_to book_path(@book), class: "text-black text-line-none" do
+                  詳細
+            - if params[:controller] == "impressions" && params[:action] == "index"
+              .book-info-list__link
+                = link_to book_impressions_path(@book), class: "text-green font-bold text-line-none" do
+                  感想
+            - else
+              - if @book.impressions.present?
+                .book-info-list__link
+                  = link_to book_impressions_path(@book), class: "text-black text-line-none" do
+                    感想
+              - else
+                .book-info-list__link
+                  = link_to new_book_impression_path(@book), class: "text-black text-line-none" do
+                    感想(未登録)
+            - if params[:controller] == "impressions" && params[:action] == "show"
+              .book-info-list__link
+                = link_to book_impression_path(@impression.book_id,@impression), class: "text-green font-bold text-line-none" do
+                  ノート
+            - else
+              - if @book.impressions.present?
+                .book-info-list__link
+                  = link_to book_impression_path(@book,@book.impressions.last), class: "text-black text-line-none" do
+                    ノート
+              - else
+                .book-info-list__link
+                  = link_to new_book_impression_path(@book), class: "text-black text-line-none" do
+                    ノート(未登録)
         - elsif params[:controller] == "books" && params[:action] == "new" || params[:controller] == "books" && params[:action] == "create"
           .content-title.font-bold
             本の登録

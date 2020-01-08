@@ -1,0 +1,17 @@
+= render "shared/content_header"
+.single-category.main-font
+  .single-category__main.box-center
+    .single-category__main__box
+      .single-category__main__box__title.box-center.font-bold.display-flex
+        未読の本
+        .link-btn
+          = link_to all_books_user_path, class: "mini-green-link-btn text-line-none margin-left-20" do
+            すべて
+        .link-btn
+          = link_to read_books_user_path, class: "mini-green-link-btn text-line-none" do
+            読書済み
+        .link-btn
+          = link_to will_read_books_user_path, class: "mini-orange-link-btn text-line-none" do
+            未読
+      .single-category__main__box__books
+        = render partial: "shared/book_list", locals: {books: @will_read_books}

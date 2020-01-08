@@ -20,7 +20,10 @@ class UsersController < ApplicationController
                                   :timing_feel_down,
                                   :timing_lost_love,
                                   :timing_diversion,
-                                  :timing_relax]
+                                  :timing_relax,
+                                  :all_books,
+                                  :read_books,
+                                  :will_read_books]
 
   def index
     @users = User.order("created_at DESC").limit(10)
@@ -136,6 +139,18 @@ class UsersController < ApplicationController
 
   def timing_relax
     @timing_relaxes = Impression.where(book_id:@user.books.ids).where(reread_timing:"リラックスしたい時").order("created_at DESC")
+  end
+
+  def all_books
+    @all_books = @user.books.order("created_at DESC")
+  end
+
+  def read_books
+    @read_books = @user.books.where(status:1).order("created_at DESC")
+  end
+
+  def will_read_books
+    @will_read_books = @user.books.where(status:0).order("created_at DESC")
   end
 
   private

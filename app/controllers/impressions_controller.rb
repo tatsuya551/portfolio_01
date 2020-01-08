@@ -18,7 +18,7 @@ class ImpressionsController < ApplicationController
   end
 
   def index
-    @impressions = Impression.where(book_id: @book.id)
+    @impressions = Impression.where(book_id: @book.id).order("created_at DESC")
     # 総合評価の平均点の計算
     @rating =       ((@book.impressions.rating_１点.count +
                      (@book.impressions.rating_２点.count)*2 +
@@ -59,7 +59,7 @@ class ImpressionsController < ApplicationController
   end
 
   def show
-    @impressions = Impression.where(book_id: @book.id)
+    @impressions = Impression.where(book_id: @book.id).order("created_at DESC")
     # 総合評価の値の取り出し
     if @impression.rating == "１点"
       @rating = 1
