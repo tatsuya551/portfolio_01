@@ -29,11 +29,15 @@
         .timing-btn.background-green.text-center.margin-left-20
           = link_to timing_relax_user_path(@user), class: "text-line-none text-white" do
             リラックスしたい時
-= render partial: "shared/reread_timing_list", locals: {books: @timing_knowledges}
-= render partial: "shared/reread_timing_list", locals: {books: @timing_motivations}
-= render partial: "shared/reread_timing_list", locals: {books: @timing_decisions}
-= render partial: "shared/reread_timing_list", locals: {books: @timing_stresses}
-= render partial: "shared/reread_timing_list", locals: {books: @timing_feel_downs}
-= render partial: "shared/reread_timing_list", locals: {books: @timing_lost_loves}
-= render partial: "shared/reread_timing_list", locals: {books: @timing_diversions}
-= render partial: "shared/reread_timing_list", locals: {books: @timing_relaxes}
+  - if @timing_knowledges.present? == true || @timing_motivations.present? == true || @timing_decisions.present? == true || @timing_stresses.present? == true || @timing_feel_downs.present? == true || @timing_lost_loves.present? == true || @timing_diversions.present? == true || @timing_relaxes.present? == true
+    = render partial: "shared/reread_timing_list", locals: {books: @timing_knowledges}
+    = render partial: "shared/reread_timing_list", locals: {books: @timing_motivations}
+    = render partial: "shared/reread_timing_list", locals: {books: @timing_decisions}
+    = render partial: "shared/reread_timing_list", locals: {books: @timing_stresses}
+    = render partial: "shared/reread_timing_list", locals: {books: @timing_feel_downs}
+    = render partial: "shared/reread_timing_list", locals: {books: @timing_lost_loves}
+    = render partial: "shared/reread_timing_list", locals: {books: @timing_diversions}
+    = render partial: "shared/reread_timing_list", locals: {books: @timing_relaxes}
+  - else
+    .reread-timing-top__none.box-center.text-center
+      登録された本がありません

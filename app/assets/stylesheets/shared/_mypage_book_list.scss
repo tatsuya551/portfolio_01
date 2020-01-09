@@ -1,5 +1,5 @@
 .mypage-book-list{
-  width: 85%;
+  width: 90%;
   &__main{
     margin-top: 30px;
     justify-content: center;
@@ -8,7 +8,17 @@
       margin: 10px;
       background-color: #fff;
       box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+      position: relative;
       &__content{
+        .book-category-tag{
+          @include height_width(18px, 52px);
+          line-height: 18px;
+          color: #fff;
+          position: absolute;
+          margin: 0;
+          z-index: 1;
+          font-size: 10px;
+        }
         .book-image{
           @include height_width(190px, 180px);
           background-color: rgb(247, 247, 247);

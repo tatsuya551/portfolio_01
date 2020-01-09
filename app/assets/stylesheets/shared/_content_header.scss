@@ -31,6 +31,36 @@
         font-size: 14px;
         &__link{
           margin-left: 20px;
+          &__btn{
+            cursor: pointer;
+          }
+          &__form{
+            display: none;
+            .black-screen{
+              @include screen-center (0, 0, 0, 0);
+              @include height_width(100vh, 100vw);
+              background-color: rgba(0, 0, 0, 0.6);
+              z-index: 3;
+            }
+            .form-box{
+              @include screen-center(0, 0, 0, 0);
+              @include height_width(270px, 480px);
+              background-color: rgb(255, 255, 255);
+              z-index: 3;
+              border-radius: 6px;
+            }
+            .form-btn{
+              @include screen-center(0, 0, 90px, 0);
+              @include height_width(50px, 200px);
+              z-index: 3;
+              border-radius: 25px;
+              cursor: pointer;
+            }
+            .back-btn{
+              @include screen-center(90px, 0, 0, 0);
+              z-index: 3;
+            }
+          }
         }
       }
     }

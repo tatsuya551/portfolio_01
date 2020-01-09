@@ -2,7 +2,11 @@
 .mypage-top.main-font
   .mypage-top__main.box-center
     .mypage-top__main__box
-      .user-box.display-flex.box-center
+      .user-title.text-center
+        .user-title.content-title
+          = icon 'fas', 'home', class: 'icon-home'
+          ユーザー紹介
+      .user-box.display-flex.box-center.border-top.border-bottom
         .user-box__icon.display-flex
           .user-box__icon__photo
             %img.user-photo
@@ -13,13 +17,15 @@
           %canvas#categoryChart
           :javascript
             draw_category_graph();
+          .user-books-title.text-center.text-gray
+            登録ジャンル
           .user-books-text.text-center
             登録数
           .user-books-count.text-center
-            = @user.books.count
+            = @user.books.where.not(status:2).count
       .user-book-list.text-center
         .user-book-list__title.margin-top-100
-          これから読む本
+          最近登録した本
         = render partial: "shared/mypage_book_list", locals: {books: @buy_books}
       .user-book-list.text-center
         .user-book-list__title.margin-top-100

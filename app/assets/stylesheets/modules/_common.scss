@@ -202,6 +202,15 @@
   font-size: 14px;
 }
 
+/* 緑色リンクボタン */
+.green-link-btn{
+  @include btn-set(180px, 44px);
+  display: inline-block;
+  color: #4ba53a;
+  border:1px solid #4ba53a;
+  font-size: 14px;
+}
+
 /* ミニ緑色リンクボタン */
 .mini-green-link-btn{
   @include btn-set(60px, 20px);
@@ -287,7 +296,7 @@
 
 
 /////////////////////////
-/******マージン設定関連********/
+/*****マージン設定関連*****/
 /////////////////////////
 
 /* 左40px設定 */
@@ -311,4 +320,17 @@
 }
 
 
+/////////////////////////
+/*****ライン設定関連*****/
+/////////////////////////
+
+/* 下グレーライン設定 */
+.border-bottom{
+  border-bottom: 1px solid #ccc;
+}
+
+/* 上グレーライン設定 */
+.border-top{
+  border-top: 1px solid #ccc;
+}
 

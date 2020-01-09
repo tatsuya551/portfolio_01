@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_books, only: [:show, :edit, :update, :destroy]
-  before_action :buydate_add, only: [:create, :update]
+  before_action :buydate_add, only: [:create]
 
   def new
     @book = Book.new
@@ -23,11 +23,22 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book[:buy_date] = @buy_date.to_s
-    if @book.update(book_params)
-      redirect_to user_path(@book.user_id)
+    if params[:commit] == " 編集を登録する "
+      date = params[:buy_date]
+      @buy_date = Date.new(date["buy_date(1i)"].to_i,date["buy_date(2i)"].to_i,date["buy_date(3i)"].to_i)
+      @book[:buy_date] = @buy_date.to_s
+      if @book.update(book_params)
+        redirect_to user_path(@book.user_id)
+      else
+        render 'show'
+      end
     else
-      render 'show'
+      @follow_book = Book.find(params[:id]).dup
+      @follow_book[:user_id] = current_user.id
+      @follow_book[:status] = 2
+      @follow_book[:buy_date] = params[:book][:buy_date]
+      @follow_book.save
+      redirect_to user_path(current_user.id)
     end
   end
 
