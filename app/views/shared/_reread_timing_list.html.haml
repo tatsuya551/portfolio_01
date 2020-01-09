@@ -5,34 +5,70 @@
         = books[0].reread_timing
       .reread-timing-list__main__box
         .reread-timing-list__main__box__list.display-flex
-          - if books[0].present?
+          - if books[0].book.status == 1
             = link_to book_impressions_path(books[0].book), class: "text-line-none text-gray" do
               .category-big
+                - if books[0].book.category == "小説"
+                  .category-big__book-category-tag.background-novel.text-center
+                    小説
+                - elsif books[0].book.category == "経営・戦略"
+                  .category-big__book-category-tag.background-management.text-center
+                    経営
+                - elsif books[0].book.category == "政治・経済"
+                  .category-big__book-category-tag.background-economy.text-center
+                    経済
+                - elsif books[0].book.category == "金融・ファイナンス"
+                  .category-big__book-category-tag.background-finance.text-center
+                    金融
+                - elsif books[0].book.category == "IT"
+                  .category-big__book-category-tag.background-it.text-center
+                    IT
+                - elsif books[0].book.category == "自己啓発"
+                  .category-big__book-category-tag.background-motivation.text-center
+                    自己啓発
+                - elsif books[0].book.category == "タレント本"
+                  .category-big__book-category-tag.background-talent.text-center
+                    タレント
+                - else
+                  .category-big__book-category-tag.background-etc.text-center
+                    その他
                 .category-big__photo
                   = image_tag books[0].book.image.to_s, class: "image-set"
                 .category-big__text.text-center
                   = books[0].book.title
           - else
-            = link_to book_path(books[0].book), class: "text-line-none text-gray" do
-              .category-big
-                .category-big__photo
-                  = image_tag books[0].book.image.to_s, class: "image-set"
-                .category-big__text.text-center
-                  = books[0].book.title
           .category-small.display-flex.box-list
             - books.each.with_index(0) do |book, i|
-              - if i >= 1 && i <= 4 && book.present?
+              - if i >= 1 && i <= 4 && book.book.status == 1
                 = link_to book_impressions_path(book.book), class: "text-line-none text-gray" do
                   .category-small__box
+                    - if books[0].book.category == "小説"
+                      .category-small__box__book-category-tag.background-novel.text-center
+                        小説
+                    - elsif books[0].book.category == "経営・戦略"
+                      .category-small__box__book-category-tag.background-management.text-center
+                        経営
+                    - elsif books[0].book.category == "政治・経済"
+                      .category-small__box__book-category-tag.background-economy.text-center
+                        経済
+                    - elsif books[0].book.category == "金融・ファイナンス"
+                      .category-small__box__book-category-tag.background-finance.text-center
+                        金融
+                    - elsif books[0].book.category == "IT"
+                      .category-small__box__book-category-tag.background-it.text-center
+                        IT
+                    - elsif books[0].book.category == "自己啓発"
+                      .category-small__box__book-category-tag.background-motivation.text-center
+                        自己啓発
+                    - elsif books[0].book.category == "タレント本"
+                      .category-small__box__book-category-tag.background-talent.text-center
+                        タレント
+                    - else
+                      .category-small__box__book-category-tag.background-etc.text-center
+                        その他
                     .category-small__box__photo
                       = image_tag book.book.image.to_s, class: "image-set"
                     .category-small__box__text.text-center
                       = book.book.title
-              - elsif i >= 1 && i <= 4
-                = link_to book_path(book.book), class: "text-line-none text-black" do
-                  .category-small__box
-                    .category-small__box__photo
-                      = image_tag book.book.image.to_s, class: "image-set"
-                    .category-small__box__text.text-center
-                      = book.book.title
+              - else
 - else

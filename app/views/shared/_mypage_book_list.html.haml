@@ -5,6 +5,30 @@
         - if book.status == 1
           .mypage-book-list__main__box.text-center
             = link_to book_impressions_path(book), class: "mypage-book-list__main__box__content text-line-none text-gray" do
+              - if book.category == "小説"
+                .book-category-tag.background-novel
+                  小説
+              - elsif book.category == "経営・戦略"
+                .book-category-tag.background-management
+                  経営
+              - elsif book.category == "政治・経済"
+                .book-category-tag.background-economy
+                  経済
+              - elsif book.category == "金融・ファイナンス"
+                .book-category-tag.background-finance
+                  金融
+              - elsif book.category == "IT"
+                .book-category-tag.background-it
+                  IT
+              - elsif book.category == "自己啓発"
+                .book-category-tag.background-motivation
+                  自己啓発
+              - elsif book.category == "タレント本"
+                .book-category-tag.background-talent
+                  タレント
+              - else
+                .book-category-tag.background-etc
+                  その他
               .book-image
                 = image_tag book.image.to_s, class: "image-set"
               .book-title
@@ -12,10 +36,35 @@
         - elsif book.status == 0
           .mypage-book-list__main__box.text-center
             = link_to book_path(book), class: "mypage-book-list__main__box__content text-line-none text-black" do
+              - if book.category == "小説"
+                .book-category-tag.background-novel
+                  小説
+              - elsif book.category == "経営・戦略"
+                .book-category-tag.background-management
+                  経営
+              - elsif book.category == "政治・経済"
+                .book-category-tag.background-economy
+                  経済
+              - elsif book.category == "金融・ファイナンス"
+                .book-category-tag.background-finance
+                  金融
+              - elsif book.category == "IT"
+                .book-category-tag.background-it
+                  IT
+              - elsif book.category == "自己啓発"
+                .book-category-tag.background-motivation
+                  自己啓発
+              - elsif book.category == "タレント本"
+                .book-category-tag.background-talent
+                  タレント
+              - else
+                .book-category-tag.background-etc
+                  その他
               .book-image
                 = image_tag book.image.to_s, class: "image-set"
               .book-title
                 = book.title
+        - else
   - else
     .mypage-book-list__none.text-list
-      登録がありません
+      登録された本がありません

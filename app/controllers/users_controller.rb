@@ -23,7 +23,8 @@ class UsersController < ApplicationController
                                   :timing_relax,
                                   :all_books,
                                   :read_books,
-                                  :will_read_books]
+                                  :will_read_books,
+                                  :follow_book]
 
   def index
     @users = User.order("created_at DESC").limit(10)
@@ -33,14 +34,14 @@ class UsersController < ApplicationController
     @buy_books = @user.books.where(status:0).order("created_at DESC").limit(5)
     @read_books = @user.books.where(status:1).order("created_at DESC").limit(5)
     # グラフ用の値の取り出し
-    gon.novel = @user.books.category_小説.count
-    gon.management = @user.books.category_経営・戦略.count
-    gon.economy = @user.books.category_政治・経済.count
-    gon.finance = @user.books.category_金融・ファイナンス.count
-    gon.it = @user.books.category_IT.count
-    gon.motivation = @user.books.category_自己啓発.count
-    gon.talent = @user.books.category_タレント本.count
-    gon.etc = @user.books.category_その他.count
+    gon.novel = @user.books.category_小説.where.not(status:2).count
+    gon.management = @user.books.category_経営・戦略.where.not(status:2).count
+    gon.economy = @user.books.category_政治・経済.where.not(status:2).count
+    gon.finance = @user.books.category_金融・ファイナンス.where.not(status:2).count
+    gon.it = @user.books.category_IT.where.not(status:2).count
+    gon.motivation = @user.books.category_自己啓発.where.not(status:2).count
+    gon.talent = @user.books.category_タレント本.where.not(status:2).count
+    gon.etc = @user.books.category_その他.where.not(status:2).count
   end
 
   def edit
@@ -56,46 +57,46 @@ class UsersController < ApplicationController
   end
 
   def category
-    @novels = @user.books.category_小説.order("created_at DESC").limit(5)
-    @managements = @user.books.category_経営・戦略.order("created_at DESC").limit(5)
-    @economys = @user.books.category_政治・経済.order("created_at DESC").limit(5)
-    @finances = @user.books.category_金融・ファイナンス.order("created_at DESC").limit(5)
-    @its = @user.books.category_IT.order("created_at DESC").limit(5)
-    @motivations = @user.books.category_自己啓発.order("created_at DESC").limit(5)
-    @talents = @user.books.category_タレント本.order("created_at DESC").limit(5)
-    @etcs = @user.books.category_その他.order("created_at DESC").limit(5)
+    @novels = @user.books.category_小説.where.not(status:2).order("created_at DESC").limit(5)
+    @managements = @user.books.category_経営・戦略.where.not(status:2).order("created_at DESC").limit(5)
+    @economys = @user.books.category_政治・経済.where.not(status:2).order("created_at DESC").limit(5)
+    @finances = @user.books.category_金融・ファイナンス.where.not(status:2).order("created_at DESC").limit(5)
+    @its = @user.books.category_IT.where.not(status:2).order("created_at DESC").limit(5)
+    @motivations = @user.books.category_自己啓発.where.not(status:2).order("created_at DESC").limit(5)
+    @talents = @user.books.category_タレント本.where.not(status:2).order("created_at DESC").limit(5)
+    @etcs = @user.books.category_その他.where.not(status:2).order("created_at DESC").limit(5)
   end
 
   def novel
-    @novels = @user.books.category_小説.order("created_at DESC")
+    @novels = @user.books.category_小説.where.not(status:2).order("created_at DESC")
   end
 
   def management
-    @managements = @user.books.category_経営・戦略.order("created_at DESC")
+    @managements = @user.books.category_経営・戦略.where.not(status:2).order("created_at DESC")
   end
 
   def economy
-    @economys = @user.books.category_政治・経済.order("created_at DESC")
+    @economys = @user.books.category_政治・経済.where.not(status:2).order("created_at DESC")
   end
 
   def finance
-    @finances = @user.books.category_金融・ファイナンス.order("created_at DESC")
+    @finances = @user.books.category_金融・ファイナンス.where.not(status:2).order("created_at DESC")
   end
 
   def it
-    @its = @user.books.category_IT.order("created_at DESC")
+    @its = @user.books.category_IT.where.not(status:2).order("created_at DESC")
   end
 
   def motivation
-    @motivations = @user.books.category_自己啓発.order("created_at DESC")
+    @motivations = @user.books.category_自己啓発.where.not(status:2).order("created_at DESC")
   end
 
   def talent
-    @talents = @user.books.category_タレント本.order("created_at DESC")
+    @talents = @user.books.category_タレント本.where.not(status:2).order("created_at DESC")
   end
 
   def etc
-    @etcs = @user.books.category_その他.order("created_at DESC")
+    @etcs = @user.books.category_その他.where.not(status:2).order("created_at DESC")
   end
 
   def reread_timing
@@ -151,6 +152,10 @@ class UsersController < ApplicationController
 
   def will_read_books
     @will_read_books = @user.books.where(status:0).order("created_at DESC")
+  end
+
+  def follow_book
+    @follow_books = @user.books.where(status:2).order("created_at DESC")
   end
 
   private

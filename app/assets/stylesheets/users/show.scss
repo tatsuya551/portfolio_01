@@ -1,12 +1,14 @@
 .mypage-top{
-  background-color: rgb(236, 236, 236);
   padding-bottom: 70px;
   &__main{
     width: 90%;
     &__box{
-      .user-box{
-        @include height_width(300px, 90%);
+      .user-title{
         padding-top: 50px;
+      }
+      .user-box{
+        margin-top: 30px;
+        @include height_width(300px, 90%);
         justify-content: center;
         position: relative;
         &__icon{
@@ -15,7 +17,7 @@
             margin-top: 110px;
             margin-right: 50px;
             line-height: 300px;
-            background-color: #fff;
+            background-color: rgb(201, 201, 201);
           }
           &__name{
             line-height: 300px;
@@ -25,7 +27,13 @@
         &__books{
           position: absolute;
           left: 80px;
-          top: 50px;
+          top: 60px;
+          .user-books-title{
+            position: absolute;
+            left: 90px;
+            top: -30px;
+            font-size: 14px;
+          }
           .user-books-text{
             width: 120px;
             position: absolute;

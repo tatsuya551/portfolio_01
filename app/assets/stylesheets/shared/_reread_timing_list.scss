@@ -18,6 +18,16 @@
           margin-top: 15px;
           margin-left: 40px;
           box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+          position: relative;
+          &__book-category-tag{
+            @include height_width(25px, 72px);
+            line-height: 25px;
+            color: #fff;
+            position: absolute;
+            margin: 0;
+            z-index: 1;
+            font-size: 14px;
+          }
           &__photo{
             @include height_width(330px, 330px);
             background-color: rgb(247, 247, 247);
@@ -39,6 +49,16 @@
             margin: 15px 30px;
             background-color: #fff;
             box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+            position: relative;
+            &__book-category-tag{
+              @include height_width(18px, 52px);
+              line-height: 18px;
+              color: #fff;
+              position: absolute;
+              margin: 0;
+              z-index: 1;
+              font-size: 10px;
+            }
             &__photo{
               @include height_width(150px, 150px);
               background-color: rgb(247, 247, 247);

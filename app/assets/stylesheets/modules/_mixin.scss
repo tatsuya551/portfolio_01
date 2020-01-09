@@ -59,4 +59,14 @@
   white-space: nowrap;
 }
 
+/* 画面上下左右中心設定 */
+@mixin screen-center($top, $right, $bottom, $left){
+  position: fixed;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  margin: auto;
+}
+
 

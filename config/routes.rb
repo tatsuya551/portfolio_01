@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       get 'all_books'
       get 'read_books'
       get 'will_read_books'
+      get 'follow_book'
     end
   end
   resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
