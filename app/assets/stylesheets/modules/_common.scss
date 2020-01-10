@@ -220,6 +220,26 @@
   font-size: 12px;
 }
 
+/* フォローするボタン */
+.follow-in-btn{
+  @include btn-set(80px, 30px);
+  display: inline-block;
+  color: #039be5;
+  background-color: white;
+  border:1px solid #039be5;
+  font-size: 12px;
+}
+
+/* フォロー外すボタン */
+.follow-out-btn{
+  @include btn-set(80px, 30px);
+  display: inline-block;
+  color: white;
+  background-color: #039be5;
+  border:1px solid #039be5;
+  font-size: 12px;
+}
+
 /* ミニオレンジ色リンクボタン */
 .mini-orange-link-btn{
   @include btn-set(60px, 20px);

@@ -1,9 +1,14 @@
 class Book < ApplicationRecord
   belongs_to :user
-  has_many :impressions
+  has_many :impressions, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 
+  validates :title, presence: true
+  validates :author, presence: true
+  validates :publisher, presence: true
+  validates :status, presence: true
+  validates :date, presence: true
   validates :category,
     inclusion: {in: ["小説",
                      "経営・戦略",
