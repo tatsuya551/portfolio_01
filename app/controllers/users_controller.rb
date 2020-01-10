@@ -143,7 +143,7 @@ class UsersController < ApplicationController
   end
 
   def all_books
-    @all_books = @user.books.order("created_at DESC")
+    @all_books = @user.books.where.not(status:2).order("created_at DESC")
   end
 
   def read_books

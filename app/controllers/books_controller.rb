@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_books, only: [:show, :edit, :update, :destroy]
+  before_action :set_books, only: [:show, :edit, :update, :destroy, :follow_book_show]
   before_action :buydate_add, only: [:create]
 
   def new
@@ -61,6 +61,9 @@ class BooksController < ApplicationController
       @all_books = Book.search(params[:keyword])
       @keyword = params[:keyword]
     end
+  end
+
+  def follow_book_show
   end
 
   private

@@ -37,5 +37,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    member do
+      get 'follow_book_show'
+    end
   end
 end
