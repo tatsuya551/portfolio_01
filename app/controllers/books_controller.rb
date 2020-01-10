@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    binding.pry
     params[:book][:buy_date] = @buy_date.to_s
     @book = Book.new(book_params)
     if @book.save(book_params)
@@ -37,6 +38,7 @@ class BooksController < ApplicationController
       @follow_book[:user_id] = current_user.id
       @follow_book[:status] = 2
       @follow_book[:buy_date] = params[:book][:buy_date]
+      @follow_book.image = @book.image.file
       @follow_book.save
       redirect_to user_path(current_user.id)
     end
@@ -51,8 +53,14 @@ class BooksController < ApplicationController
   end
 
   def search
-    @books = Book.search(params[:keyword]).where.not(user_id: current_user.id)
-    @keyword = params[:keyword]
+    if user_signed_in?
+      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id)
+      @user_books = current_user.books.search(params[:keyword])
+      @keyword = params[:keyword]
+    else
+      @all_books = Book.search(params[:keyword])
+      @keyword = params[:keyword]
+    end
   end
 
   private

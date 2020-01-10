@@ -1,5 +1,8 @@
 .search-book-list.box-center.main-font.box-list
-  - if books.present?
+  - if books.count == 0
+    .search-book-list__none.box-center.text-center
+      登録された本がありません
+  - else
     - books.each do |book|
       - if book.status == 1
         = link_to book_impressions_path(book), class: "search-book-list__main box-list text-line-none text-black" do
@@ -121,6 +124,3 @@
                           width: "100px", height: "100px"
             .search-book-list__main__graph__count.text-line-none.text-black.text-center
               = book.user.books.count
-  - else
-    .search-book-list__none.box-center.text-center
-      登録された本がありません

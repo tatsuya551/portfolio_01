@@ -225,6 +225,7 @@
   @include btn-set(60px, 20px);
   display: inline-block;
   background-color: #e59703;
+  border:1px solid #e59703;
   color: #fff;
   font-size: 12px;
 }
@@ -333,4 +334,3 @@
 .border-top{
   border-top: 1px solid #ccc;
 }
-

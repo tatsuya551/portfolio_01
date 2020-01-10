@@ -3,9 +3,36 @@
     width: 90%;
     padding-top: 80px;
     &__box{
+      display: none;
       &__title{
        width: 80%;
        font-size: 25px;
+       .first-set-tab{
+        margin-left: 10px;
+        margin-top: 10px;
+       }
+       .second-set-tab{
+        margin-left: 10px;
+        margin-top: 10px;
+       }
+      }
+      &__books{
+        margin-top: 60px;
+      }
+    }
+    &__box.active{
+      display: block;
+      &__title{
+       width: 80%;
+       font-size: 25px;
+       .link-btn{
+        margin-left: 10px;
+        margin-top: 10px;
+       }
+       .link-btn2{
+        margin-left: 10px;
+        margin-top: 10px;
+       }
       }
       &__books{
         margin-top: 60px;
