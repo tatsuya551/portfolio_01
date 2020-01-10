@@ -11,17 +11,42 @@
         @include height_width(300px, 90%);
         justify-content: center;
         position: relative;
-        &__icon{
-          &__photo{
-            @include height_width(90px, 90px);
-            margin-top: 110px;
-            margin-right: 50px;
-            line-height: 300px;
-            background-color: rgb(201, 201, 201);
+        &__user{
+          &__icon{
+            &__photo{
+              @include height_width(90px, 90px);
+              margin-top: 55px;
+              margin-right: 50px;
+              line-height: 300px;
+              background-color: rgb(201, 201, 201);
+            }
+            &__name{
+              line-height: 200px;
+              font-size: 24px;
+            }
           }
-          &__name{
-            line-height: 300px;
-            font-size: 24px;
+          &__follow{
+            &__followers{
+              &__title{
+                font-size: 12px;
+              }
+              &__count{
+                font-size: 18px;
+              }
+            }
+            &__followings{
+              margin-left: 10px;
+              &__title{
+                font-size: 12px;
+              }
+              &__count{
+                font-size: 18px;
+              }
+            }
+            &__btn{
+              margin-left: 20px;
+              margin-top: 10px;
+            }
           }
         }
         &__books{

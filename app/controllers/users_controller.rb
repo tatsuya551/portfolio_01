@@ -24,13 +24,17 @@ class UsersController < ApplicationController
                                   :all_books,
                                   :read_books,
                                   :will_read_books,
-                                  :follow_book]
+                                  :follow_book,
+                                  :following,
+                                  :followers]
 
   def index
     @users = User.order("created_at DESC").limit(10)
   end
 
   def show
+    @followers = @user.followers
+    @followings = @user.followings
     @buy_books = @user.books.where(status:0).order("created_at DESC").limit(5)
     @read_books = @user.books.where(status:1).order("created_at DESC").limit(5)
     # グラフ用の値の取り出し
@@ -156,6 +160,16 @@ class UsersController < ApplicationController
 
   def follow_book
     @follow_books = @user.books.where(status:2).order("created_at DESC")
+  end
+
+  def following
+    @users = @user.followings
+    render 'show_follow'
+  end
+
+  def followers
+    @users = @user.followers
+    render 'show_follower'
   end
 
   private

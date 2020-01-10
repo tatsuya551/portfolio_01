@@ -69,5 +69,16 @@ Things you may want to cover:
 - belongs_to :book
 
 
+## 4. relationships Table
+|Column|Type|Options|
+|------|----|-------|
+|book_id|bigint|null: false, foreign_key: true|
+|follower_id|integer|null: false, index: true|
+|following_id|integer|null: false, index: true|
+
+### Association
+- belongs_to :user
+
+
 
 

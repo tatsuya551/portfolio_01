@@ -30,8 +30,11 @@ Rails.application.routes.draw do
       get 'read_books'
       get 'will_read_books'
       get 'follow_book'
+      get 'following'
+      get 'followers'
     end
   end
+  resources :relationships, only: [:create, :destroy]
   resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :impressions
     collection do
