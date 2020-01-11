@@ -38,7 +38,7 @@
                 = book.title
           .search-book-list__main__user.display-flex
             .search-book-list__main__user__photo
-              %img.user-photo
+              = image_tag book.user.image.to_s, class: "user-photo user-image-set"
             .search-book-list__main__user__name.text-black
               = book.user.nickname
           .search-book-list__main__graph
@@ -98,7 +98,7 @@
                 = book.title
           .search-book-list__main__user.display-flex
             .search-book-list__main__user__photo
-              %img.user-photo
+              = image_tag book.user.image.to_s, class: "user-photo user-image-set"
             .search-book-list__main__user__name.text-black
               = book.user.nickname
           .search-book-list__main__graph
@@ -124,3 +124,4 @@
                           width: "100px", height: "100px"
             .search-book-list__main__graph__count.text-line-none.text-black.text-center
               = book.user.books.count
+    

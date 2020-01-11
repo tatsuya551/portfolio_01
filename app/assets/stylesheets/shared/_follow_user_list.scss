@@ -13,6 +13,7 @@
             @include height_width(40px, 40px);
             background-color: #eee;
             margin-top: 15px;
+            position: relative;
           }
         }
         &__name{
@@ -55,11 +56,11 @@
         font-size: 20px;
       }
     }
+    &__book-none{
+      position: absolute;
+      top:50px;
+      right: 30px;
+      font-size: 12px;
+    }
   }
-}
-.follow-user-none{
-  font-size: 24px;
-  color: gray;
-  height: 170px;
-  line-height: 170px;
 }

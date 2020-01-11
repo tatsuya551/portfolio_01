@@ -7,7 +7,6 @@ class BooksController < ApplicationController
   end
 
   def create
-    binding.pry
     params[:book][:buy_date] = @buy_date.to_s
     @book = Book.new(book_params)
     if @book.save(book_params)
@@ -54,11 +53,11 @@ class BooksController < ApplicationController
 
   def search
     if user_signed_in?
-      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id)
-      @user_books = current_user.books.search(params[:keyword])
+      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).where.not(status:2)
+      @user_books = current_user.books.search(params[:keyword]).where.not(status:2)
       @keyword = params[:keyword]
     else
-      @all_books = Book.search(params[:keyword])
+      @all_books = Book.search(params[:keyword]).where.not(status:2)
       @keyword = params[:keyword]
     end
   end

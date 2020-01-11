@@ -2,28 +2,28 @@
   .category-list.main-font
     .category-list__main.box-center
       - if books[0].category == "小説"
-        .category-list__main__title.text-center.background-novel
+        .category-list__main__title.text-center.text-novel.border-novel.font-bold
           = books[0].category
       - elsif books[0].category == "経営・戦略"
-        .category-list__main__title.text-center.background-management
+        .category-list__main__title.text-center.text-management.border-management.font-bold
           = books[0].category
       - elsif books[0].category == "政治・経済"
-        .category-list__main__title.text-center.background-economy
+        .category-list__main__title.text-center.text-economy.border-economy.font-bold
           = books[0].category
       - elsif books[0].category == "金融・ファイナンス"
-        .category-list__main__title.text-center.background-finance
+        .category-list__main__title.text-center.text-finance.border-finance.font-bold
           = books[0].category
       - elsif books[0].category == "IT"
-        .category-list__main__title.text-center.background-it
+        .category-list__main__title.text-center.text-it.border-it.font-bold
           = books[0].category
       - elsif books[0].category == "自己啓発"
-        .category-list__main__title.text-center.background-motivation
+        .category-list__main__title.text-center.text-motivation.border-motivation.font-bold
           = books[0].category
       - elsif books[0].category == "タレント本"
-        .category-list__main__title.text-center.background-talent
+        .category-list__main__title.text-center.text-talent.border-talent.font-bold
           = books[0].category
       - else
-        .category-list__main__title.text-center.background-etc
+        .category-list__main__title.text-center.text-etc.border-etc.font-bold
           = books[0].category
       .category-list__main__box
         .category-list__main__box__list.display-flex

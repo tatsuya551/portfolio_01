@@ -37,6 +37,46 @@
   text-align: center;
 }
 
+/* 小説色設定 */
+.text-novel{
+  color: $novel_color;
+}
+
+/* 経営戦略色設定 */
+.text-management{
+  color: $management_color;
+}
+
+/* 政治経済色設定 */
+.text-economy{
+  color: $economy_color;
+}
+
+/* ファイナンス色設定 */
+.text-finance{
+  color: $finance_color;
+}
+
+/* IT色設定 */
+.text-it{
+  color: $it_color;
+}
+
+/* 自己啓発色設定 */
+.text-motivation{
+  color: $motivation_color;
+}
+
+/* タレント本色設定 */
+.text-talent{
+  color: $talent_color;
+}
+
+/* その他色設定 */
+.text-etc{
+  color: $etc_color;
+}
+
 
 /////////////////////////
 /******フォント関連*******/
@@ -80,6 +120,20 @@
   width: auto;
   max-width: 80%;
   max-height: 80%;
+  margin: auto;
+}
+
+/* ユーザーイメージのセット */
+.user-image-set{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+  max-width: 90%;
+  max-height: 90%;
   margin: auto;
 }
 
@@ -267,42 +321,66 @@
 
 /* 小説色設定 */
 .background-novel{
-  background-color:rgba(209, 46, 31, 0.6);
+  background-color: $novel_color;
+}
+.border-novel{
+  border:2px solid $novel_color;
 }
 
 /* 経営戦略色設定 */
 .background-management{
-  background-color:rgba(246, 202, 6, 0.7);
+  background-color: $management_color;
+}
+.border-management{
+  border:2px solid $management_color;
 }
 
 /* 政治経済色設定 */
 .background-economy{
-  background-color:rgba(187, 212, 26, 0.7);
+  background-color: $economy_color;
+}
+.border-economy{
+  border:2px solid $economy_color;
 }
 
 /* ファイナンス色設定 */
 .background-finance{
-  background-color:rgba(0, 146, 80, 0.7);
+  background-color: $finance_color;
+}
+.border-finance{
+  border:2px solid $finance_color;
 }
 
 /* IT色設定 */
 .background-it{
-  background-color:rgba(0, 131, 174, 0.7)
+  background-color: $it_color;
+}
+.border-it{
+  border:2px solid $it_color;
 }
 
 /* 自己啓発色設定 */
 .background-motivation{
-  background-color:rgba(50, 97, 171, 0.7);
+  background-color: $motivation_color;
+}
+.border-motivation{
+  border:2px solid $motivation_color;
 }
 
 /* タレント本色設定 */
 .background-talent{
-  background-color:rgba(143, 51, 150, 0.7);
+  background-color: $talent_color;
+}
+.border-talent{
+  border:2px solid $talent_color;
 }
 
 /* その他色設定 */
 .background-etc{
-  background-color:rgba(182, 25, 114, 0.6);
+  background-color: $etc_color;
+}
+.border-etc{
+  border:2px solid $etc_color;
 }
 
 /* オレンジ色設定 */
