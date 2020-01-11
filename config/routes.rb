@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :signup, only: [:new, :create] do
     collection do
       get 'logout'
+      get 'start_app'
     end
   end
   resources :users, only: [:index, :show, :edit, :update] do

@@ -1,0 +1,10 @@
+.start-app.main-font
+  .start-app__main.box-center
+    = render "shared/content_top"
+    .btn-box
+      .btn-box__user-new
+        = link_to new_signup_path, class:"black-link-btn text-line-none" do
+          新規会員登録
+      .btn-box__user-login
+        = link_to new_user_session_path, class:"white-link-btn text-line-none font-bold" do
+          ログイン

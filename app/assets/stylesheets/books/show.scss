@@ -3,14 +3,8 @@
   width: 50%;
   &__main{
     margin-top: 60px;
-    .content-top{
-      &__book-edit{
-        margin-left: 15px;
-        line-height: 44px;
-      }
-    }
     &__box{
-      margin-top: 20px;
+      margin-top: 40px;
       display: flex;
       &__photo{
         @include height_width(230px, 230px);
@@ -38,12 +32,6 @@
     }
     .btn-box{
       margin-top: 85px;
-      margin-left: 110px;
-      display: flex;
-      float: left;
-      &__back{
-        margin-left: 40px;
-      }
     }
   }
 }

@@ -23,6 +23,9 @@ class SignupController < ApplicationController
   def logout
   end
 
+  def start_app
+  end
+
   private
   def user_params
     params.require(:user).permit(:nickname, :email, :password, :birth_day)

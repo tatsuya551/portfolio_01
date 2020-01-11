@@ -78,41 +78,53 @@
               - elsif @book.status == 0
                 .book-info-list__link
                   = link_to new_book_impression_path(@book), class: "text-black text-line-none" do
-                    感想(未登録)
+                    感想の登録
               - else
             - if params[:controller] == "impressions" && params[:action] == "show"
               .book-info-list__link
                 = link_to book_impression_path(@impression.book_id,@impression), class: "text-green font-bold text-line-none" do
                   ノート
             - else
-              - if @book.status == 1
+              - if @book.status == 1 && user_signed_in?
                 .book-info-list__link
                   = link_to book_impression_path(@book,@book.impressions.last), class: "text-black text-line-none" do
                     ノート
-              - elsif @book.status == 0
-                .book-info-list__link
-                  = link_to new_book_impression_path(@book), class: "text-black text-line-none" do
-                    ノート(未登録)
               - else
-            .book-info-list__link
-              = link_to user_path(@book.user_id), class: "text-black text-line-none" do
-                本のユーザー情報
-            .book-info-list__link
-              .book-info-list__link__btn
-                読みたいリストにいれる
-              .book-info-list__link__form
-                .black-screen
-                .form-box
-                = form_with(model: @book, local: true) do |f|
-                  = f.file_field :image, type:"hidden"
-                  = f.text_field :title, type:"hidden"
-                  = f.text_field :author, type:"hidden"
-                  = f.text_field :publisher, type:"hidden"
-                  = f.text_field :category, type:"hidden"
-                  = f.text_field :buy_date, value: Date.today, type:"hidden"
-                  = f.submit " リストに登録する ", class: "form-btn text-white background-green"
-                .back-btn.green-link-btn
-                  戻る
+                .book-info-list__link
+                  = link_to start_app_signup_index_path, class: "text-black text-line-none" do
+                    ノート
+            - if user_signed_in?
+              .book-info-list__link
+                .book-info-list__link__btn
+                  読みたいリストにいれる
+                .book-info-list__link__form
+                  .black-screen
+                  .form-box
+                  = form_with(model: @book, local: true) do |f|
+                    = f.file_field :image, type:"hidden"
+                    = f.text_field :title, type:"hidden"
+                    = f.text_field :author, type:"hidden"
+                    = f.text_field :publisher, type:"hidden"
+                    = f.text_field :category, type:"hidden"
+                    = f.text_field :buy_date, value: Date.today, type:"hidden"
+                    = f.submit " リストに登録する ", class: "form-btn text-white background-green"
+                  .back-btn.green-link-btn
+                    戻る
+            - else
+          - if user_signed_in?
+            .user-link.display-flex
+              .user-link__icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to user_path(@book.user_id), class: "text-black text-orange text-line-none" do
+                  = @book.user.nickname
+          - else
+            .user-link.display-flex
+              .user-link__icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @book.user.nickname
         - elsif params[:controller] == "users" && params[:action] == "followings" || params[:controller] == "users" && params[:action] == "followers"
           .follow-info-title.font-bold
             USER FOLLOW

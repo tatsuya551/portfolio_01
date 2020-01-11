@@ -44,12 +44,10 @@
             = @rating
           .rating-point__sub
             点
-    .btn-box
-      .btn-box__book-raiting
-        = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
-          新しい感想を登録する
-    = render "shared/impression_list"
-    .btn-box
-      .btn-box__back
-        = link_to user_path(@book.user_id), class: "gray-btn text-line-none" do
-          もどる
+    - if user_signed_in? && current_user == @book.user
+      .btn-box
+        .btn-box__book-raiting
+          = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
+            新しい感想を登録する
+      = render "shared/impression_list"
+    - else
