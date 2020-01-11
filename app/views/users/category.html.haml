@@ -29,12 +29,15 @@
         .category-btn.background-etc.text-center.margin-left-20
           = link_to etc_user_path(@user), class: "text-line-none text-black" do
             その他
-= render partial: "shared/category_list", locals: {books: @novels}
-= render partial: "shared/category_list", locals: {books: @managements}
-= render partial: "shared/category_list", locals: {books: @economys}
-= render partial: "shared/category_list", locals: {books: @finances}
-= render partial: "shared/category_list", locals: {books: @finances}
-= render partial: "shared/category_list", locals: {books: @its}
-= render partial: "shared/category_list", locals: {books: @motivations}
-= render partial: "shared/category_list", locals: {books: @talents}
-= render partial: "shared/category_list", locals: {books: @etcs}
+  - if @novels.present? == true || @managements.present? == true || @economys.present? == true || @finances.present? == true || @its.present? == true || @motivations.present? == true || @talents.present? == true || @etcs.present? == true
+    = render partial: "shared/category_list", locals: {books: @novels}
+    = render partial: "shared/category_list", locals: {books: @managements}
+    = render partial: "shared/category_list", locals: {books: @economys}
+    = render partial: "shared/category_list", locals: {books: @finances}
+    = render partial: "shared/category_list", locals: {books: @its}
+    = render partial: "shared/category_list", locals: {books: @motivations}
+    = render partial: "shared/category_list", locals: {books: @talents}
+    = render partial: "shared/category_list", locals: {books: @etcs}
+  - else
+    .category-top__none.box-center.text-center
+      登録された本がありません

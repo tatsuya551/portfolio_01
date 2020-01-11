@@ -38,12 +38,11 @@
     &__user{
       margin-left: 20px;
       &__photo{
-        .user-photo{
-          @include height_width(50px, 50px);
-          line-height: 120px;
-          background-color: #eee;
-          margin-top: 75px;
-        }
+        @include height_width(50px, 50px);
+        line-height: 120px;
+        background-color: #eee;
+        margin-top: 75px;
+        position: relative;
       }
       &__name{
         @include height_width(200px, 120px);

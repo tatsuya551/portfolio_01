@@ -14,11 +14,12 @@
         &__user{
           &__icon{
             &__photo{
-              @include height_width(90px, 90px);
+              @include height_width(92px, 92px);
               margin-top: 55px;
               margin-right: 50px;
               line-height: 300px;
               background-color: rgb(201, 201, 201);
+              position: relative;
             }
             &__name{
               line-height: 200px;
@@ -74,6 +75,11 @@
             top: 78px;
             font-size: 40px;
           }
+        }
+        &__book-none{
+          line-height: 300px;
+          font-size: 24px;
+          margin-left: 250px;
         }
       }
       .user-book-list{

@@ -1,24 +1,28 @@
 - users.each do |user|
-  - if user.books.present?
-    = link_to user_path(user), class: "follow-list text-line-none text-black" do
-      .follow-list__box.display-flex
-        .follow-list__box__left
-          .follow-list__box__left__user.display-flex
+  = link_to user_path(user), class: "follow-list text-line-none text-black" do
+    .follow-list__box.display-flex
+      .follow-list__box__left
+        .follow-list__box__left__user.display-flex
+          - if user.image.to_s.present?
+            .follow-list__box__left__user__photo
+              = image_tag user.image.to_s, class: "user-photo user-image-set"
+          - else
             .follow-list__box__left__user__photo
               %img.user-photo
-            .follow-list__box__left__user__name.text-black
-              = user.nickname
-          .follow-list__box__left__follow.display-flex
-            .follow-list__box__left__follow__content.display-flex
-              .follow-list__box__left__follow__content__title
-                フォロー
-              .follow-list__box__left__follow__content__count
-                = user.followings.count
-            .follow-list__box__left__follow__content.display-flex
-              .follow-list__box__left__follow__content__title
-                フォロワー
-              .follow-list__box__left__follow__content__count
-                = user.followers.count
+          .follow-list__box__left__user__name.text-black
+            = user.nickname
+        .follow-list__box__left__follow.display-flex
+          .follow-list__box__left__follow__content.display-flex
+            .follow-list__box__left__follow__content__title
+              フォロー
+            .follow-list__box__left__follow__content__count
+              = user.followings.count
+          .follow-list__box__left__follow__content.display-flex
+            .follow-list__box__left__follow__content__title
+              フォロワー
+            .follow-list__box__left__follow__content__count
+              = user.followers.count
+      - if user.books.present?
         .follow-list__box__graph
           .follow-list__box__graph__category
             = pie_chart [['小説', user.books.category_小説.count], 
@@ -42,6 +46,6 @@
                         width: "100px", height: "100px"
           .follow-list__box__graph__count.text-line-none.text-black.text-center
             = user.books.count
-  - else
-    .follow-user-none.text-center
-      登録された本がありません
+      - else
+        .follow-list__box__book-none
+          登録がありません

@@ -8,7 +8,7 @@ class Book < ApplicationRecord
   validates :author, presence: true
   validates :publisher, presence: true
   validates :status, presence: true
-  validates :date, presence: true
+  validates :buy_date, presence: true
   validates :category,
     inclusion: {in: ["小説",
                      "経営・戦略",
