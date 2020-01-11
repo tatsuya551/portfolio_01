@@ -105,9 +105,26 @@
                   = f.submit " リストに登録する ", class: "form-btn text-white background-green"
                 .back-btn.green-link-btn
                   戻る
-        - elsif params[:controller] == "books" && params[:action] == "new" || params[:controller] == "books" && params[:action] == "create"
-          .content-title.font-bold
-            本の登録
+        - elsif params[:controller] == "users" && params[:action] == "followings" || params[:controller] == "users" && params[:action] == "followers"
+          .follow-info-title.font-bold
+            USER FOLLOW
+          .follow-info-list.display-flex
+            - if params[:controller] == "users" && params[:action] == "followings"
+              .follow-info-list__link
+                = link_to followings_user_path(@user), class: "text-green font-bold text-line-none" do
+                  フォロー
+            - else
+              .follow-info-list__link
+                = link_to followings_user_path(@user), class: "text-black text-line-none" do
+                  フォロー
+            - if params[:controller] == "users" && params[:action] == "followers"
+              .follow-info-list__link
+                = link_to user_path(@user), class: "text-green font-bold text-line-none" do
+                  フォロワー
+            - else params[:controller] == "users" && params[:action] == "followers"
+              .follow-info-list__link
+                = link_to user_path(@user), class: "text-black text-line-none" do
+                  フォロワー
         - else 
           .content-title.font-bold
             title

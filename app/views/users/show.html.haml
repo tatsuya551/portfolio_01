@@ -15,20 +15,36 @@
               = link_to edit_user_path, class: "text-line-none text-black" do
                 = @user.nickname
           .user-box__user__follow.display-flex
-            .user-box__user__follow__followers
-              = link_to "#",class: "text-black text-line-none" do
-                .user-box__user__follow__followers__title.text-center.text-gray
-                  フォロワー
-                .user-box__user__follow__followers__count.text-center
-                  = @followers.count
-            .user-box__user__follow__followings
-              = link_to "#",class:"text-black text-line-none" do
-                .user-box__user__follow__followings__title.text-center.text-gray
-                  フォロー
-                .user-box__user__follow__followings__count.text-center
-                  = @followings.count
-            .user-box__user__follow__btn
-              = render "shared/follow_btn"
+            - if current_user == @user
+              .user-box__user__follow__followers
+                = link_to followings_user_path(@user),class: "text-black text-line-none" do
+                  .user-box__user__follow__followers__title.text-center.text-gray
+                    フォロー
+                  .user-box__user__follow__followers__count.text-center
+                    = @followings.count
+              .user-box__user__follow__followings
+                = link_to followers_user_path(@user),class:"text-black text-line-none" do
+                  .user-box__user__follow__followings__title.text-center.text-gray
+                    フォロワー
+                  .user-box__user__follow__followings__count.text-center
+                    = @followers.count
+              .user-box__user__follow__btn
+                = render "shared/follow_btn"
+            - else
+              .user-box__user__follow__followers
+                = link_to followers_user_path(@user),class: "text-black text-line-none" do
+                  .user-box__user__follow__followers__title.text-center.text-gray
+                    フォロワー
+                  .user-box__user__follow__followers__count.text-center
+                    = @followers.count
+              .user-box__user__follow__followings
+                = link_to followings_user_path(@user),class:"text-black text-line-none" do
+                  .user-box__user__follow__followings__title.text-center.text-gray
+                    フォロー
+                  .user-box__user__follow__followings__count.text-center
+                    = @followings.count
+              .user-box__user__follow__btn
+                = render "shared/follow_btn"
         .user-box__books{style: "position: relative; height:50vh;width:30vw"}
           %canvas#categoryChart
           :javascript

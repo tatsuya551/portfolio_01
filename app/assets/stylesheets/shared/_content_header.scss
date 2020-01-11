@@ -63,6 +63,20 @@
           }
         }
       }
+      .follow-info-title{
+        position: absolute;
+        bottom: 6px;
+        font-size: 22px;
+      }
+      .follow-info-list{
+        position: absolute;
+        left: 440px;
+        bottom: 10px;
+        font-size: 14px;
+        &__link{
+          margin-left: 20px;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,65 @@
+.follow-list{
+  @include height_width(120px, 380px);
+  box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+  display: space-between;
+  position: relative;
+  margin: 20px 20px 0 20px;
+  &__box{
+    margin-left: 20px;
+    &__left{
+      &__user{
+        &__photo{
+          .user-photo{
+            @include height_width(40px, 40px);
+            background-color: #eee;
+            margin-top: 15px;
+          }
+        }
+        &__name{
+          @include height_width(60px, 180px);
+          font-size: 18px;
+          margin-left: 20px;
+          line-height: 70px;
+        }
+      }
+      &__follow{
+        margin-top: 10px;
+        &__content{
+          @include height_width(30px, 110px);
+          &__title{
+            font-size: 12px;
+            line-height: 30px;
+          }
+          &__count{
+            margin-left: 15px;
+            font-size: 20px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+    &__graph{
+      &__category{
+        .chartjs-render-monitor{
+          position: absolute;
+          top:10px;
+          right: 20px;
+          z-index: 1;
+        }
+      }
+      &__count{
+        position: absolute;
+        top:45px;
+        right: 50px;
+        width: 40px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+.follow-user-none{
+  font-size: 24px;
+  color: gray;
+  height: 170px;
+  line-height: 170px;
+}
