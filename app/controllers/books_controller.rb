@@ -39,7 +39,7 @@ class BooksController < ApplicationController
       @follow_book[:buy_date] = params[:book][:buy_date]
       @follow_book.image = @book.image.file
       @follow_book.save
-      redirect_to user_path(current_user.id)
+      redirect_to follow_book_user_path(current_user.id)
     end
   end
 
@@ -63,6 +63,7 @@ class BooksController < ApplicationController
   end
 
   def follow_book_show
+    @user = @book.user
   end
 
   private

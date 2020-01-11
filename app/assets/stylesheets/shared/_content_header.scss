@@ -12,7 +12,7 @@
       }
       .mypage-list{
         position: absolute;
-        left: 370px;
+        left: 365px;
         bottom: 10px;
         font-size: 14px;
         &__link{
@@ -64,16 +64,40 @@
         }
       }
       .user-link{
-        &__icon{
+        &__nickname-icon{
           position: absolute;
-          left: 875px;
-          bottom: 10px;
+          left: 955px;
+          bottom: 35px;
         }
         &__nickname{
           position: absolute;
-          left: 900px;
-          bottom: 6px;
+          left: 980px;
+          bottom: 30px;
           font-size: 24px;
+        }
+        &__followings-icon{
+          position: absolute;
+          left: 955px;
+          bottom: 7px;
+          font-size: 14px;
+        }
+        &__followings{
+          position: absolute;
+          left: 995px;
+          bottom: 6px;
+          font-size: 16px;
+        }
+        &__followers-icon{
+          position: absolute;
+          left: 1035px;
+          bottom: 7px;
+          font-size: 14px;
+        }
+        &__followers{
+          position: absolute;
+          left: 1075px;
+          bottom: 6px;
+          font-size: 16px;
         }
       }
       .follow-info-title{

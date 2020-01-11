@@ -1,3 +1,4 @@
+= render "shared/content_header"
 .follow-book-show.main-font.box-center
   .follow-book-show__main
     = render "shared/content_top"
@@ -31,10 +32,9 @@
             登録日
           .book-detail__content
             = @book.buy_date
-    .btn-box
-      .btn-box__book-raiting
-        = link_to book_path(@book), method: :delete, class:"black-link-btn text-line-none" do
-          登録を削除する
-      .btn-box__back
-        = link_to user_path(@book.user_id), class: "gray-btn margin-left-40 text-line-none" do
-          もどる
+    - if current_user == @user
+      .btn-box
+        .btn-box__book-raiting.text-center
+          = link_to book_path(@book), method: :delete, class:"black-link-btn text-line-none" do
+            登録を削除する
+    - else
