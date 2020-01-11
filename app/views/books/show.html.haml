@@ -32,10 +32,9 @@
             購入日
           .book-detail__content
             = @book.buy_date
-    .btn-box
-      .btn-box__book-raiting
-        = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
-          感想を登録する
-      .btn-box__back
-        = link_to user_path(@book.user_id), class: "gray-btn margin-left-40 text-line-none" do
-          もどる
+    - if user_signed_in? && current_user == @book.user
+      .btn-box.box-center
+        .btn-box__book-raiting.text-center
+          = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
+            感想を登録する
+    - else

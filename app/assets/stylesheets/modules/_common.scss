@@ -229,7 +229,7 @@
   font-size: 14px;
 }
 
-/* 白色リンクボタン */
+/* 白色ボタン */
 .white-btn{
   @include btn-set(100px, 44px);
   display: inline-block;
@@ -253,6 +253,15 @@
   display: inline-block;
   color: #fff;
   background-color: #333333;
+  font-size: 14px;
+}
+
+/* 白色リンクボタン */
+.white-link-btn{
+  @include btn-set(180px, 44px);
+  display: inline-block;
+  color: #333333;
+  border:1px solid #333333;
   font-size: 14px;
 }
 

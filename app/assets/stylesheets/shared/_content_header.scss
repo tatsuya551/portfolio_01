@@ -63,6 +63,19 @@
           }
         }
       }
+      .user-link{
+        &__icon{
+          position: absolute;
+          left: 875px;
+          bottom: 10px;
+        }
+        &__nickname{
+          position: absolute;
+          left: 900px;
+          bottom: 6px;
+          font-size: 24px;
+        }
+      }
       .follow-info-title{
         position: absolute;
         bottom: 6px;
