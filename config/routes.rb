@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       get 'read_books'
       get 'will_read_books'
       get 'follow_book'
-      get 'following'
+      get 'followings'
       get 'followers'
     end
   end

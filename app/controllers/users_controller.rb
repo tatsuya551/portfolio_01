@@ -25,7 +25,7 @@ class UsersController < ApplicationController
                                   :read_books,
                                   :will_read_books,
                                   :follow_book,
-                                  :following,
+                                  :followings,
                                   :followers]
 
   def index
@@ -162,14 +162,12 @@ class UsersController < ApplicationController
     @follow_books = @user.books.where(status:2).order("created_at DESC")
   end
 
-  def following
+  def followings
     @users = @user.followings
-    render 'show_follow'
   end
 
   def followers
     @users = @user.followers
-    render 'show_follower'
   end
 
   private

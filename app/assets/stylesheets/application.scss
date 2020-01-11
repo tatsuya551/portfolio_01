@@ -16,6 +16,7 @@
 @import "shared/reread_timing_list";
 @import "shared/impression_list";
 @import "shared/search_book_list";
+@import "shared/follow_user_list";
 @import "shared/footer";
 
 @import "home/index";
@@ -30,6 +31,7 @@
 @import "users/category";
 @import "users/single_category";
 @import "users/reread_timing";
+@import "users/followings";
 
 @import "books/new";
 @import "books/show";
