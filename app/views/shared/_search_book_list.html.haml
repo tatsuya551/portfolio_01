@@ -63,7 +63,7 @@
                           legend: false,
                           width: "100px", height: "100px"
             .search-book-list__main__graph__count.text-line-none.text-black.text-center
-              = book.user.books.count
+              = book.user.books.where.not(status:2).count
       - elsif book.status == 0
         = link_to book_path(book), class: "search-book-list__main box-list text-line-none text-black" do
           .search-book-list__main__book.text-center

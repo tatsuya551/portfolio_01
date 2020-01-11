@@ -2,7 +2,7 @@
   .content-headdr__main
     .content-headdr__main__box.box-center
       .content-headdr__main__box__list.display-flex
-        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc" || params[:action] == "reread_timing" || params[:action] == "timing_knowledge" || params[:action] == "timing_motivation" || params[:action] == "timing_decision" || params[:action] == "timing_stress" || params[:action] == "timing_feel_down" || params[:action] == "timing_lost_love" || params[:action] == "timing_diversion" || params[:action] == "timing_relax" || params[:action] == "all_books" || params[:action] == "read_books" || params[:action] == "will_read_books" || params[:action] == "follow_book" || params[:controller] == "users" && params[:action] == "edit" || params[:controller] == "users" && params[:action] == "update"
+        - if params[:controller] == "users" && params[:action] == "show" || params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc" || params[:action] == "reread_timing" || params[:action] == "timing_knowledge" || params[:action] == "timing_motivation" || params[:action] == "timing_decision" || params[:action] == "timing_stress" || params[:action] == "timing_feel_down" || params[:action] == "timing_lost_love" || params[:action] == "timing_diversion" || params[:action] == "timing_relax" || params[:action] == "all_books" || params[:action] == "read_books" || params[:action] == "will_read_books" || params[:action] == "follow_book" || params[:controller] == "users" && params[:action] == "edit" || params[:controller] == "users" && params[:action] == "update" || params[:controller] == "books" && params[:action] == "follow_book_show"
           .mypage-title.font-bold
             MYPAGE
           .mypage-list.display-flex
@@ -19,9 +19,11 @@
                 = link_to edit_user_path, class: "text-green font-bold text-line-none" do
                   編集
             - else
-              .mypage-list__link
-                = link_to edit_user_path, class: "text-black text-line-none" do
-                  編集
+              - if current_user == @user
+                .mypage-list__link
+                  = link_to edit_user_path, class: "text-black text-line-none" do
+                    編集
+              - else
             - if params[:action] == "all_books" || params[:action] == "read_books" || params[:action] == "will_read_books"
               .mypage-list__link
                 = link_to all_books_user_path(@user), class: "text-green font-bold text-line-none" do
@@ -46,7 +48,7 @@
               .mypage-list__link
                 = link_to reread_timing_user_path(@user), class: "text-black text-line-none" do
                   また読みたい時
-            - if params[:controller] == "users" && params[:action] == "follow_book"
+            - if params[:controller] == "users" && params[:action] == "follow_book" || params[:controller] == "books" && params[:action] == "follow_book_show"
               .mypage-list__link
                 = link_to follow_book_user_path(@user), class: "text-green font-bold text-line-none" do
                   読みたいリスト
@@ -54,6 +56,40 @@
               .mypage-list__link
                 = link_to follow_book_user_path(@user), class: "text-black text-line-none" do
                   読みたいリスト
+          - if user_signed_in?
+            .user-link.display-flex
+              .user-link__nickname-icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to user_path(@user), class: "text-black text-orange text-line-none" do
+                  = @user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to followings_user_path(@user), class: "text-black text-orange text-line-none" do
+                  = @user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to followers_user_path(@user), class: "text-black text-orange text-line-none" do
+                  = @user.followers.count
+          - else
+            .user-link.display-flex
+              .user-link__nickname-icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @user.followers.count
         - elsif params[:controller] == "books" && params[:action] == "show" || params[:controller] == "impressions" && params[:action] == "index" || params[:controller] == "impressions" && params[:action] == "show"
           .book-info-title.font-bold
             BOOK INFORMATION
@@ -75,7 +111,7 @@
                 .book-info-list__link
                   = link_to book_impressions_path(@book), class: "text-black text-line-none" do
                     感想
-              - elsif @book.status == 0
+              - elsif @book.status == 0 && current_user == @book.user
                 .book-info-list__link
                   = link_to new_book_impression_path(@book), class: "text-black text-line-none" do
                     感想の登録
@@ -90,41 +126,58 @@
                   = link_to book_impression_path(@book,@book.impressions.last), class: "text-black text-line-none" do
                     ノート
               - else
-                .book-info-list__link
-                  = link_to start_app_signup_index_path, class: "text-black text-line-none" do
-                    ノート
-            - if user_signed_in?
+            - if user_signed_in? && current_user != @book.user
               .book-info-list__link
                 .book-info-list__link__btn
                   読みたいリストにいれる
                 .book-info-list__link__form
                   .black-screen
                   .form-box
-                  = form_with(model: @book, local: true) do |f|
-                    = f.file_field :image, type:"hidden"
-                    = f.text_field :title, type:"hidden"
-                    = f.text_field :author, type:"hidden"
-                    = f.text_field :publisher, type:"hidden"
-                    = f.text_field :category, type:"hidden"
-                    = f.text_field :buy_date, value: Date.today, type:"hidden"
-                    = f.submit " リストに登録する ", class: "form-btn text-white background-green"
+                    = form_with(model: @book, local: true) do |f|
+                      = f.file_field :image, type:"hidden"
+                      = f.text_field :title, type:"hidden"
+                      = f.text_field :author, type:"hidden"
+                      = f.text_field :publisher, type:"hidden"
+                      = f.text_field :category, type:"hidden"
+                      = f.text_field :buy_date, value: Date.today, type:"hidden"
+                      = f.submit " リストに登録する ", class: "form-btn text-white background-green"
                   .back-btn.green-link-btn
                     戻る
             - else
           - if user_signed_in?
             .user-link.display-flex
-              .user-link__icon.text-orange
+              .user-link__nickname-icon.text-orange
                 = icon 'fas', 'user', class: 'icon-user-link'
               .user-link__nickname
-                = link_to user_path(@book.user_id), class: "text-black text-orange text-line-none" do
+                = link_to user_path(@book.user), class: "text-black text-orange text-line-none" do
                   = @book.user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to followings_user_path(@book.user), class: "text-black text-orange text-line-none" do
+                  = @book.user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to followers_user_path(@book.user), class: "text-black text-orange text-line-none" do
+                  = @book.user.followers.count
           - else
             .user-link.display-flex
-              .user-link__icon.text-orange
+              .user-link__nickname-icon.text-orange
                 = icon 'fas', 'user', class: 'icon-user-link'
               .user-link__nickname
                 = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
                   = @book.user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @book.user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @book.user.followers.count
         - elsif params[:controller] == "users" && params[:action] == "followings" || params[:controller] == "users" && params[:action] == "followers"
           .follow-info-title.font-bold
             USER FOLLOW
@@ -145,6 +198,40 @@
               .follow-info-list__link
                 = link_to followers_user_path(@user), class: "text-black text-line-none" do
                   フォロワー
+          - if user_signed_in?
+            .user-link.display-flex
+              .user-link__nickname-icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to user_path(@user), class: "text-black text-orange text-line-none" do
+                  = @user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to followings_user_path(@user), class: "text-black text-orange text-line-none" do
+                  = @user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to followers_user_path(@user), class: "text-black text-orange text-line-none" do
+                  = @user.followers.count
+          - else
+            .user-link.display-flex
+              .user-link__nickname-icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none" do
+                  = @user.followers.count
         - else 
           .content-title.font-bold
             title
