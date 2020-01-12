@@ -45,7 +45,7 @@
                         legend: false,
                         width: "100px", height: "100px"
           .follow-list__box__graph__count.text-line-none.text-black.text-center
-            = user.books.count
+            = user.books.where.not(status:2).count
       - else
         .follow-list__box__book-none
           登録がありません

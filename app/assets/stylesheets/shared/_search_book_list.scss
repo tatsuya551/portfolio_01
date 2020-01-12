@@ -2,12 +2,12 @@
   width: 90%;
   margin-top: 30px;
   &__main{
-    margin: 15px 10px;
+    margin: 25px 20px;
     justify-content: space-between;
     box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
     &__book{
       @include height_width(190px, 150px);
-      margin: 10px;
+      margin: 15px;
       background-color: rgb(247, 247, 247);
       &__box{
         position: relative;
@@ -17,8 +17,27 @@
           color: #fff;
           position: absolute;
           margin: 0;
-          z-index: 1;
+          z-index: 2;
           font-size: 10px;
+        }
+        .book-status{
+          position: absolute;
+          right: 0;
+          z-index: 2;
+          @include already-read-tag(30px);
+          &__title{
+            position: absolute;
+            top: -16px;
+            left: -10px;
+            width: 40px;
+            @include already-read-title(12px);
+          }
+        }
+        .book-shadow{
+          @include height_width(190px, 150px);
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.2);
+          z-index: 1;
         }
         .book-image{
           @include height_width(140px, 150px);

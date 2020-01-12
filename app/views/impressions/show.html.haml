@@ -5,7 +5,11 @@
     .impression-show__main__title
       .impression-show__main__title__box
         .impression-show__main__title__box__book-title
-          = @book.title
+          .book-title
+            .book-title__top.text-gray
+              タイトル
+            .book-title__title
+              = @book.title
         .impression-show__main__title__box__note.display-flex.box-center
           .note-title
             .note-title__top

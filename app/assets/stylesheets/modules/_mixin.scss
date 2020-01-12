@@ -69,4 +69,19 @@
   margin: auto;
 }
 
+/* 読書済タグの背景設定 */
+@mixin already-read-tag($width){
+  border-top: $width solid #4ca53ad7;
+  border-right: $width solid #4ca53ad7;
+  border-bottom: $width solid transparent;
+  border-left: $width solid transparent;
+}
+
+/* 読書済タグの背景設定 */
+@mixin already-read-title($px){
+  font-size: $px;
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
 

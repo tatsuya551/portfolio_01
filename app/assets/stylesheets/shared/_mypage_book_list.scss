@@ -6,17 +6,35 @@
     &__box{
       @include height_width(250px, 180px);
       margin: 10px;
-      background-color: #fff;
       box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
       position: relative;
       &__content{
+        .book-status{
+          position: absolute;
+          right: 0;
+          z-index: 2;
+          @include already-read-tag(30px);
+          &__title{
+            position: absolute;
+            top: -18px;
+            left: -10px;
+            width: 40px;
+            @include already-read-title(12px);
+          }
+        }
+        .book-shadow{
+          @include height_width(250px, 180px);
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.2);
+          z-index: 1;
+        }
         .book-category-tag{
           @include height_width(18px, 52px);
           line-height: 18px;
           color: #fff;
           position: absolute;
           margin: 0;
-          z-index: 1;
+          z-index: 2;
           font-size: 10px;
         }
         .book-image{

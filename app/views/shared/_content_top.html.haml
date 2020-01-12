@@ -48,14 +48,14 @@
         削除する
 - elsif params[:controller] == "impressions" && params[:action] == "index"
   .content-top.box-center
-    .content-top__box.display-flex.box-center
+    .content-top__box.display-flex
       .content-top__box__title.content-title
         = icon 'fas', 'sticky-note', class: 'icon-sign-out'
         本の感想
 - elsif params[:controller] == "impressions" && params[:action] == "show"
   .content-top.box-center
     .content-top__box.display-flex.box-center.text-center
-      .content-top__box__title.content-title
+      .content-top__box__title.content-title.margin-left-80
         = icon 'fas', 'book-reader', class: 'icon-sign-out'
         ノート
       - if user_signed_in? && current_user == @book.user
