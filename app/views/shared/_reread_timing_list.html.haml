@@ -32,6 +32,9 @@
                 - else
                   .category-big__book-category-tag.background-etc.text-center
                     その他
+                .book-status
+                  .book-status__title.font-bold.text-white
+                    読書済
                 .category-big__photo
                   = image_tag books[0].book.image.to_s, class: "image-set"
                 .category-big__text.text-center
@@ -66,6 +69,9 @@
                     - else
                       .category-small__box__book-category-tag.background-etc.text-center
                         その他
+                    .book-status
+                      .book-status__title.font-bold.text-white
+                        読書済
                     .category-small__box__photo
                       = image_tag book.book.image.to_s, class: "image-set"
                     .category-small__box__text.text-center

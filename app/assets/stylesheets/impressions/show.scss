@@ -6,7 +6,15 @@
       margin-top: 60px;
       &__box{
         &__book-title{
-          font-size: 20px;
+          .book-title{
+            &__top{
+              font-size: 10px;
+            }
+            &__title{
+              margin-top: 10px;
+              font-size: 20px;
+            }
+          }
         }
         &__note{
           width: 450px;

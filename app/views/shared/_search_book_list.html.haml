@@ -32,6 +32,10 @@
               - else
                 .book-category-tag.background-etc
                   その他
+              .book-status
+                .book-status__title.font-bold.text-white
+                  読書済
+              .book-shadow
               .book-image
                 = image_tag book.image.to_s, class: "image-set"
               .book-title
@@ -123,5 +127,6 @@
                           legend: false,
                           width: "100px", height: "100px"
             .search-book-list__main__graph__count.text-line-none.text-black.text-center
-              = book.user.books.count
+              = book.user.books.where.not(status:2).count
+
     

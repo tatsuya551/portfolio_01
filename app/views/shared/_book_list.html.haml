@@ -4,7 +4,7 @@
       - books.each do |book|
         - if book.status == 1
           .book-list__main__box.text-center
-            = link_to book_impressions_path(book), class: "book-list__main__box__content text-line-none text-gray" do
+            = link_to book_impressions_path(book), class: "book-list__main__box__content text-line-none text-black" do
               - if book.category == "小説"
                 .book-category-tag.background-novel
                   小説
@@ -29,6 +29,10 @@
               - else
                 .book-category-tag.background-etc
                   その他
+              .book-status
+                .book-status__title.font-bold.text-white
+                  読書済
+              .book-shadow
               .book-image
                 = image_tag book.image.to_s, class: "image-set"
               .book-title

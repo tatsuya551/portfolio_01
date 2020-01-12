@@ -17,6 +17,35 @@
           margin-top: 15px;
           margin-left: 40px;
           box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+          position: relative;
+          &__book-category-tag{
+            @include height_width(25px, 72px);
+            line-height: 25px;
+            color: #fff;
+            position: absolute;
+            margin: 0;
+            z-index: 2;
+            font-size: 14px;
+          }
+          .book-status{
+            position: absolute;
+            right: 0;
+            z-index: 2;
+            @include already-read-tag(50px);
+            &__title{
+              position: absolute;
+              top: -25px;
+              left: -10px;
+              width: 55px;
+              @include already-read-title(16px);
+            }
+          }
+          .book-shadow{
+            @include height_width(430px, 330px);
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+          }
           &__photo{
             @include height_width(330px, 330px);
             background-color: rgb(247, 247, 247);
@@ -38,6 +67,35 @@
             margin: 15px 30px;
             background-color: #fff;
             box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+            position: relative;
+            &__book-category-tag{
+              @include height_width(18px, 52px);
+              line-height: 18px;
+              color: #fff;
+              position: absolute;
+              margin: 0;
+              z-index: 2;
+              font-size: 10px;
+            }
+            .book-status{
+              position: absolute;
+              right: 0;
+              z-index: 2;
+              @include already-read-tag(30px);
+              &__title{
+                position: absolute;
+                top: -16px;
+                left: -10px;
+                width: 40px;
+                @include already-read-title(12px);
+              }
+            }
+            .book-shadow{
+              @include height_width(200px, 150px);
+              position: absolute;
+              background-color: rgba(0, 0, 0, 0.2);
+              z-index: 1;
+            }
             &__photo{
               @include height_width(150px, 150px);
               background-color: rgb(247, 247, 247);
