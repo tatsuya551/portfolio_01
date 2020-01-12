@@ -238,6 +238,15 @@
   font-size: 14px;
 }
 
+/* 透明白色ボタン */
+.start-btn{
+  @include btn-set(120px, 44px);
+  display: inline-block;
+  color: #fff;
+  border:1px solid #fff;
+  font-size: 14px;
+}
+
 /* 灰色リンクボタン */
 .gray-btn{
   @include btn-set(100px, 44px);
@@ -432,6 +441,9 @@
   margin-top: 60px;
 }
 
+.padding-left-30{
+  padding-left: 30px;
+}
 
 /////////////////////////
 /*****ライン設定関連*****/

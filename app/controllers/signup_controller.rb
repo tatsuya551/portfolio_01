@@ -14,7 +14,7 @@ class SignupController < ApplicationController
       session[:birth_day] = user_params[:birth_day]
       session[:id] = @user.id
       sign_in User.find(session[:id]) unless user_signed_in?
-      render 'create'
+      redirect_to user_path(current_user.id)
     else
       render 'new'
     end

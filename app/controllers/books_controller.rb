@@ -28,7 +28,7 @@ class BooksController < ApplicationController
       @buy_date = Date.new(date["buy_date(1i)"].to_i,date["buy_date(2i)"].to_i,date["buy_date(3i)"].to_i)
       @book[:buy_date] = @buy_date.to_s
       if @book.update(book_params)
-        redirect_to user_path(@book.user_id)
+        redirect_to book_path(@book)
       else
         render 'show'
       end
