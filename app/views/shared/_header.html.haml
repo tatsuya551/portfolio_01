@@ -6,7 +6,7 @@
           BOOK BANK
     - else
       .header__box__logo
-        = link_to start_app_signup_index_path, class:"text-line-none text-white" do
+        = link_to root_path, class:"text-line-none text-white" do
           BOOK BANK
     %ul.header__box__content.text-center.box-center.display-flex
       - if user_signed_in?
@@ -33,6 +33,12 @@
         %li.header__box__content__login
           = link_to logout_signup_index_path, class:"text-line-none text-gray" do
             ログアウト
+      - elsif params[:controller] == "home"
+        %li.header__box__content__new-member.box-center.padding-left-30
+          = form_with(url: search_books_path, local: true, method: :get, class: "search-form") do |f|
+            = f.text_field :keyword, placeholder: "本を検索する", class: "search-input"
+            = button_tag type: 'submit', class: 'search-btn' do
+              = icon 'fas', 'search', class: 'search-icon text-gray'
       - else
         %li.header__box__content__new-member
           = link_to new_signup_path, class:"text-line-none text-gray" do

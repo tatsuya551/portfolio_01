@@ -1,3 +1,25 @@
-home-top{
-  width:  100px;
+.home-top{
+  margin-bottom: -80px;
+  &__main{
+    width: 100vw;
+    height: 100vh;
+    background:linear-gradient(to right, rgba(247, 247, 247, 0), rgba(247, 247, 247, 0) 20%, rgba(0, 0, 0, 0.8) 60%),url('/home_image/home_image_01.jpg');
+    background-size: 100vw 100vh;
+    &__box{
+      margin-top: 150px;
+      margin-right: 100px;
+      float: right;
+      &__title{
+        font-size: 35px;
+        margin-bottom: 30px;
+      }
+      &__text{
+        font-size: 16px;
+        margin-top: 5px;
+      }
+      &__start{
+        margin-top: 50px;
+      }
+    }
+  }
 }

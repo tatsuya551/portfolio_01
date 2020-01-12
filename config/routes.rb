@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "users#index"
+  root "home#index"
   resources :signup, only: [:new, :create] do
     collection do
       get 'logout'
