@@ -30,6 +30,8 @@
       }
       .note-content{
         margin-top: 20px;
+        margin-bottom: 50px;
+        @include long-text-set;
       }
     }
   }

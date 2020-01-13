@@ -3,15 +3,15 @@
   .book-show__main
     = render "shared/content_top"
     = render "shared/book_tag"
+    .book-show__main__book-title.text-center
+      .book-top
+        タイトル
+      .book-title
+        = @book.title
     .book-show__main__box
       .book-show__main__box__photo
         = image_tag @book.image.to_s, class: "book-show-image image-set"
       .book-show__main__box__text
-        .book-detail
-          .book-detail__top
-            タイトル
-          .book-detail__content
-            = @book.title
         .book-detail
           .book-detail__top
             著者

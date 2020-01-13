@@ -1,18 +1,33 @@
 .book-show{
   margin-bottom: 220px;
-  width: 50%;
+  width: 700px;
   &__main{
     margin-top: 60px;
+    &__book-title{
+      margin-top: 60px;
+      .book-top{
+        font-size: 10px;
+        color: #aaa;
+      }
+      .book-title{
+        margin-top: 10px;
+        font-size: 20px;
+        @include long-text-set;
+      }
+    }
     &__box{
       margin-top: 40px;
       display: flex;
+      justify-content: space-between;
       &__photo{
         @include height_width(230px, 230px);
+        background-color: #eee;
         position: relative;
+        box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
       }
       &__text{
         .book-detail{
-          @include height_width(30px, 350px);
+          @include height_width(30px, 400px);
           border-bottom:1px solid #ccc;
           display: flex;
           margin-top: 15px;

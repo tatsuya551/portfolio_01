@@ -1,5 +1,6 @@
 window.draw_category_graph = -> 
     ctx = document.getElementById("categoryChart").getContext('2d')
+    ctx.canvas.width = 380;
     categoryChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
@@ -22,6 +23,8 @@ window.draw_category_graph = ->
         },
         options: {
           cutoutPercentage: 65,
+          maintainAspectRatio: false,
+          responsive: false,
           title: {
             display: false,
             text: '登録ジャンル',
@@ -31,7 +34,7 @@ window.draw_category_graph = ->
             position: "right",
             align: "center"
             labels: {
-              fontSize: 12
+              fontSize: 10
               boxWidth: 25
               padding: 10
             }

@@ -1,5 +1,6 @@
 window.draw_hexagon_graph = -> 
     ctx = document.getElementById("hexagonChart").getContext('2d')
+    ctx.canvas.width = 400;
     hexagonChart = new Chart(ctx, {
         type: 'radar',
         data: {
@@ -39,6 +40,8 @@ window.draw_hexagon_graph = ->
         },
         options: {
           cutoutPercentage: 50,
+          maintainAspectRatio: false,
+          responsive: false,
           title: {
             display: false,
             text: '5点満点中'

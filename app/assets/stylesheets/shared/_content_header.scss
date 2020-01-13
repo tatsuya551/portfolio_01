@@ -7,10 +7,12 @@
       width: 60%;
       .mypage-title{
         position: absolute;
+        left: 260px;
         bottom: 6px;
         font-size: 22px;
       }
       .mypage-list{
+        width: 500px;
         position: absolute;
         left: 365px;
         bottom: 10px;
@@ -20,13 +22,16 @@
         }
       }
       .book-info-title{
+        width: 270px;
         position: absolute;
+        left: 250px;
         bottom: 6px;
         font-size: 22px;
       }
       .book-info-list{
+        width: 500px;
         position: absolute;
-        left: 510px;
+        left: 500px;
         bottom: 10px;
         font-size: 14px;
         &__link{
@@ -72,8 +77,8 @@
         &__nickname{
           position: absolute;
           left: 980px;
-          bottom: 30px;
-          font-size: 24px;
+          bottom: 34px;
+          font-size: 18px;
         }
         &__followings-icon{
           position: absolute;
@@ -102,6 +107,7 @@
       }
       .follow-info-title{
         position: absolute;
+        left: 260px;
         bottom: 6px;
         font-size: 22px;
       }

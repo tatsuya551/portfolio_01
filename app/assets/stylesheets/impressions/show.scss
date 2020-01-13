@@ -12,7 +12,8 @@
             }
             &__title{
               margin-top: 10px;
-              font-size: 20px;
+              font-size: 18px;
+              @include long-text-set;
             }
           }
         }
@@ -48,17 +49,23 @@
       justify-content: space-between;
       &__note{
         .note-top{
-          @include tag-set(60px, 20px);
+          @include tag-set(80px, 20px);
           display: inline-block;
           color: #fff;
           background-color: black;
           font-size: 12px;
+          border-radius: 4px;
+          margin-top: 15px;
         }
         .note-content{
-          @include height_width(350px, 450px);
-          margin: 20px 20px 0 20px;
+          @include height_width(250px, 450px);
+          margin: 40px 20px 0 20px;
           text-align: left;
+          line-height: 24px;
           font-size: 14px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px;
         }
         .note-content-empty{
           @include height_width(350px, 450px);
@@ -83,13 +90,11 @@
           font-size: 40px;
           display: flex;
           &__main-one{
-            position: relative;
-            margin-left: 40px;
+            margin-left: 20px;
           }
           &__sub-one{
-            position: absolute;
-            left: 250px;
-            bottom: -120px;
+            margin-left: 15px;
+            line-height: 60px;
             font-size: 20px;
           }
         }
