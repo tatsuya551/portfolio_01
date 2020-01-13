@@ -17,7 +17,7 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'portfolio_01'
+  config.fog_directory  = 'portfolio551'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/portfolio_01'
   end
 end
