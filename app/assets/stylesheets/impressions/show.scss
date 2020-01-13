@@ -55,11 +55,11 @@
           background-color: black;
           font-size: 12px;
           border-radius: 4px;
-          margin-top: 15px;
+          margin-top: 20px;
         }
         .note-content{
           @include height_width(250px, 450px);
-          margin: 40px 20px 0 20px;
+          margin: 25px 20px 0 20px;
           text-align: left;
           line-height: 24px;
           font-size: 14px;
@@ -68,9 +68,13 @@
           padding: 10px;
         }
         .note-content-empty{
-          @include height_width(350px, 450px);
-          margin-top: 30px;
-          font-size: 20px;
+          @include height_width(250px, 450px);
+          margin: 25px 20px 0 20px;
+          font-size: 18px;
+          line-height: 60px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px;
         }
       }
       &__rating{
