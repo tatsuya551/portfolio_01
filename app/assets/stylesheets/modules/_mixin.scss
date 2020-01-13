@@ -52,13 +52,6 @@
   text-align: center;
 }
 
-/* 写真タイトル設定 */
-@mixin photo-title-set{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 /* 画面上下左右中心設定 */
 @mixin screen-center($top, $right, $bottom, $left){
   position: fixed;
@@ -84,4 +77,12 @@
   -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+/* 幅に合わないテキスト設定 */
+@mixin long-text-set{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 

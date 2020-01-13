@@ -12,6 +12,7 @@
         justify-content: center;
         position: relative;
         &__user{
+          margin-right: 30px;
           &__icon{
             &__photo{
               @include height_width(92px, 92px);

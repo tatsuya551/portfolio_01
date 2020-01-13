@@ -53,7 +53,7 @@
           }
           &__text{
             @include height_width(100px, 330px);
-            @include photo-title-set;
+            @include long-text-set;
             line-height: 100px;
             font-size: 16px;
             max-width: 290px;
@@ -103,7 +103,7 @@
             }
             &__text{
               @include height_width(50px, 150px);
-              @include photo-title-set;
+              @include long-text-set;
               line-height: 50px;
               font-size: 16px;
               max-width: 130px;

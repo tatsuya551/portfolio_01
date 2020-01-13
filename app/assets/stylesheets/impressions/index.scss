@@ -2,17 +2,32 @@
   width: 60%;
   &__main{
     margin-top: 60px;
+    &__book-title{
+      margin-top: 60px;
+      .book-top{
+        font-size: 10px;
+        color: #aaa;
+      }
+      .book-title{
+        margin-top: 10px;
+        font-size: 18px;
+        @include long-text-set;
+      }
+    }
     &__box{
       margin-top: 60px;
       display: flex;
       justify-content: space-between;
       &__book{
         &__photo{
-          @include height_width(180px, 180px);
+          background-color: #eee;
+          @include height_width(200px, 200px);
           position: relative;
           margin-bottom: 20px;
+          box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
         }
         &__text{
+          margin-top: 60px;
           .book-detail{
             @include height_width(30px, 350px);
             border-bottom:1px solid #ccc;
@@ -47,13 +62,11 @@
           margin-top: 40px;
           font-size: 40px;
           &__main{
-            position: relative;
-            margin-left: 10px;
+            margin-left: 20px;
           }
           &__sub{
-            position: absolute;
-            left: 250px;
-            bottom: -123px;
+            margin-left: 15px;
+            line-height: 60px;
             font-size: 20px;
           }
         }

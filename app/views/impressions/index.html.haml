@@ -3,16 +3,16 @@
   .impression-index__main
     = render "shared/content_top"
     = render "shared/book_tag"
+    .impression-index__main__book-title.text-center
+      .book-top
+        タイトル
+      .book-title
+        = @book.title
     .impression-index__main__box
       .impression-index__main__box__book
         .impression-index__main__box__book__photo.box-center
           = image_tag @book.image.to_s, class: "impression-index-image image-set"
         .impression-index__main__box__book__text
-          .book-detail.display-flex
-            .book-detail__top
-              タイトル
-            .book-detail__content.font-size-20
-              = @book.title
           .book-detail.display-flex
             .book-detail__top
               著者
@@ -40,7 +40,7 @@
         .rating-title.box-center.text-center
           総合評価
         .rating-point.box-center.display-flex
-          .rating-point__main.font-bold.text-center
+          .rating-point__main.font-bold
             = @rating
           .rating-point__sub
             点

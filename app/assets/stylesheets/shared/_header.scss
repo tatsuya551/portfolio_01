@@ -1,12 +1,12 @@
 .header{
   &__box{
-    @include height_width(100px, 100%);
+    @include height_width(100px, 100vw);
     background-color: #202020;
     &__logo{
       @include text_size_height(22px, 60px);
     }
     &__content{
-      width: 60%;
+      width: 800px;
       justify-content: space-between;
       &__new-member{
         @include text_size_height(14px, 10px);
