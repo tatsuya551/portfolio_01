@@ -26,7 +26,6 @@
 @import "signup/logout";
 @import "signup/start_app";
 
-@import "users/index";
 @import "users/show";
 @import "users/edit";
 @import "users/category";
@@ -38,6 +37,7 @@
 @import "books/show";
 @import "books/search";
 @import "books/follow_book_show";
+@import "books/index";
 
 @import "impressions/new";
 @import "impressions/index";

@@ -28,10 +28,6 @@ class UsersController < ApplicationController
                                   :followings,
                                   :followers]
 
-  def index
-    @users = User.order("created_at DESC").limit(10)
-  end
-
   def show
     @followers = @user.followers
     @followings = @user.followings
