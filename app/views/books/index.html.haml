@@ -1,0 +1,6 @@
+.book-index-top.main-font
+  .book-index-top__main.box-center
+    .book-index-top__main__box__title.box-center.font-bold.box-center.font-bold.display-flex
+      お気に入りの本を探してみましょう
+    .book-index-top__main__box__books
+      = render partial: "shared/search_book_list", locals: {books: @books}

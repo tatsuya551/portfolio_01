@@ -1,0 +1,16 @@
+.book-index-top{
+  &__main{
+    width: 90%;
+    padding-top: 80px;
+    &__box{
+      display: none;
+      &__title{
+       width: 80%;
+       font-size: 25px;
+      }
+      &__books{
+        margin-top: 60px;
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'start_app'
     end
   end
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update] do
     member do
       get 'category'
       get 'novel'
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
-  resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :books do
     resources :impressions
     collection do
       get 'search'

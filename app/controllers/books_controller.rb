@@ -66,6 +66,10 @@ class BooksController < ApplicationController
     @user = @book.user
   end
 
+  def index
+    @books = Book.where.not(status:2)
+  end
+
   private
   def book_params
     params.require(:book).permit(
