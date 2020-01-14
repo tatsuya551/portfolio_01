@@ -1,6 +1,6 @@
-window.draw_hexagon_graph = -> 
+window.draw_mini_hexagon_graph = -> 
     ctx = document.getElementById("hexagonChart").getContext('2d')
-    ctx.canvas.width = 500;
+    ctx.canvas.width = 430;
     hexagonChart = new Chart(ctx, {
         type: 'radar',
         data: {
