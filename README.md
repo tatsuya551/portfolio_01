@@ -1,84 +1,35 @@
-# README
+# BOOK BANK
+![54 250 29 59_](https://user-images.githubusercontent.com/56828853/72335941-25fd2c80-3703-11ea-8bd0-0b3a2581d90e.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+持っている本を登録して管理するアプリです。
+目に見える形で管理することによって思考を見える化することができます。
 
-Things you may want to cover:
+## 機能一覧
+・ユーザー登録、編集機能
+・ログイン、ログアウト機能
+・本の登録、編集、削除機能
+・感想の登録、編集、削除機能
+・読みたいリスト登録、削除機能
+・ユーザーフォロー登録、削除機能
+・本、著者、出版書の検索機能
 
-* Ruby version
+## 使用技術一覧
+・インフラ、デプロイ関連/AWS、capistrano, nginx, unicorn
+・データベース関連/mysql
+・ユーザー関連/device
+・画像関連/carrierwave
+・グラフ関連/chart.js
 
-* System dependencies
+## 制作背景
+アメリカの格言に「本棚を見ればその人がわかる」とあるように、持っている本を管理して『思考の見える化』が出来るアプリケーションがあったら便利だと思い作成しました。
 
-* Configuration
+## 工夫した点
+登録した本を読書をした後に感想を登録できるようにして、読書のデータが残るようにしたこと。
 
-* Database creation
+## 特徴
+本ごとに『いつ読んだか・その時の感想文』などの読書の歴史が残るので、過去に遡って自分との対話ができるようにしたこと。
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-## 1. users Table
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false|
-|email|string|null: false, unique: true|
-|image|string|
-|birth_day|date|null: false|
-
-### Association
-- has_many :books
-
-## 2. books Table
-|Column|Type|Options|
-|------|----|-------|
-|user_id|bigint|null: false, foreign_key: true|
-|title|string|null: false, index: true|
-|author|string|null: false, index: true|
-|publisher|string|null: false, index: true|
-|category|integer|null: false, index: true|
-|status|integer|null: false|
-|image|string|
-|date|date|null: false|
-
-### Association
-- belongs_to :user
-- has_many :impressions
-
-## 3. impressions Table
-|Column|Type|Options|
-|------|----|-------|
-|book_id|bigint|null: false, foreign_key: true|
-|read_day|integer|null: false, index: true|
-|interest|integer|null: false, index: true|
-|impressed|integer|null: false, index: true|
-|awareness|integer|null: false, index: true|
-|impact|integer|null: false, index: true|
-|practice|integer|null: false, index: true|
-|knowledge|integer|null: false, index: true|
-|rating|integer|null: false|
-|reread_timing|integer|null: false, index: true|
-|note|text|
-
-### Association
-- belongs_to :book
-
-
-## 4. relationships Table
-|Column|Type|Options|
-|------|----|-------|
-|book_id|bigint|null: false, foreign_key: true|
-|follower_id|integer|null: false, index: true|
-|following_id|integer|null: false, index: true|
-
-### Association
-- belongs_to :user
-
-
-
-
+## 今後実装したい機能
+・再び読書するタイミングの登録、通知機能
+・フォローしているユーザーが本の新規登録した時の通知機能
