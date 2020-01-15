@@ -5,7 +5,7 @@
     justify-content: left;
     &__box{
       @include height_width(250px, 180px);
-      margin: 10px;
+      margin: 20px 10px 10px 10px;
       background-color: #fff;
       box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
       position: relative;

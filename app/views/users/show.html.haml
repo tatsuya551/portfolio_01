@@ -66,4 +66,7 @@
         .user-book-list__title.margin-top-100
           最近読んだ本
         = render partial: "shared/mypage_book_list", locals: {books: @read_books}
-      
+      .user-book-list.text-center
+        .user-book-list__title.margin-top-100
+          読みたいリスト
+        = render partial: "shared/mypage_book_list", locals: {books: @will_read_books}
