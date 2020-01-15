@@ -1,7 +1,7 @@
 .logout.main-font
   .logout__main.box-center
     = render "shared/content_top"
-    .btn-box
+    .btn-box.display-flex
       .btn-box__user-new
         = link_to destroy_user_session_path, method: :delete, class:"black-link-btn text-line-none" do
           ログアウト

@@ -41,6 +41,12 @@
               @include already-read-title(16px);
             }
           }
+          .book-shadow{
+            @include height_width(430px, 330px);
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+          }
           &__photo{
             @include height_width(330px, 330px);
             background-color: rgb(247, 247, 247);
@@ -84,6 +90,12 @@
                 width: 40px;
                 @include already-read-title(12px);
               }
+            }
+            .book-shadow{
+              @include height_width(200px, 150px);
+              position: absolute;
+              background-color: rgba(0, 0, 0, 0.2);
+              z-index: 1;
             }
             &__photo{
               @include height_width(150px, 150px);

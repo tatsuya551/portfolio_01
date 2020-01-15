@@ -3,6 +3,8 @@
     = render "shared/content_top"
     = form_with(model: @user, url: signup_index_path(@user), method: :POST, local: true) do |f|
       .user-detail
+        .user-detail__test
+          ※テストアカウントがございます。ログインにお進みください。
         .user-detail__top.form-content
           ニックネーム
         .user-detail__nickname-input
@@ -23,7 +25,7 @@
           パスワード(確認用)
         .user-detail__password-input
           = f.password_field :password_confirmation, placeholder: "> password", class:"text-input"
-      .btn-box
+      .btn-box.display-flex
         .btn-box__user-new
           = f.submit " 新規登録する ", class: "submit-btn text-line-none"
         .btn-box__back

@@ -30,14 +30,14 @@
           = link_to timing_relax_user_path(@user), class: "text-line-none text-white" do
             リラックスしたい時
   - if @timing_knowledges.present? == true || @timing_motivations.present? == true || @timing_decisions.present? == true || @timing_stresses.present? == true || @timing_feel_downs.present? == true || @timing_lost_loves.present? == true || @timing_diversions.present? == true || @timing_relaxes.present? == true
-    = render partial: "shared/reread_timing_list", locals: {books: @timing_knowledges}
-    = render partial: "shared/reread_timing_list", locals: {books: @timing_motivations}
-    = render partial: "shared/reread_timing_list", locals: {books: @timing_decisions}
-    = render partial: "shared/reread_timing_list", locals: {books: @timing_stresses}
-    = render partial: "shared/reread_timing_list", locals: {books: @timing_feel_downs}
-    = render partial: "shared/reread_timing_list", locals: {books: @timing_lost_loves}
-    = render partial: "shared/reread_timing_list", locals: {books: @timing_diversions}
-    = render partial: "shared/reread_timing_list", locals: {books: @timing_relaxes}
+    = render partial: "shared/reread_timing_list", locals: {impressions: @timing_knowledges}
+    = render partial: "shared/reread_timing_list", locals: {impressions: @timing_motivations}
+    = render partial: "shared/reread_timing_list", locals: {impressions: @timing_decisions}
+    = render partial: "shared/reread_timing_list", locals: {impressions: @timing_stresses}
+    = render partial: "shared/reread_timing_list", locals: {impressions: @timing_feel_downs}
+    = render partial: "shared/reread_timing_list", locals: {impressions: @timing_lost_loves}
+    = render partial: "shared/reread_timing_list", locals: {impressions: @timing_diversions}
+    = render partial: "shared/reread_timing_list", locals: {impressions: @timing_relaxes}
   - else
     .reread-timing-top__none.box-center.text-center
       登録された本がありません

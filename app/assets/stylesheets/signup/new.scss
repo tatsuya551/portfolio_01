@@ -3,10 +3,14 @@
   &__main{
     width: 30%;
     margin-top:50px;
+    .user-detail{
+      &__test{
+        color: rgb(211, 0, 0);
+        font-size: 12px;
+      }
+    }
     .btn-box{
       margin-top: 50px;
-      display: flex;
-      float: left;
     }
   }
 }
