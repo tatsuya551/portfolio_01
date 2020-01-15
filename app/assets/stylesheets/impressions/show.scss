@@ -85,6 +85,7 @@
           color: #fff;
           border-radius: 20px;
           margin-top: 80px;
+          margin-left: 115px;
         }
         .rating-point{
           @include height_width(40px, 100px);
@@ -92,6 +93,7 @@
           color: #039be5;
           margin-top: 40px;
           font-size: 40px;
+          margin-left: 180px;
           display: flex;
           &__main-one{
             margin-left: 20px;
