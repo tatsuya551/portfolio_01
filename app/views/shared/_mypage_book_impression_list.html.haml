@@ -1,9 +1,9 @@
-.book-list.box-center.main-font
+.mypage-book-impression-list.box-center.main-font
   - if impressions.present?
-    .book-list__main.box-list
+    .mypage-book-impression-list__main.box-list
       - impressions.each do |impression|
-        .book-list__main__box.text-center
-          = link_to book_impressions_path(impression.book), class: "book-list__main__box__content text-line-none text-black" do
+        .mypage-book-impression-list__main__box.text-center
+          = link_to book_impression_path(impression.book, impression), class: "mypage-book-impression-list__main__box__content text-line-none text-black " do
             - if impression.book.category == "小説"
               .book-category-tag.background-novel
                 小説
@@ -37,5 +37,5 @@
             .book-title
               = impression.book.title
   - else
-    .book-list__none.text-center
+    .mypage-book-impression-list__none.text-list
       登録された本がありません

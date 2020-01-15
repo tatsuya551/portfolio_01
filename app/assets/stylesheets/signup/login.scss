@@ -3,10 +3,23 @@
   &__main{
     width: 30%;
     margin-top:120px;
+    .user-detail{
+      &__test-title{
+        margin-top: 15px;
+        font-size: 12px;
+        color: rgb(211, 0, 0);
+      }
+      &__test-mail{
+        font-size: 15px;
+        color: rgb(211, 0, 0);
+      }
+      &__test-password{
+        font-size: 15px;
+        color: rgb(211, 0, 0);
+      }
+    }
     .btn-box{
       margin-top: 50px;
-      display: flex;
-      float: left;
     }
   }
 }

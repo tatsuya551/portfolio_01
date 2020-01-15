@@ -3,6 +3,12 @@
   &__main{
     width: 30%;
     margin-top:120px;
+    .user-detail{
+      &__test{
+        color: rgb(211, 0, 0);
+        font-size: 12px;
+      }
+    }
     .btn-box{
       margin-top: 80px;
       display: flex;

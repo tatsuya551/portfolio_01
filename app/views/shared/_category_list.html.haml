@@ -28,7 +28,7 @@
       .category-list__main__box
         .category-list__main__box__list.display-flex
           - if books[0].status == 1
-            = link_to book_impressions_path(books[0]), class: "text-line-none text-gray" do
+            = link_to book_impressions_path(books[0]), class: "text-line-none text-black" do
               .category-big
                 - if books[0].category == "小説"
                   .category-big__book-category-tag.background-novel.text-center
@@ -63,7 +63,7 @@
                 .category-big__text.text-center
                   = books[0].title
           - elsif books[0].status == 0
-            = link_to book_path(books[0]), class: "text-line-none text-gray" do
+            = link_to book_path(books[0]), class: "text-line-none text-black" do
               .category-big
                 - if books[0].category == "小説"
                   .category-big__book-category-tag.background-novel.text-center
@@ -97,7 +97,7 @@
           .category-small.display-flex.box-list
             - books.each.with_index(0) do |book, i|
               - if i >= 1 && i <= 4 && book.status == 1
-                = link_to book_impressions_path(book), class: "text-line-none text-gray" do
+                = link_to book_impressions_path(book), class: "text-line-none text-black" do
                   .category-small__box
                     - if books[0].category == "小説"
                       .category-small__box__book-category-tag.background-novel.text-center

@@ -3,6 +3,12 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       = render "shared/content_top"
       .user-detail
+        .user-detail__test-title
+          テストアカウント
+        .user-detail__test-mail
+          ・e-mail : test01@test01.test01
+        .user-detail__test-password
+          ・password : test01
         .user-detail__top.form-content
           メールアドレス
         .user-detail__email-input
@@ -11,7 +17,7 @@
           パスワード
         .user-detail__password-input
           = f.password_field :password, placeholder: "> password", class:"text-input"
-      .btn-box
+      .btn-box.display-flex
         .btn-box__user-new
           = f.submit " ログイン ", class: "submit-btn text-line-none"
         .btn-box__back

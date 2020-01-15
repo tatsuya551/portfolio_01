@@ -60,12 +60,12 @@
             登録がありません
       .user-book-list.text-center
         .user-book-list__title.margin-top-100
-          最近登録した本
+          最近登録した未読本
         = render partial: "shared/mypage_book_list", locals: {books: @buy_books}
       .user-book-list.text-center
         .user-book-list__title.margin-top-100
           最近読んだ本
-        = render partial: "shared/mypage_book_list", locals: {books: @read_books}
+        = render partial: "shared/mypage_book_impression_list", locals: {impressions: @read_books_impressions}
       .user-book-list.text-center
         .user-book-list__title.margin-top-100
           読みたいリスト

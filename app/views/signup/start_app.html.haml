@@ -1,6 +1,9 @@
 .start-app.main-font
   .start-app__main.box-center
     = render "shared/content_top"
+    .user-detail
+      .user-detail__test.text-center
+        ※テストアカウントがございます。ログインにお進みください。
     .btn-box
       .btn-box__user-new
         = link_to new_signup_path, class:"black-link-btn text-line-none" do
