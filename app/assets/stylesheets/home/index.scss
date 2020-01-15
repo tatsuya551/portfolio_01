@@ -1,10 +1,12 @@
 .home-top{
   margin-bottom: -80px;
+  width: 100vw;
+  height: 100vh;
   &__main{
     width: 100vw;
     height: 100vh;
     background:linear-gradient(to right, rgba(247, 247, 247, 0), rgba(247, 247, 247, 0) 20%, rgba(0, 0, 0, 0.8) 60%),url('/home_image/home_image_01.jpg');
-    background-size: 100vw 100vh;
+    background-size: 1440px 800px;
     &__box{
       margin-top: 150px;
       margin-right: 100px;
