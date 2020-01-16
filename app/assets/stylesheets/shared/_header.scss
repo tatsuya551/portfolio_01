@@ -8,7 +8,12 @@
     &__content{
       width: 800px;
       justify-content: space-between;
-      &__new-member{
+      &__text{
+        @include text_size_height(14px, 10px);
+        display: inline-block;
+        position: relative;
+      }
+      &__search{
         @include text_size_height(14px, 10px);
         .search-form{
           .search-input{
@@ -37,9 +42,6 @@
             }
           }
         }
-      }
-      &__login{
-        @include text_size_height(14px, 10px);
       }
     }
   }

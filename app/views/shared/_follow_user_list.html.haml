@@ -22,17 +22,17 @@
               フォロワー
             .follow-list__box__left__follow__content__count
               = user.followers.count
-      - if user.books.present?
+      - if user.books.where.not(status:2).present?
         .follow-list__box__graph
           .follow-list__box__graph__category
-            = pie_chart [['小説', user.books.category_小説.count], 
-                        ['経営・戦略', user.books.category_経営・戦略.count],
-                        ['政治・経済', user.books.category_政治・経済.count],
-                        ['ファイナンス', user.books.category_金融・ファイナンス.count],
-                        ['IT', user.books.category_IT.count],
-                        ['自己啓発', user.books.category_自己啓発.count],
-                        ['タレント本', user.books.category_タレント本.count],
-                        ['その他', user.books.category_その他.count]], 
+            = pie_chart [['小説', user.books.category_小説.where.not(status:2).count], 
+                        ['経営・戦略', user.books.category_経営・戦略.where.not(status:2).count],
+                        ['政治・経済', user.books.category_政治・経済.where.not(status:2).count],
+                        ['ファイナンス', user.books.category_金融・ファイナンス.where.not(status:2).count],
+                        ['IT', user.books.category_IT.where.not(status:2).count],
+                        ['自己啓発', user.books.category_自己啓発.where.not(status:2).count],
+                        ['タレント本', user.books.category_タレント本.where.not(status:2).count],
+                        ['その他', user.books.category_その他.where.not(status:2).count]], 
                         colors: ['rgba(209, 46, 31, 0.6)',
                                 'rgba(246, 202, 6, 0.7)',
                                 'rgba(187, 212, 26, 0.7)',

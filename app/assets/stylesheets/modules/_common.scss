@@ -294,7 +294,12 @@
 
 /* フォローするボタン */
 .follow-in-btn{
-  @include btn-set(80px, 30px);
+  width: 80px;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  border-radius: 22px;
+  cursor: pointer;
   display: inline-block;
   color: #039be5;
   background-color: white;
@@ -304,7 +309,12 @@
 
 /* フォロー外すボタン */
 .follow-out-btn{
-  @include btn-set(80px, 30px);
+  width: 80px;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  border-radius: 22px;
+  cursor: pointer;
   display: inline-block;
   color: white;
   background-color: #039be5;
