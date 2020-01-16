@@ -10,44 +10,44 @@
           BOOK BANK
     %ul.header__box__content.text-center.box-center.display-flex
       - if user_signed_in?
-        %li.header__box__content__new-member
-          = link_to user_path(current_user), class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to user_path(current_user), class:"header-text text-line-none text-gray" do
             マイページ
-        %li.header__box__content__new-member
-          = link_to new_book_path, class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to new_book_path, class:"header-text text-line-none text-gray" do
             本の登録
-        %li.header__box__content__new-member
-          = link_to all_books_user_path(current_user), class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to all_books_user_path(current_user), class:"header-text text-line-none text-gray" do
             登録一覧
-        %li.header__box__content__new-member
+        %li.header__box__content__search
           = form_with(url: search_books_path, local: true, method: :get, class: "search-form") do |f|
             = f.text_field :keyword, placeholder: "本を検索する", class: "search-input"
             = button_tag type: 'submit', class: 'search-btn' do
               = icon 'fas', 'search', class: 'search-icon text-gray'
-        %li.header__box__content__new-member
-          = link_to followings_user_path(current_user), class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to followings_user_path(current_user), class:"header-text text-line-none text-gray" do
             フォロー
-        %li.header__box__content__new-member
-          = link_to followers_user_path(current_user), class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to followers_user_path(current_user), class:"header-text text-line-none text-gray" do
             フォロワー
-        %li.header__box__content__login
-          = link_to logout_signup_index_path, class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to logout_signup_index_path, class:"header-text text-line-none text-gray" do
             ログアウト
       - else
-        %li.header__box__content__new-member
-          = link_to start_app_signup_index_path, class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to start_app_signup_index_path, class:"header-text text-line-none text-gray" do
             本の登録
-        %li.header__box__content__new-member
-          = link_to books_path, class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to books_path, class:"header-text text-line-none text-gray" do
             登録本一覧
-        %li.header__box__content__new-member
+        %li.header__box__content__search
           = form_with(url: search_books_path, local: true, method: :get, class: "search-form") do |f|
             = f.text_field :keyword, placeholder: "本を検索する", class: "search-input"
             = button_tag type: 'submit', class: 'search-btn' do
               = icon 'fas', 'search', class: 'search-icon text-gray'
-        %li.header__box__content__new-member
-          = link_to new_signup_path, class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to new_signup_path, class:"header-text text-line-none text-gray" do
             新規会員登録
-        %li.header__box__content__login
-          = link_to new_user_session_path, class:"text-line-none text-gray" do
+        %li.header__box__content__text
+          = link_to new_user_session_path, class:"header-text text-line-none text-gray" do
             ログイン

@@ -39,7 +39,7 @@ class BooksController < ApplicationController
       @follow_book[:buy_date] = params[:book][:buy_date]
       @follow_book.image = @book.image.file
       @follow_book.save
-      redirect_to follow_book_user_path(current_user.id)
+      redirect_to book_path(@book)
     end
   end
 
@@ -53,11 +53,11 @@ class BooksController < ApplicationController
 
   def search
     if user_signed_in?
-      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).where.not(status:2)
-      @user_books = current_user.books.search(params[:keyword]).where.not(status:2)
+      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).where.not(status:2).order("created_at DESC")
+      @user_books = current_user.books.search(params[:keyword]).where.not(status:2).order("created_at DESC")
       @keyword = params[:keyword]
     else
-      @all_books = Book.search(params[:keyword]).where.not(status:2)
+      @all_books = Book.search(params[:keyword]).where.not(status:2).order("created_at DESC")
       @keyword = params[:keyword]
     end
   end

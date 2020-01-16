@@ -21,7 +21,7 @@
             - else
               - if current_user == @user
                 .mypage-list__link
-                  = link_to edit_user_path, class: "text-black text-line-none" do
+                  = link_to edit_user_path(@user), class: "text-black text-line-none" do
                     編集
               - else
             - if params[:action] == "all_books" || params[:action] == "read_books" || params[:action] == "will_read_books"
