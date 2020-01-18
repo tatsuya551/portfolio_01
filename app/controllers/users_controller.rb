@@ -179,7 +179,11 @@ class UsersController < ApplicationController
   end
 
   def birthday_add
-    birthday = params[:birth_day]
-    @birth_date = Date.new(birthday["birth_day(1i)"].to_i,birthday["birth_day(2i)"].to_i,birthday["birth_day(3i)"].to_i)
+    if params[:birth_day]["birth_day(1i)"].present? && params[:birth_day]["birth_day(2i)"].present? && params[:birth_day]["birth_day(3i)"].present?
+      birthday = params[:birth_day]
+      @birth_date = Date.new(birthday["birth_day(1i)"].to_i,birthday["birth_day(2i)"].to_i,birthday["birth_day(3i)"].to_i)
+    else
+      return
+    end
   end
 end
