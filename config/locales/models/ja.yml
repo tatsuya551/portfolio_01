@@ -1,10 +1,9 @@
 ja:
   activerecord:
     models:
-      user: ユーザー
-      book: 本
-      real_address: 住所
-      item: 商品
+      user:       ユーザー
+      book:       本
+      impression: 感想
     attributes:
       user:
         nickname:               ニックネーム
@@ -18,17 +17,17 @@ ja:
         publisher:              出版社
         buy_date:               購入日
         category:               ジャンル
-      send_address: 
-        kanji_last_name:  性
-        kanji_first_name: 名
-        kana_last_name:   性(カナ)
-        kana_first_name:  名(カナ)
-        post_code:        郵便番号
-        prefecture_id:    都道府県  
-        city:             市区町村
-        address:          番地     
-        building_name:    建物名
-        tel_no:           電話番号
+      impression: 
+        read_day:               読書期間
+        interest:               面白さ
+        impressed:              感動
+        awareness:              気付き
+        impact:                 衝撃度
+        practice:               実践度
+        knowledge:              知識の深さ
+        rating:                 総評価
+        reread_timing:          また読みたい時
+        note:                   メモは
       item:
         name:            ''
         explain:         ''

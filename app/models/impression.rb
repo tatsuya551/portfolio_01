@@ -1,6 +1,7 @@
 class Impression < ApplicationRecord
   belongs_to :book
 
+  validates :note, length: { maximum: 300, message: "300 文字以下で入力してください" }
   validates :read_day,
     inclusion: {in: ["1日",
                      "2日〜3日",
