@@ -2,19 +2,22 @@ ja:
   activerecord:
     models:
       user: ユーザー
-      send_address: 配送元・お届け先住所の登録
+      book: 本
       real_address: 住所
       item: 商品
     attributes:
       user:
-        nickname:                      ニックネーム
-        email:                         メールアドレス
-        password:                      パスワード
-        password_confirmation:         パスワード(確認用)
-        birth_day:        誕生日
-        tel_no:           電話番号
-      real_address:
-        post_code: ''
+        nickname:               ニックネーム
+        email:                  メールアドレス
+        password:               パスワード
+        password_confirmation:  パスワード(確認用)
+        birth_day:              誕生日
+      book:
+        title:                  タイトル
+        author:                 著者
+        publisher:              出版社
+        buy_date:               購入日
+        category:               ジャンル
       send_address: 
         kanji_last_name:  性
         kanji_first_name: 名
