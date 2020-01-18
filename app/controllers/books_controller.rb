@@ -34,20 +34,24 @@ class BooksController < ApplicationController
       end
     else
       @follow_book = Book.find(params[:id]).dup
-      @follow_book[:user_id] = current_user.id
-      @follow_book[:status] = 2
-      @follow_book[:buy_date] = params[:book][:buy_date]
-      @follow_book.image = @book.image.file
-      @follow_book.save
+      @follow_book.book_following(@book, current_user)
       redirect_to book_path(@book)
     end
   end
 
-  def destroy
-    if @book.destroy
-      redirect_to user_path(@book.user_id)
+  def destroy 
+    if @book.status == 0 || @book.status == 1
+      if @book.destroy
+        redirect_to user_path(@book.user_id)
+      else
+        render 'show'
+      end
     else
-      render 'show'
+      if @book.destroy
+        redirect_to follow_book_user_path(@book.user_id)
+      else
+        render 'follow_book_show'
+      end
     end
   end
 

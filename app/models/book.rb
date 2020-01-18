@@ -39,6 +39,14 @@ class Book < ApplicationRecord
       self.status = 0
     end
 
+    def book_following(book,user)
+      self.user_id = user.id
+      self.status = 2
+      self.buy_date = Date.today
+      self.image = book.image.file
+      self.save
+    end
+
     def self.search(search)
       return " " unless search
       Book.where('title LIKE(?)', "%#{search}%")
