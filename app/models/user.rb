@@ -12,6 +12,11 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  validates :nickname, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :birth_day, presence: true
+  
+  
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end

@@ -9,18 +9,34 @@
           ニックネーム
         .user-detail__nickname-input
           = f.text_field :nickname, placeholder: "> nickname", class:"text-input"
+        .error-text
+          - @user.errors.full_messages_for(:nickname).each do |message|
+            %div
+              = message
         .user-detail__top.form-content
           メールアドレス
         .user-detail__email-input
-          = f.email_field :email, placeholder: "> e-mail", class:"text-input"
+          = f.email_field :email, placeholder: "> email", class:"text-input"
+        .error-text
+          - @user.errors.full_messages_for(:email).each do |message|
+            %div
+              = message
         .user-detail__top.form-content
           生年月日
         .user-detail__birthday-input
           != sprintf(f.date_select(:birth_day, prefix:'birth_day', with_css_classes:'select-box', prompt: "---",use_month_numbers:true, start_year:2020, end_year:1920, date_separator:'%s'),'年','月')+'日'
+          .error-text
+            - @user.errors.full_messages_for(:birth_day).each do |message|
+              %div
+                = message
         .user-detail__top.form-content
           パスワード
         .user-detail__password-input
           = f.password_field :password, placeholder: "> password", class:"text-input"
+        .error-text
+          - @user.errors.full_messages_for(:password).each do |message|
+            %div
+              = message
         .user-detail__top.form-content
           パスワード(確認用)
         .user-detail__password-input
