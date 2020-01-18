@@ -30,7 +30,7 @@ class BooksController < ApplicationController
       if @book.update(book_params)
         redirect_to book_path(@book)
       else
-        render 'show'
+        render 'edit'
       end
     else
       @follow_book = Book.find(params[:id]).dup

@@ -12,22 +12,38 @@
           タイトル
         .book-detail__title-input
           = f.text_field :title, placeholder: "> book title", class:"text-input"
+        .error-text
+          - @book.errors.full_messages_for(:title).each do |message|
+            %div
+              = message
         .book-detail__top.form-content
           著者
         .book-detail__author-input
-        = f.text_field :author, placeholder: "> book author", class:"text-input"
+          = f.text_field :author, placeholder: "> book author", class:"text-input"
+        .error-text
+          - @book.errors.full_messages_for(:author).each do |message|
+            %div
+              = message
         .book-detail__top.form-content
           出版社
         .book-detail__publisher-input
-        = f.text_field :publisher, placeholder: "> book publisher", class:"text-input"
+          = f.text_field :publisher, placeholder: "> book publisher", class:"text-input"
+        .error-text
+          - @book.errors.full_messages_for(:publisher).each do |message|
+            %div
+              = message
         .book-detail__top.form-content
           ジャンル
         .book-detail__category-input
           = f.select :category, options_for_select(Book.categories.keys, selected: @book.category), {}, {class: 'select-box'}
+        .error-text
+          - @book.errors.full_messages_for(:category).each do |message|
+            %div
+              = message
         .book-detail__top.form-content
           購入日
         .book-rating__buydate-input
-          != sprintf(f.date_select(:buy_date, prefix:'buy_date', with_css_classes:'select-box', selected: Date.today,use_month_numbers:true, start_year:Time.now.year, end_year:Time.now.year-2, date_separator:'%s'),'年','月')+'日'
+          != sprintf(f.date_select(:buy_date, prefix:'buy_date', with_css_classes:'select-box', selected: Date.today,use_month_numbers:true, start_year:Time.now.year, end_year:Time.now.year-10, date_separator:'%s'),'年','月')+'日'
       .btn-box
         .btn-box__book-new
           = f.submit " 本を登録する ", class: "submit-btn text-line-none"
