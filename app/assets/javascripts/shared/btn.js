@@ -175,7 +175,6 @@ $(function(){
         {
           color: 'white',
           backgroundColor: '#4ba53a',
-          fontWeight: 'bold'
         }
       )
     },
@@ -184,8 +183,24 @@ $(function(){
         {
           color: '#4ba53a',
           backgroundColor: 'white',
-          fontWeight: 'normal'
         }
+      )
+    }
+  );
+
+  $('.white-btn').hover(
+    function(){
+      $(this).animate(
+        {
+          'width': '120px',
+        },150
+      )
+    },
+    function(){
+      $(this).animate(
+        {
+          'width': '100px'
+        },150
       )
     }
   );

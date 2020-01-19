@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     @followers = @user.followers
     @followings = @user.followings
     @buy_books = @user.books.where(status:0).order("created_at DESC").limit(5)
-    # @read_books = @user.books.where(status:1).order("created_at DESC").limit(5)
     @read_books_impressions = Impression.where(book_id: @user.book_ids).order("created_at DESC").limit(5)
 
     @will_read_books = @user.books.where(status:2).order("created_at DESC").limit(5)
