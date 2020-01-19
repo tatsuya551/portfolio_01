@@ -126,16 +126,11 @@
                   = link_to book_impression_path(@book,@book.impressions.last), class: "text-black text-line-none content-header-btn" do
                     感想の詳細
               - else
-            - if params[:controller] == "impressions" && params[:action] == "new" || params[:controller] == "impressions" && params[:action] == "update"
+            - if @book.status == 1 && current_user == @book.user
               .book-info-list__link
-                = link_to book_impression_path(@impression.book_id,@impression), class: "text-green font-bold text-line-none" do
+                = link_to new_book_impression_path(@book), class: "text-black text-line-none content-header-btn" do
                   感想の登録
             - else
-              - if @book.status == 1 && user_signed_in?
-                .book-info-list__link
-                  = link_to new_book_impression_path(@book), class: "text-black text-line-none content-header-btn" do
-                    感想の登録
-              - else
             - if user_signed_in? && current_user != @book.user
               .book-info-list__link
                 .book-info-list__link__btn.content-header-follow-book-btn

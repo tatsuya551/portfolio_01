@@ -29,7 +29,7 @@
         font-size: 22px;
       }
       .book-info-list{
-        width: 500px;
+        width: 600px;
         height: 21px;
         position: absolute;
         left: 500px;
@@ -72,36 +72,36 @@
       .user-link{
         &__nickname-icon{
           position: absolute;
-          left: 955px;
+          left: 1045px;
           bottom: 35px;
         }
         &__nickname{
           position: absolute;
-          left: 980px;
+          left: 1070px;
           bottom: 34px;
           font-size: 18px;
         }
         &__followings-icon{
           position: absolute;
-          left: 955px;
+          left: 1045px;
           bottom: 7px;
           font-size: 14px;
         }
         &__followings{
           position: absolute;
-          left: 995px;
+          left: 1085px;
           bottom: 6px;
           font-size: 16px;
         }
         &__followers-icon{
           position: absolute;
-          left: 1035px;
+          left: 1125px;
           bottom: 7px;
           font-size: 14px;
         }
         &__followers{
           position: absolute;
-          left: 1075px;
+          left: 1165px;
           bottom: 6px;
           font-size: 16px;
         }
