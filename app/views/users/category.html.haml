@@ -4,29 +4,29 @@
     = render "shared/content_top"
     .category-top__main__category-tag.box-center.margin-top-60
       .category-top__main__category-tag__box.display-flex.box-center
-        .category-btn.background-novel.text-center
+        .category-btn.background-novel.text-center.novel-btn
           = link_to novel_user_path(@user), class: "text-line-none text-black" do
             小説
-        .category-btn.background-management.text-center.margin-left-20
+        .category-btn.background-management.text-center.margin-left-20.management-btn
           = link_to management_user_path(@user), class: "text-line-none text-black" do
             経営・戦略
-        .category-btn.background-economy.text-center.margin-left-20
+        .category-btn.background-economy.text-center.margin-left-20.economy-btn
           = link_to economy_user_path(@user), class: "text-line-none text-black" do
             政治・経済
-        .category-btn.background-finance.text-center.margin-left-20
+        .category-btn.background-finance.text-center.margin-left-20.finance-btn
           = link_to finance_user_path(@user), class: "text-line-none text-black" do
             ファイナンス
       .category-top__main__category-tag__box.display-flex.box-center
-        .category-btn.background-it.text-center
+        .category-btn.background-it.text-center.it-btn
           = link_to it_user_path(@user), class: "text-line-none text-black" do
             IT
-        .category-btn.background-motivation.text-center.margin-left-20
+        .category-btn.background-motivation.text-center.margin-left-20.motivation-btn
           = link_to motivation_user_path(@user), class: "text-line-none text-black" do
             自己啓発
-        .category-btn.background-talent.text-center.margin-left-20
+        .category-btn.background-talent.text-center.margin-left-20.talent-btn
           = link_to talent_user_path(@user), class: "text-line-none text-black" do
             タレント本
-        .category-btn.background-etc.text-center.margin-left-20
+        .category-btn.background-etc.text-center.margin-left-20.etc-btn
           = link_to etc_user_path(@user), class: "text-line-none text-black" do
             その他
   - if @novels.present? == true || @managements.present? == true || @economys.present? == true || @finances.present? == true || @its.present? == true || @motivations.present? == true || @talents.present? == true || @etcs.present? == true

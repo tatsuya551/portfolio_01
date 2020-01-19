@@ -58,15 +58,15 @@
         - else
           .user-box__book-none.text-gray
             登録がありません
-      .user-book-list.text-center
+      = link_to will_read_books_user_path, class: "user-book-list text-center text-black text-line-none mypage-title" do
         .user-book-list__title.margin-top-100
           最近登録した未読本
         = render partial: "shared/mypage_book_list", locals: {books: @buy_books}
-      .user-book-list.text-center
+      = link_to read_books_user_path, class: "user-book-list text-center text-black text-line-none mypage-title" do
         .user-book-list__title.margin-top-100
           最近読んだ本
         = render partial: "shared/mypage_book_impression_list", locals: {impressions: @read_books_impressions}
-      .user-book-list.text-center
+      = link_to follow_book_user_path, class: "user-book-list text-center text-black text-line-none mypage-title" do
         .user-book-list__title.margin-top-100
           読みたいリスト
         = render partial: "shared/mypage_book_list", locals: {books: @will_read_books}

@@ -30,7 +30,7 @@
       本の詳細
     - if user_signed_in? && current_user == @book.user
       .content-top__book-edit
-        = link_to edit_book_path(@book), class:"mini-green-link-btn text-line-none" do
+        = link_to edit_book_path(@book), class:"mini-green-link-btn font-bold text-line-none" do
           編集する
     - else
 - elsif params[:controller] == "impressions" && params[:action] == "new" || params[:controller] == "impressions" && params[:action] == "create"
@@ -44,7 +44,7 @@
       = icon 'fas', 'edit', class: 'icon-book'
       感想の編集
     .content-top__book-destroy
-      = link_to book_impression_path(@book), method: :delete, class:"mini-green-link-btn text-line-none" do
+      = link_to book_impression_path(@book), method: :delete, class:"mini-green-link-btn font-bold text-line-none" do
         削除する
 - elsif params[:controller] == "impressions" && params[:action] == "index"
   .content-top.box-center
@@ -60,7 +60,7 @@
         ノート
       - if user_signed_in? && current_user == @book.user
         .content-top__book-edit
-          = link_to edit_book_impression_path(@book, @impression), class:"mini-green-link-btn text-line-none" do
+          = link_to edit_book_impression_path(@book, @impression), class:"mini-green-link-btn font-bold text-line-none" do
             編集する
       - else
 - elsif params[:controller] == "books" && params[:action] == "edit" || params[:controller] == "books" && params[:action] == "update"
@@ -69,7 +69,7 @@
       = icon 'fas', 'edit', class: 'icon-book'
       本の編集
     .content-top__book-destroy
-      = link_to book_path(@book), method: :delete, class:"mini-green-link-btn text-line-none" do
+      = link_to book_path(@book), method: :delete, class:"mini-green-link-btn font-bold text-line-none" do
         削除する
 - elsif params[:controller] == "users" && params[:action] == "edit" || params[:controller] == "users" && params[:action] == "update"
   .content-top
