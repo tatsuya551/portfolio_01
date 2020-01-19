@@ -6,7 +6,7 @@
       .reread-timing-list__main__box
         .reread-timing-list__main__box__list.display-flex
           = link_to book_impression_path(impressions[0].book,impressions[0]), class: "text-line-none text-black" do
-            .category-big
+            .category-big.book-hover
               - if impressions[0].book.category == "小説"
                 .category-big__book-category-tag.background-novel.text-center
                   小説
@@ -43,7 +43,7 @@
             - impressions.each.with_index(0) do |impression, i|
               - if i >= 1 && i <= 4
                 = link_to book_impression_path(impression.book, impression), class: "text-line-none text-black" do
-                  .category-small__box
+                  .category-small__box.book-hover
                     - if impression.book.category == "小説"
                       .category-small__box__book-category-tag.background-novel.text-center
                         小説

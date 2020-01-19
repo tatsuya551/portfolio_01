@@ -3,7 +3,7 @@
     .mypage-book-list__main.box-list
       - books.each do |book|
         - if book.status == 0
-          .mypage-book-list__main__box.text-center
+          .mypage-book-list__main__box.text-center.book-hover
             = link_to book_path(book), class: "mypage-book-list__main__box__content text-line-none text-black" do
               - if book.category == "小説"
                 .book-category-tag.background-novel
@@ -34,7 +34,7 @@
               .book-title
                 = book.title
         - else
-          .mypage-book-list__main__box.text-center
+          .mypage-book-list__main__box.text-center.book-hover
             = link_to follow_book_show_book_path(book), class: "mypage-book-list__main__box__content text-line-none text-black" do
               - if book.category == "小説"
                 .book-category-tag.background-novel
