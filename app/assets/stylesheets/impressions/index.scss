@@ -10,7 +10,7 @@
       }
       .book-title{
         margin-top: 10px;
-        font-size: 18px;
+        font-size: 20px;
         @include long-text-set;
       }
     }
@@ -27,7 +27,7 @@
           box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
         }
         &__text{
-          margin-top: 60px;
+          margin-top: 90px;
           .book-detail{
             @include height_width(30px, 350px);
             border-bottom:1px solid #ccc;
@@ -42,6 +42,7 @@
             }
             &__content{
               margin-left: 40px;
+              font-size: 18px;
             }
           }
         }
