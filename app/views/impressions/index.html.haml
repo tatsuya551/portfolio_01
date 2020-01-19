@@ -15,11 +15,6 @@
         .impression-index__main__box__book__text
           .book-detail.display-flex
             .book-detail__top
-              著者
-            .book-detail__content
-              = @book.author
-          .book-detail.display-flex
-            .book-detail__top
               読んだ回数
             .book-detail__content
               = @book.impressions.count.to_s + " 回"
@@ -37,17 +32,15 @@
         %canvas#hexagonChart
         :javascript
           draw_hexagon_graph();
-        .rating-title.box-center.text-center
-          総合評価
+        - if @book.impressions.count.to_s == "1"
+          .rating-title.box-center.text-center
+            総合評価
+        -else
+          .rating-title.box-center.text-center
+            = @book.impressions.count.to_s + " 回の平均総合評価"
         .rating-point.box-center.display-flex
           .rating-point__main.font-bold
             = @rating
           .rating-point__sub
             点
-    - if user_signed_in? && current_user == @book.user
-      .btn-box
-        .btn-box__book-raiting
-          = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
-            新しい感想を登録する
-      = render "shared/impression_list"
-    - else
+    = render "shared/impression_list"

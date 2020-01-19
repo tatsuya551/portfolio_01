@@ -51,13 +51,13 @@
     .content-top__box.display-flex
       .content-top__box__title.content-title
         = icon 'fas', 'sticky-note', class: 'icon-sign-out'
-        本の感想
+        読書情報
 - elsif params[:controller] == "impressions" && params[:action] == "show"
   .content-top.box-center
     .content-top__box.display-flex.box-center.text-center
       .content-top__box__title.content-title.margin-left-80
         = icon 'fas', 'book-reader', class: 'icon-sign-out'
-        ノート
+        感想の詳細
       - if user_signed_in? && current_user == @book.user
         .content-top__book-edit
           = link_to edit_book_impression_path(@book, @impression), class:"mini-green-link-btn font-bold text-line-none" do
