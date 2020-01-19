@@ -2,7 +2,7 @@
   - if impressions.present?
     .book-list__main.box-list
       - impressions.each do |impression|
-        .book-list__main__box.text-center
+        .book-list__main__box.text-center.book-hover
           = link_to book_impressions_path(impression.book), class: "book-list__main__box__content text-line-none text-black" do
             - if impression.book.category == "小説"
               .book-category-tag.background-novel

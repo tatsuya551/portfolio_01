@@ -3,7 +3,7 @@
     .book-list__main.box-list
       - books.each do |book|
         - if book.status == 1
-          .book-list__main__box.text-center
+          .book-list__main__box.text-center.book-hover
             = link_to book_impressions_path(book), class: "book-list__main__box__content text-line-none text-black" do
               - if book.category == "小説"
                 .book-category-tag.background-novel
@@ -38,7 +38,7 @@
               .book-title
                 = book.title
         - elsif book.status == 0
-          .book-list__main__box.text-center
+          .book-list__main__box.text-center.book-hover
             = link_to book_path(book), class: "book-list__main__box__content text-line-none text-black" do
               - if book.category == "小説"
                 .book-category-tag.background-novel
@@ -69,7 +69,7 @@
               .book-title
                 = book.title
         - else
-          .book-list__main__box.text-center
+          .book-list__main__box.text-center.book-hover
             = link_to follow_book_show_book_path(book), class: "book-list__main__box__content text-line-none text-black" do
               - if book.category == "小説"
                 .book-category-tag.background-novel

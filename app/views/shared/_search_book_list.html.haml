@@ -5,7 +5,7 @@
   - else
     - books.each do |book|
       - if book.status == 1
-        = link_to book_impressions_path(book), class: "search-book-list__main box-list text-line-none text-black" do
+        = link_to book_impressions_path(book), class: "search-book-list__main box-list text-line-none text-black book-hover" do
           .search-book-list__main__book.text-center
             .search-book-list__main__book__box
               - if book.category == "小説"
@@ -69,7 +69,7 @@
             .search-book-list__main__graph__count.text-line-none.text-black.text-center
               = book.user.books.where.not(status:2).count
       - elsif book.status == 0
-        = link_to book_path(book), class: "search-book-list__main box-list text-line-none text-black" do
+        = link_to book_path(book), class: "search-book-list__main box-list text-line-none text-black book-hover" do
           .search-book-list__main__book.text-center
             .search-book-list__main__book__box
               - if book.category == "小説"
