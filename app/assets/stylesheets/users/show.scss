@@ -68,6 +68,7 @@
             top: 60px;
             font-size: 18px;
             color: gray;
+            z-index: -1;
           }
           .user-books-count{
             width: 120px;
@@ -75,6 +76,7 @@
             left: 75px;
             top: 78px;
             font-size: 40px;
+            z-index: -1;
           }
         }
         &__book-none{
