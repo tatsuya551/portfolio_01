@@ -17,10 +17,12 @@
           }
         }
         &__name{
-          @include height_width(60px, 180px);
+          @include height_width(60px, 170px);
           font-size: 18px;
           margin-left: 20px;
+          padding-right: 10px;
           line-height: 70px;
+          @include long-text-set;
         }
       }
       &__follow{

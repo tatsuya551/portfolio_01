@@ -12,7 +12,7 @@
         font-size: 22px;
       }
       .mypage-list{
-        width: 500px;
+        width: 600px;
         position: absolute;
         left: 365px;
         bottom: 10px;
@@ -76,10 +76,13 @@
           bottom: 35px;
         }
         &__nickname{
+          width: 190px;
           position: absolute;
           left: 1070px;
           bottom: 34px;
           font-size: 18px;
+          @include long-text-set;
+          color: #e59703;
         }
         &__followings-icon{
           position: absolute;

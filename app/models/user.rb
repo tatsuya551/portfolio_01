@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
 
   validates :nickname, presence: true
+  validates :nickname, length: { maximum: 15, message: "は 15文字以下で入力してください" }, allow_blank: true
   validates :email, presence: true, uniqueness: true
   validates :birth_day, presence: true
   
