@@ -70,3 +70,7 @@
         .user-book-list__title.margin-top-100
           読みたいリスト
         = render partial: "shared/mypage_book_list", locals: {books: @will_read_books}
+      = link_to read_count_books_user_path, class: "user-book-list text-center text-black text-line-none mypage-title" do
+        .user-book-list__title.margin-top-100
+          読書した回数順
+        = render partial: "shared/mypage_book_impression_list", locals: {impressions: @read_count_impressions}

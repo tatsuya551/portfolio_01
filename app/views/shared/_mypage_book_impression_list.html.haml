@@ -3,7 +3,7 @@
     .mypage-book-impression-list__main.box-list
       - impressions.each do |impression|
         .mypage-book-impression-list__main__box.text-center.book-hover
-          = link_to book_impression_path(impression.book, impression), class: "mypage-book-impression-list__main__box__content text-line-none text-black " do
+          = link_to book_impressions_path(impression.book, impression), class: "mypage-book-impression-list__main__box__content text-line-none text-black " do
             - if impression.book.category == "小説"
               .book-category-tag.background-novel
                 小説

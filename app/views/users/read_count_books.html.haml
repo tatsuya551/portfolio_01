@@ -1,0 +1,37 @@
+= render "shared/content_header"
+.read-count-books.main-font
+  .read-count-books__main.box-center
+    .read-count-books__main__box.active
+      .read-count-books__main__box__title.box-center.font-bold.display-flex
+        読書回数別の一覧
+        .once-set-tab.mini-orange-link-btn
+          1回のみ
+        .once-set-tab.mini-green-link-btn
+          2回のみ
+        .once-set-tab.mini-green-link-btn
+          3回以上
+      .read-count-books__main__box__books
+        = render partial: "shared/book_timing_list", locals: {impressions: @read_once_impressions}
+    .read-count-books__main__box
+      .read-count-books__main__box__title.box-center.font-bold.display-flex
+        読書回数別の一覧
+        .twice-set-tab.mini-green-link-btn
+          1回のみ
+        .twice-set-tab.mini-orange-link-btn
+          2回のみ
+        .twice-set-tab.mini-green-link-btn
+          3回以上
+      .read-count-books__main__box__books
+        = render partial: "shared/book_timing_list", locals: {impressions: @read_twice_impressions}
+    .read-count-books__main__box
+      .read-count-books__main__box__title.box-center.font-bold.display-flex
+        読書回数別の一覧
+        .three-set-tab.mini-green-link-btn
+          1回のみ
+        .three-set-tab.mini-green-link-btn
+          2回のみ
+        .three-set-tab.mini-orange-link-btn
+          3回以上
+      .read-count-books__main__box__books
+        = render partial: "shared/book_timing_list", locals: {impressions: @read_three_impressions}
+    

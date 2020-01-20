@@ -1,17 +1,21 @@
-.search-book{
+.read-count-books{
   &__main{
-    width: 90%;
+    width: 1200px;
     padding-top: 80px;
-    &__box{
-      display: none;
+    &__box.active{
+      display: block;
       &__title{
        width: 80%;
        font-size: 25px;
-       .first-set-tab{
+       .once-set-tab{
+         margin-left: 10px;
+         margin-top: 10px;
+       }
+       .twice-set-tab{
         margin-left: 10px;
         margin-top: 10px;
        }
-       .second-set-tab{
+       .three-set-tab{
         margin-left: 10px;
         margin-top: 10px;
        }
@@ -20,16 +24,20 @@
         margin-top: 60px;
       }
     }
-    &__box.active{
-      display: block;
+    &__box{
+      display: none;
       &__title{
        width: 80%;
        font-size: 25px;
-       .first-set-tab{
+       .once-set-tab{
+         margin-left: 10px;
+         margin-top: 10px;
+       }
+       .twice-set-tab{
         margin-left: 10px;
         margin-top: 10px;
        }
-       .second-set-tab{
+       .three-set-tab{
         margin-left: 10px;
         margin-top: 10px;
        }
