@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :nickname, length: { maximum: 15, message: "は 15文字以下で入力してください" }, allow_blank: true
   validates :email, presence: true, uniqueness: true
   validates :birth_day, presence: true
-  
+  validates :birth_day, date: true, allow_blank: true
   
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
