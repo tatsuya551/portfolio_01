@@ -67,6 +67,12 @@ describe User, type: :model do
     # 保存OK確認                 #
     #############################
     context 'can save' do
+      it "[user] all ok" do
+        user = build(:user)
+        user.valid?
+        expect(user).to be_valid
+      end
+
       it "[nickname] 15byte" do
         user = build(:user, nickname: "abcdefghijklmno")
         user.valid?
