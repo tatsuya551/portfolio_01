@@ -60,6 +60,12 @@ describe Book, type: :model do
         book.valid?
         expect(book.errors.messages[:buy_date]).to include("を正確に入力してください")
       end
+
+      it "[category] nil" do
+        book = build(:book, category: nil)
+        book.valid?
+        expect(book.errors.messages[:category]).to include("を選択してください")
+      end
     end
 
     #############################
@@ -68,6 +74,48 @@ describe Book, type: :model do
     context 'can save' do
       it "[book] all ok" do
         book = build(:book)
+        book.valid?
+        expect(book).to be_valid
+      end
+
+      it "[category] 経営・戦略" do
+        book = build(:book, category: "経営・戦略")
+        book.valid?
+        expect(book).to be_valid
+      end
+
+      it "[category] 政治・経済" do
+        book = build(:book, category: "政治・経済")
+        book.valid?
+        expect(book).to be_valid
+      end
+
+      it "[category] 金融・ファイナンス" do
+        book = build(:book, category: "金融・ファイナンス")
+        book.valid?
+        expect(book).to be_valid
+      end
+
+      it "[category] IT" do
+        book = build(:book, category: "IT")
+        book.valid?
+        expect(book).to be_valid
+      end
+
+      it "[category] 自己啓発" do
+        book = build(:book, category: "自己啓発")
+        book.valid?
+        expect(book).to be_valid
+      end
+
+      it "[category] タレント本" do
+        book = build(:book, category: "タレント本")
+        book.valid?
+        expect(book).to be_valid
+      end
+
+      it "[category] その他" do
+        book = build(:book, category: "その他")
         book.valid?
         expect(book).to be_valid
       end
