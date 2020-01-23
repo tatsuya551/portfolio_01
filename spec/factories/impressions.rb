@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :impression do
-    id                    {"1"}
     book
     note                  {"最高に面白い！また読みたい本です。"}
     read_day              {"1週間"}

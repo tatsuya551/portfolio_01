@@ -71,7 +71,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.where.not(status:2)
+    @books = Book.where.not(status:2).order("created_at DESC")
   end
 
   private
