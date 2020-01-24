@@ -3,38 +3,4 @@
   .follow-book-show__main
     = render "shared/content_top"
     = render "shared/book_tag"
-    .follow-book-show__main__book-title.text-center
-      .book-top
-        タイトル
-      .book-title
-        = @book.title
-    .follow-book-show__main__box
-      .follow-book-show__main__box__photo
-        = image_tag @book.image.to_s, class: ".follow-book-show-image image-set"
-      .follow-book-show__main__box__text
-        .book-detail
-          .book-detail__top
-            著者
-          .book-detail__content
-            = @book.author
-        .book-detail
-          .book-detail__top
-            出版社
-          .book-detail__content
-            = @book.publisher
-        .book-detail
-          .book-detail__top
-            ジャンル
-          .book-detail__content
-            = @book.category
-        .book-detail
-          .book-detail__top
-            登録日
-          .book-detail__content
-            = @book.buy_date
-    - if current_user == @user
-      .btn-box
-        .btn-box__book-raiting.text-center
-          = link_to book_path(@book), method: :delete, class:"black-link-btn text-line-none" do
-            登録を削除する
-    - else
+    = render "shared/book_show_box"

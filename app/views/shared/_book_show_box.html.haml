@@ -1,0 +1,40 @@
+.book-show-box
+  .book-show-box__book-title.text-center
+    .book-top
+      タイトル
+    .book-title
+      = @book.title
+  .book-show-box__box
+    .book-show-box__box__photo
+      = image_tag @book.image.to_s, class: "book-show-image image-set"
+    .book-show-box__box__text
+      .book-detail
+        .book-detail__top
+          著者
+        .book-detail__content
+          = @book.author
+      .book-detail
+        .book-detail__top
+          出版社
+        .book-detail__content
+          = @book.publisher
+      .book-detail
+        .book-detail__top
+          ジャンル
+        .book-detail__content
+          = @book.category
+      .book-detail
+        .book-detail__top
+          購入日
+        .book-detail__content
+          = @book.buy_date
+  .btn-box.box-center
+    - if user_signed_in? && current_user == @book.user && params[:controller] == "books" && params[:action] == "show" 
+      .btn-box__book-raiting.text-center
+        = link_to new_book_impression_path(@book), class:"black-link-btn text-line-none" do
+          感想を登録する
+    - elsif user_signed_in? && current_user == @book.user && params[:controller] == "books" && params[:action] == "follow_book_show"
+      .btn-box__book-raiting.text-center
+        = link_to book_path(@book), method: :delete, class:"black-link-btn text-line-none" do
+          登録を削除する
+    - else
