@@ -1,0 +1,48 @@
+.book-show-box{
+  &__book-title{
+    margin-top: 60px;
+    .book-top{
+      font-size: 10px;
+      color: #aaa;
+    }
+    .book-title{
+      margin-top: 10px;
+      font-size: 20px;
+      @include long-text-set;
+    }
+  }
+  &__box{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    &__photo{
+      @include height_width(230px, 230px);
+      position: relative;
+      background-color: #eee;
+      box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+    }
+    &__text{
+      .book-detail{
+        @include height_width(30px, 400px);
+        border-bottom:1px solid #ccc;
+        display: flex;
+        margin-top: 15px;
+        margin-left: 50px;
+        line-height: 30px;
+        &__top{
+          text-align: right;
+          font-size: 10px;
+          width: 60px;
+          color: #aaa;
+        }
+        &__content{
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+  .btn-box{
+    height: 44px;
+    margin-top: 85px;
+  }
+}
