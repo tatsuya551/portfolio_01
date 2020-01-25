@@ -1,5 +1,5 @@
 class ImpressionsController < ApplicationController
-  before_action :set_books, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+  before_action :set_books,:set_user_notice, only: [:new, :index, :show, :edit, :create, :update, :destroy]
   before_action :set_impression, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -10,7 +10,8 @@ class ImpressionsController < ApplicationController
     @impression = Impression.create(impression_params)
     if @impression.save
       @impression.book.book_read
-      @impression.book.save
+      notice = Notice.new
+      notice.notice_impression_followers(@impression.book.user, @impression)
       redirect_to book_impressions_path(@book)
     else
       render 'new'
@@ -164,7 +165,6 @@ class ImpressionsController < ApplicationController
         redirect_to book_impressions_path(@book)
       else
         @book.book_impression_none
-        @book.save
         redirect_to book_path(@book)
       end
     else
@@ -191,6 +191,10 @@ class ImpressionsController < ApplicationController
 
   def set_books
     @book = Book.find(params[:book_id])
+  end
+
+  def set_user_notice
+    @notices = Notice.where(user_id:@book.user.following_ids).where(date: Date.today-7..Date.today).order("created_at DESC").limit(10)
   end
 
   def set_impression

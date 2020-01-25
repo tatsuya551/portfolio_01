@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :impressions, dependent: :destroy
+  has_many :notices, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 
@@ -34,10 +35,12 @@ class Book < ApplicationRecord
 
     def book_read
       self.status = 1
+      self.save
     end
 
     def book_impression_none
       self.status = 0
+      self.save
     end
 
     def book_following(book,user)

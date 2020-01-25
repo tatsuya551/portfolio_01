@@ -1,0 +1,22 @@
+.news-list-main
+  .news-list-main__title.text-center.text-blue
+    News
+  - if @notices.present?
+    - @notices.each do |notice|
+      - if notice.impression_id.present?
+        =link_to book_impression_path(notice.book_id, notice.impression_id), class: "news-list-main__box text-blue text-line-none" do
+          .news-list-main__box__content
+            = notice.news_text
+          .news-list-main__box__dete
+            = icon 'fas', 'clock', class: 'icon-user-link'
+            = notice.days_elapsed
+      - else
+        =link_to book_path(notice.book_id), class: "news-list-main__box text-blue text-line-none" do
+          .news-list-main__box__content
+            = notice.news_text
+          .news-list-main__box__dete
+            = icon 'fas', 'clock', class: 'icon-user-link'
+            = notice.days_elapsed
+  - else
+    .news-list-main__none.text-blue.text-center
+      フォローして、Newsを受け取りましょう
