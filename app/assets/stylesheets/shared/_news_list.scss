@@ -1,0 +1,33 @@
+.news-list-main{
+  display: none;
+  width: 340px;
+  background: white;
+  position: absolute;
+  left: 1000px;
+  top: 70px;
+  z-index: 2;
+  box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+  margin-bottom: 5px;
+  &__title{
+    font-size: 14px;
+    background: #039ae530;
+  }
+  &__box{
+    display: block;
+    padding: 10px 20px 10px 20px;
+    width: 300px;
+    border-top: 1px solid #039ae544;
+    &__content{
+      font-size: 14px;
+    }
+    &__dete{
+      margin-top: 5px;
+      font-size: 12px;
+    }
+  }
+  &__none{
+    padding: 10px 20px 10px 20px;
+    height: 45px;
+    line-height: 45px;
+  }
+}

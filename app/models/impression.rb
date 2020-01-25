@@ -1,5 +1,6 @@
 class Impression < ApplicationRecord
   belongs_to :book
+  has_many :notices, dependent: :destroy
 
   validates :note, length: { maximum: 300, message: "300 文字以下で入力してください" }
   validates :read_day,

@@ -64,7 +64,27 @@
               .mypage-list__link
                 = link_to follow_book_user_path(@user), class: "text-black text-line-none content-header-btn" do
                   読みたいリスト
-          - if user_signed_in?
+          - if user_signed_in? && current_user == @user
+            .user-link.display-flex
+              .user-link__nickname-icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                  = @user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to followings_user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                  = @user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to followers_user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                  = @user.followers.count
+              .user-link__news-icon.text-blue.news-list.text-center
+                = icon 'fas', 'bell', class: 'icon-user-link'
+              = render "shared/news_list"
+          - elsif user_signed_in?
             .user-link.display-flex
               .user-link__nickname-icon.text-orange
                 = icon 'fas', 'user', class: 'icon-user-link'
@@ -157,7 +177,27 @@
                   .back-btn.green-link-btn
                     戻る
             - else
-          - if user_signed_in?
+          - if user_signed_in? && current_user == @book.user
+            .user-link.display-flex
+              .user-link__nickname-icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to user_path(@book.user), class: "text-orange text-line-none content-header-user-btn" do
+                  = @book.user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to followings_user_path(@book.user), class: "text-orange text-line-none content-header-user-btn" do
+                  = @book.user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to followers_user_path(@book.user), class: "text-orange text-line-none content-header-user-btn" do
+                  = @book.user.followers.count
+              .user-link__news-icon.text-blue.news-list.text-center
+                = icon 'fas', 'bell', class: 'icon-user-link'
+              = render "shared/news_list"
+          - elsif user_signed_in?
             .user-link.display-flex
               .user-link__nickname-icon.text-orange
                 = icon 'fas', 'user', class: 'icon-user-link'
@@ -211,7 +251,27 @@
               .follow-info-list__link
                 = link_to followers_user_path(@user), class: "text-black text-line-none content-header-btn" do
                   フォロワー
-          - if user_signed_in?
+          - if user_signed_in? && current_user == @user
+            .user-link.display-flex
+              .user-link__nickname-icon.text-orange
+                = icon 'fas', 'user', class: 'icon-user-link'
+              .user-link__nickname
+                = link_to user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                  = @user.nickname
+              .user-link__followings-icon.text-orange
+                = icon 'fas', 'heart', class: 'icon-user-link'
+              .user-link__followings.text-center
+                = link_to followings_user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                  = @user.followings.count
+              .user-link__followers-icon.text-orange
+                = icon 'fas', 'check', class: 'icon-user-link'
+              .user-link__followers.text-center
+                = link_to followers_user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                  = @user.followers.count
+              .user-link__news-icon.text-blue.news-list.text-center
+                = icon 'fas', 'bell', class: 'icon-user-link'
+              = render "shared/news_list"
+          - elsif user_signed_in?
             .user-link.display-flex
               .user-link__nickname-icon.text-orange
                 = icon 'fas', 'user', class: 'icon-user-link'

@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_books, only: [:show, :edit, :update, :destroy, :follow_book_show]
+  before_action :set_books, :set_user_notice, only: [:show, :edit, :update, :destroy, :follow_book_show]
   before_action :buydate_add, only: [:create]
 
   def new
@@ -10,6 +10,8 @@ class BooksController < ApplicationController
     params[:book][:buy_date] = @buy_date.to_s
     @book = Book.new(book_params)
     if @book.save(book_params)
+      notice = Notice.new
+      notice.notice_book_followers(@book.user, @book)
       redirect_to user_path(@book.user_id)
     else
       render 'new'
@@ -88,6 +90,10 @@ class BooksController < ApplicationController
 
   def set_books
     @book = Book.find(params[:id])
+  end
+
+  def set_user_notice
+    @notices = Notice.where(user_id:@book.user.following_ids).where(date: Date.today-7..Date.today).order("created_at DESC").limit(10)
   end
 
   def buydate_add

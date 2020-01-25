@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :followings, through: :following_relationships
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
+  has_many :notices
 
   validates :nickname, presence: true
   validates :nickname, length: { maximum: 15, message: "は 15文字以下で入力してください" }, allow_blank: true
