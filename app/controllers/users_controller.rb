@@ -1,33 +1,34 @@
 class UsersController < ApplicationController
   before_action :birthday_add, only: [:update]
   before_action :set_user, :set_user_notice, only: [:show,
-                                  :edit,
-                                  :update,
-                                  :category,
-                                  :novel,
-                                  :management,
-                                  :economy,
-                                  :finance,
-                                  :it,
-                                  :motivation,
-                                  :talent,
-                                  :etc,
-                                  :reread_timing,
-                                  :timing_knowledge,
-                                  :timing_motivation,
-                                  :timing_decision,
-                                  :timing_stress,
-                                  :timing_feel_down,
-                                  :timing_lost_love,
-                                  :timing_diversion,
-                                  :timing_relax,
-                                  :all_books,
-                                  :read_books,
-                                  :will_read_books,
-                                  :follow_book,
-                                  :followings,
-                                  :followers,
-                                  :read_count_books]
+                                                    :edit,
+                                                    :update,
+                                                    :category,
+                                                    :novel,
+                                                    :management,
+                                                    :economy,
+                                                    :finance,
+                                                    :it,
+                                                    :motivation,
+                                                    :talent,
+                                                    :etc,
+                                                    :reread_timing,
+                                                    :timing_knowledge,
+                                                    :timing_motivation,
+                                                    :timing_decision,
+                                                    :timing_stress,
+                                                    :timing_feel_down,
+                                                    :timing_lost_love,
+                                                    :timing_diversion,
+                                                    :timing_relax,
+                                                    :all_books,
+                                                    :read_books,
+                                                    :will_read_books,
+                                                    :follow_book,
+                                                    :followings,
+                                                    :followers,
+                                                    :read_count_books,
+                                                    :read_history]
 
   def show
     @followers = @user.followers
@@ -173,6 +174,10 @@ class UsersController < ApplicationController
     @read_once_impressions = Impression.where(book_id: @user.book_ids).group(:book_id).having("count(book_id) = 1").order("created_at DESC")
     @read_twice_impressions = Impression.where(book_id: @user.book_ids).group(:book_id).having("count(book_id) = 2").order("created_at DESC")
     @read_three_impressions = Impression.where(book_id: @user.book_ids).group(:book_id).having("count(book_id) >= 3").order("created_at DESC")
+  end
+
+  def read_history
+    @historys = Notice.where(user_id: @user.id).where(status:1).order("created_at DESC")
   end
 
   private

@@ -1,0 +1,23 @@
+.read-history-top{
+  width: 800px;
+  min-height: 400px;
+  &__main{
+    margin-top: 50px;
+    &__content{
+      margin-top: 40px;
+      &__box{
+        margin-top: 10px;
+        margin-left: 60px;
+        height: 30px;
+        line-height: 30px;
+        &__date{
+          font-size: 15px;
+        }
+        &__text{
+          margin-left: 30px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

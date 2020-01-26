@@ -13,6 +13,11 @@
               = image_tag @user.image.to_s, class: "user-photo user-image-set"
             .user-box__user__icon__name
               = @user.nickname
+            - if current_user == @user
+              .user-box__user__icon__edit
+                = link_to edit_user_path(@user), class:"profile-edit-btn font-bold text-line-none" do
+                  編集
+            - else
           .user-box__user__follow.display-flex
             - if current_user == @user
               .user-box__user__follow__followers

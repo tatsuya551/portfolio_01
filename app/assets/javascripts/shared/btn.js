@@ -188,6 +188,23 @@ $(function(){
     }
   );
 
+  $('.profile-edit-btn').hover(
+    function(){
+      $(this).animate(
+        {
+          'width': '55px',
+        },150
+      )
+    },
+    function(){
+      $(this).animate(
+        {
+          'width': '45px'
+        },150
+      )
+    }
+  );
+
   $('.white-btn').hover(
     function(){
       $(this).animate(

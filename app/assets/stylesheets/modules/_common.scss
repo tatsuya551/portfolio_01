@@ -306,6 +306,15 @@
   font-size: 12px;
 }
 
+/* プロフィール編集ボタン */
+.profile-edit-btn{
+  @include btn-set(45px, 25px);
+  display: inline-block;
+  color: #039be5;
+  border:1px solid #039be5;
+  font-size: 12px;
+}
+
 /* フォローするボタン */
 .follow-in-btn{
   width: 80px;
