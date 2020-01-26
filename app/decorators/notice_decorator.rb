@@ -13,4 +13,8 @@ module NoticeDecorator
   def news_text
     "#{user.nickname}さんが#{content}"
   end
+
+  def history_text
+    "「#{book.title}」を読書した"
+  end
 end

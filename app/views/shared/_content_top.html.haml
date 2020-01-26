@@ -91,4 +91,9 @@
     .content-top__title.content-title.text-center
       = icon 'fas', 'bars', class: 'icon-sign-out'
       読みたいリスト
+- elsif params[:controller] == "users" && params[:action] == "read_history"
+  .content-top
+    .content-top__title.content-title
+      = icon 'fas', 'history', class: 'icon-sign-out'
+      読書履歴
 - else

@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       get 'followings'
       get 'followers'
       get 'read_count_books'
+      get 'read_history'
     end
   end
   resources :relationships, only: [:create, :destroy]
