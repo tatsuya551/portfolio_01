@@ -2,10 +2,14 @@
 .read-history-top.main-font.box-center
   .read-history-top__main
     = render "shared/content_top"
-    .read-history-top__main__content
-      - @historys.each do |history|
-        .read-history-top__main__content__box.display-flex
-          .read-history-top__main__content__box__dete
-            = history.date
-          = link_to book_impression_path(history.book_id, history.impression_id), class: "read-history-top__main__content__box__text text-black text-line-none" do
-            = history.history_text
+    - if @historys.present?
+      .read-history-top__main__content
+        - @historys.each do |history|
+          .read-history-top__main__content__box.display-flex
+            .read-history-top__main__content__box__dete
+              = history.date
+            = link_to book_impression_path(history.book_id, history.impression_id), class: "read-history-top__main__content__box__text text-black text-line-none" do
+              = history.history_text
+    - else
+      .read-history-top__main__none.box-center.text-center
+        読書履歴がありません
