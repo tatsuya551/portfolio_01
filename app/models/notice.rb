@@ -3,6 +3,10 @@ class Notice < ApplicationRecord
   belongs_to :book
   belongs_to :impression, optional: true
 
+  validates :content, presence: true
+  validates :date, presence: true
+  validates :status, presence: true
+
   def notice_book_followers(user, book)
     self.user_id = user.id
     self.book_id = book.id
