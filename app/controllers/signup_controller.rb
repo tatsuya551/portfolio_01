@@ -7,6 +7,11 @@ class SignupController < ApplicationController
   end
 
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
     params[:user][:birth_day] = @birth_date.to_s
     @user = User.new(user_params)
     if @user.save(user_params)
