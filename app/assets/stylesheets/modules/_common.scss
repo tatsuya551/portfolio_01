@@ -92,6 +92,10 @@
   color: #d30000;
 }
 
+.text-red{
+  color: #d30000;
+}
+
 /////////////////////////
 /******フォント関連*******/
 /////////////////////////
@@ -300,6 +304,15 @@
 /* ミニ緑色リンクボタン */
 .mini-green-link-btn{
   @include btn-set(60px, 20px);
+  display: inline-block;
+  color: #4ba53a;
+  border:1px solid #4ba53a;
+  font-size: 12px;
+}
+
+/* Google認証リンクボタン */
+.google-link-btn{
+  @include btn-set(130px, 20px);
   display: inline-block;
   color: #4ba53a;
   border:1px solid #4ba53a;

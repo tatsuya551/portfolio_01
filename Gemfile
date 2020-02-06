@@ -88,3 +88,7 @@ gem 'gon', '~> 6.2.0'
 gem "chartkick"
 gem 'rails-i18n'
 gem 'active_decorator'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+gem 'dotenv-rails'

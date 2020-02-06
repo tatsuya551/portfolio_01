@@ -188,6 +188,25 @@ $(function(){
     }
   );
 
+  $('.google-link-btn').hover(
+    function(){
+      $(this).css(
+        {
+          color: 'white',
+          backgroundColor: '#4ba53a',
+        }
+      )
+    },
+    function(){
+      $(this).css(
+        {
+          color: '#4ba53a',
+          backgroundColor: 'white',
+        }
+      )
+    }
+  );
+
   $('.profile-edit-btn').hover(
     function(){
       $(this).animate(

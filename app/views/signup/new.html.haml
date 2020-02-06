@@ -21,29 +21,37 @@
           - @user.errors.full_messages_for(:email).each do |message|
             %div
               = message
-        .user-detail__top.form-content
-          生年月日
+        - if @sns_id.present?
+          .user-detail__top.form-content.text-red
+            生年月日
+        - else
+          .user-detail__top.form-content
+            生年月日
         .user-detail__birthday-input
           != sprintf(f.date_select(:birth_day, prefix:'birth_day', with_css_classes:'select-box', prompt: "---",use_month_numbers:true, start_year:2020, end_year:1920, date_separator:'%s'),'年','月')+'日'
           .error-text
             - @user.errors.full_messages_for(:birth_day).each do |message|
               %div
                 = message
-        .user-detail__top.form-content
-          パスワード
-        .user-detail__password-input
-          = f.password_field :password, placeholder: "> password", class:"text-input"
-        .error-text
-          - @user.errors.full_messages_for(:password).each do |message|
-            %div
-              = message
-        .user-detail__top.form-content
-          パスワード(確認用)
-        .user-detail__password-input
-          = f.password_field :password_confirmation, placeholder: "> password", class:"text-input"
+        - if @sns_id.present?
+          = hidden_field_tag :sns_auth, true
+        - else
+          .user-detail__top.form-content
+            パスワード
+          .user-detail__password-input
+            = f.password_field :password, placeholder: "> password", class:"text-input"
+          .error-text
+            - @user.errors.full_messages_for(:password).each do |message|
+              %div
+                = message
+          .user-detail__top.form-content
+            パスワード(確認用)
+          .user-detail__password-input
+            = f.password_field :password_confirmation, placeholder: "> password", class:"text-input"
       .btn-box.display-flex
         .btn-box__user-new
           = f.submit " 新規登録する ", class: "submit-btn text-line-none"
         .btn-box__back
           = link_to :back, class: "gray-btn margin-left-40 text-line-none" do
             もどる
+= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
