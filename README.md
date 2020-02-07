@@ -27,7 +27,7 @@ http://54.250.29.59/
 ・画像関連/carrierwave  
 ・グラフ関連/chart.js  
 ・開発環境/Ruby, Ruby on Rails
-・sns認証/Google API
+・sns認証/Google API(ローカル環境のみ)
   
   
 
