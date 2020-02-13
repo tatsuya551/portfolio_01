@@ -1,0 +1,36 @@
+.app-description-top{
+  width: 850px;
+  &__main{
+    margin-top: 100px;
+    &__logo{
+      margin-top: 40px;
+      font-size: 38px;
+    }
+    &__box{
+      &__icon{
+        margin-top: 40px;
+        font-size: 30px;
+      }
+      &__title{
+        margin-top: 80px;
+        font-size: 30px;
+      }
+      &__image{
+        margin-top: 40px;
+        img{
+          width: 85%;
+          height: 85%;
+          box-shadow: 0 8px 17px 0 rgba(0.2,0.2,0.2,0.2);
+        }
+      }
+      &__content{
+        font-size: 18px;
+        margin-top: 100px;
+      }
+      &__btn{
+        height: 44px;
+        margin-top: 65px;
+      }
+    }
+  }
+}

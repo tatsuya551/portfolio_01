@@ -1,7 +1,7 @@
 .login-new.main-font
   .login-new__main.box-center
+    = render "shared/content_top"
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      = render "shared/content_top"
       .user-detail
         .user-detail__top.form-content
           メールアドレス
