@@ -23,7 +23,7 @@ http://54.250.29.59/
 ・読書履歴の確認機能
 
 # 使用技術一覧
-・インフラ、デプロイ関連/AWS、capistrano, nginx, unicorn  
+・インフラ、デプロイ関連/AWS(ELB, VPC, EC2, S3)、capistrano, nginx, unicorn  
 ・データベース関連/MySQL  
 ・ユーザー関連/device  
 ・画像関連/carrierwave  

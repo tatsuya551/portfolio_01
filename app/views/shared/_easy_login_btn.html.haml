@@ -1,0 +1,4 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = f.email_field :email, value: "test01@test01.test01", type: "hidden"
+  = f.password_field :password, value: "test01", type: "hidden"
+  = f.submit " テストログイン ", class: "easy-login-btn font-bold text-line-none"
