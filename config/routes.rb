@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root "home#index"
+  resources :home, only: [:index] do
+    collection do
+      get 'app_description'
+    end
+  end
   resources :signup, only: [:new, :create] do
     collection do
       get 'logout'

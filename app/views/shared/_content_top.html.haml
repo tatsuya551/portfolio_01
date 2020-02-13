@@ -3,9 +3,9 @@
     .content-top__title.content-title
       = icon 'fas', 'sign-in-alt', class: 'icon-sign-in'
       ログイン
-      = render "shared/easy_login_btn"
       = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class:"google-link-btn font-bold text-line-none" do
         Googleでログイン
+      = render "shared/easy_login_btn"
 - elsif params[:controller] == "signup" && params[:action] == "logout"
   .content-top
     .content-top__title.content-title

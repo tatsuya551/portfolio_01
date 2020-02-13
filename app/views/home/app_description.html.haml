@@ -1,0 +1,47 @@
+.app-description-top.box-center.main-font
+  .app-description-top__main
+    .app-description-top__main__logo.text-center.font-bold
+      = icon 'fas', 'question-circle', class: 'question-circle'
+      BOOK BANK とは...
+    .app-description-top__main__box.text-center
+      .app-description-top__main__box__title.font-bold
+        BOOK BANK は本の管理アプリです。さらに読書の歴史が残せるので、過去に遡って自分との対話を楽しむことが出来ます。
+      .app-description-top__main__box__icon
+        = icon 'fas', 'angle-double-down', class: 'angle-double-down'
+      .app-description-top__main__box__content
+        持っている本を登録して見える本棚として管理が出来ます。
+      .app-description-top__main__box__image
+        = image_tag("/app_description/app_description_01.png")
+      .app-description-top__main__box__content
+        読書ごとに感想を登録出来ます。また、本への評価やまた読みたいタイミングの登録が出来ます。
+      .app-description-top__main__box__image
+        = image_tag("/app_description/app_description_02.png")
+      .app-description-top__main__box__content
+        過去の読書感想がデータとして残るので、自分との対話が出来ます。
+      .app-description-top__main__box__image
+        = image_tag("/app_description/app_description_03.png")
+    .app-description-top__main__box.text-center.margin-top-160
+      .app-description-top__main__box__title.text-center.font-bold
+        本を見える形で管理することによって、客観的に思考の分析できるので、自分と似たユーザーを見つけてフォローしよう。
+      .app-description-top__main__box__icon
+        = icon 'fas', 'angle-double-down', class: 'angle-double-down'
+      .app-description-top__main__box__content
+        検索をして、好きな本、作者が似ているユーザーをフォロー出来ます。
+      .app-description-top__main__box__content
+        フォローしたユーザーが新規で本を登録したり、読んだりすると知らせてくれます。
+      .app-description-top__main__box__image
+        = image_tag("/app_description/app_description_04.png")
+      .app-description-top__main__box__content
+        気に入った本があれば、読みたいリストに登録しておくことが出来ます。
+      .app-description-top__main__box__image
+        = image_tag("/app_description/app_description_05.png")
+        = image_tag("/app_description/app_description_06.png")
+    .app-description-top__main__box.text-center.margin-top-220
+      .app-description-top__main__box__title.text-center.font-bold
+        ぜひ、楽しんで使ってみて下さい!!
+      .app-description-top__main__box__icon
+        = icon 'fas', 'angle-double-down', class: 'angle-double-down'
+      .app-description-top__main__box__btn
+        = link_to books_path, class: "text-line-none black-link-btn" do
+          はじめる
+
