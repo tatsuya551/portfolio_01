@@ -1,17 +1,17 @@
 $(function(){
   $('.start-btn').hover(
     function(){
-      $(this).animate(
+      $(this).css(
         {
-          'width': '170px'
-        },150
+          backgroundColor: '#ffffff60',
+        }
       )
     },
     function(){
-      $(this).animate(
+      $(this).css(
         {
-          'width': '140px'
-        },150
+          backgroundColor: 'transparent',
+        }
       )
     }
   );
@@ -237,6 +237,25 @@ $(function(){
         {
           'width': '100px'
         },150
+      )
+    }
+  );
+
+  $('.easy-login-btn').hover(
+    function(){
+      $(this).css(
+        {
+          color: 'white',
+          backgroundColor: '#d30000',
+        }
+      )
+    },
+    function(){
+      $(this).css(
+        {
+          color: '#d30000',
+          backgroundColor: 'white',
+        }
       )
     }
   );

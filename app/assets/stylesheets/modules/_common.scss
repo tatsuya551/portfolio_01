@@ -247,6 +247,15 @@
   font-size: 14px;
 }
 
+/* 簡単ログインボタン */
+.easy-login-btn{
+  @include btn-set(120px, 22px);
+  color: #d30000;
+  border: 1px solid #d30000;
+  background-color: #fff;
+  font-size: 13px;
+}
+
 /* 白色ボタン */
 .white-btn{
   @include btn-set(100px, 44px);
