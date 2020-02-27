@@ -5,7 +5,7 @@
 持っている本を登録して管理するアプリです。  
 目に見える形で管理することによって思考を見える化することができます。  
 ### URL
-http://54.250.29.59/  
+https://book-bank.work/
 ### テストアカウント
 ログインページに記載しておりますので、チェックする際はご利用ください。
 <img width="815" alt="スクリーンショット 2020-01-17 11 56 59" src="https://user-images.githubusercontent.com/56828853/72580851-aea4e400-3920-11ea-95e2-0af023f96c2f.png">
@@ -23,7 +23,7 @@ http://54.250.29.59/
 ・読書履歴の確認機能
 
 # 使用技術一覧
-・インフラ、デプロイ関連/AWS(ELB, VPC, EC2, S3)、capistrano, nginx, unicorn  
+・インフラ、デプロイ関連/AWS(Route53, ALB, ACM, VPC, EC2, S3)、capistrano, nginx, unicorn  
 ・データベース関連/MySQL  
 ・ユーザー関連/device  
 ・画像関連/carrierwave  
