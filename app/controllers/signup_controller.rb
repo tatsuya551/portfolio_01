@@ -1,7 +1,6 @@
 class SignupController < ApplicationController
   before_action :birthday_add, only: [:create]
 
-
   def new
     @user = User.new
   end
@@ -27,13 +26,12 @@ class SignupController < ApplicationController
     end
   end
 
-  def logout
-  end
+  def logout; end
 
-  def start_app
-  end
+  def start_app; end
 
   private
+
   def user_params
     params.require(:user).permit(:nickname, :email, :password, :birth_day)
   end
@@ -41,9 +39,7 @@ class SignupController < ApplicationController
   def birthday_add
     if params[:birth_day]["birth_day(1i)"].present? && params[:birth_day]["birth_day(2i)"].present? && params[:birth_day]["birth_day(3i)"].present?
       birthday = params[:birth_day]
-      @birth_date = Date.new(birthday["birth_day(1i)"].to_i,birthday["birth_day(2i)"].to_i,birthday["birth_day(3i)"].to_i)
-    else
-      return
+      @birth_date = Date.new(birthday["birth_day(1i)"].to_i, birthday["birth_day(2i)"].to_i, birthday["birth_day(3i)"].to_i)
     end
   end
 end

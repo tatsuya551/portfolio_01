@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Book, type: :model do
   describe '#create' do
-
     #############################
     # 保存NG確認                 #
     #############################

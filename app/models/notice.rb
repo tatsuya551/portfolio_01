@@ -13,7 +13,7 @@ class Notice < ApplicationRecord
     self.content = "新しい本を登録しました"
     self.date = Date.today
     self.status = 0
-    self.save
+    save
   end
 
   def notice_impression_followers(user, impression)
@@ -23,6 +23,6 @@ class Notice < ApplicationRecord
     self.content = "新しい読書感想を登録しました"
     self.date = Date.today
     self.status = 1
-    self.save
+    save
   end
 end
