@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
-         
+
   mount_uploader :image, ImageUploader
-         
+
   has_many :books
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :followings, through: :following_relationships
@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :birth_day, presence: true
   validates :birth_day, date: true, allow_blank: true
-  
+
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end
@@ -39,7 +39,7 @@ class User < ApplicationRecord
     # 無ければemailでユーザー検索して取得orビルド(保存はしない)
     user = sns.user || User.where(email: auth.info.email).first_or_initialize(
       nickname: auth.info.name,
-      email: auth.info.email,
+      email: auth.info.email
     )
     # userが登録済みの場合はそのままログインの処理へ行くので、ここでsnsのuser_idを更新しておく
     if user.persisted?

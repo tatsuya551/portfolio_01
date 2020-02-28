@@ -3,8 +3,8 @@
     .content-top__title.content-title
       = icon 'fas', 'sign-in-alt', class: 'icon-sign-in'
       ログイン
-      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class:"google-link-btn font-bold text-line-none" do
-        Googleでログイン
+      -# = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class:"google-link-btn font-bold text-line-none" do
+      -#   Googleでログイン
       = render "shared/easy_login_btn"
 - elsif params[:controller] == "signup" && params[:action] == "logout"
   .content-top
@@ -21,8 +21,8 @@
     .content-top__title.content-title
       = icon 'fas', 'user', class: 'icon-sign-out'
       新規会員登録
-      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class:"google-link-btn font-bold text-line-none" do
-        Googleで登録する
+      -# = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class:"google-link-btn font-bold text-line-none" do
+      -#   Googleで登録する
 - elsif params[:action] == "google_oauth2"
   .content-top
     .content-top__title.content-title

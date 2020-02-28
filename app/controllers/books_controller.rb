@@ -18,16 +18,14 @@ class BooksController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if params[:commit] == " 編集を登録する "
       date = params[:buy_date]
-      @buy_date = Date.new(date["buy_date(1i)"].to_i,date["buy_date(2i)"].to_i,date["buy_date(3i)"].to_i)
+      @buy_date = Date.new(date["buy_date(1i)"].to_i, date["buy_date(2i)"].to_i, date["buy_date(3i)"].to_i)
       @book[:buy_date] = @buy_date.to_s
       if @book.update(book_params)
         redirect_to book_path(@book)
@@ -41,14 +39,14 @@ class BooksController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     if @book.status == 0 || @book.status == 1
       if @book.destroy
         redirect_to user_path(@book.user_id)
       else
         render 'show'
       end
-    else
+    elsif @book.status == 2
       if @book.destroy
         redirect_to follow_book_user_path(@book.user_id)
       else
@@ -59,13 +57,12 @@ class BooksController < ApplicationController
 
   def search
     if user_signed_in?
-      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).where.not(status:2).order("created_at DESC")
-      @user_books = current_user.books.search(params[:keyword]).where.not(status:2).order("created_at DESC")
-      @keyword = params[:keyword]
+      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).where.not(status: 2).order("created_at DESC")
+      @user_books = current_user.books.search(params[:keyword]).where.not(status: 2).order("created_at DESC")
     else
-      @all_books = Book.search(params[:keyword]).where.not(status:2).order("created_at DESC")
-      @keyword = params[:keyword]
+      @all_books = Book.search(params[:keyword]).where.not(status: 2).order("created_at DESC")
     end
+    @keyword = params[:keyword]
   end
 
   def follow_book_show
@@ -73,10 +70,11 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.where.not(status:2).order("created_at DESC")
+    @books = Book.where.not(status: 2).order("created_at DESC")
   end
 
   private
+
   def book_params
     params.require(:book).permit(
       :title,
@@ -93,11 +91,11 @@ class BooksController < ApplicationController
   end
 
   def set_user_notice
-    @notices = Notice.where(user_id:@book.user.following_ids).where(date: Date.today-7..Date.today).order("created_at DESC").limit(10)
+    @notices = Notice.where(user_id: @book.user.following_ids).where(date: Date.today - 7..Date.today).order("created_at DESC").limit(10)
   end
 
   def buydate_add
     date = params[:buy_date]
-    @buy_date = Date.new(date["buy_date(1i)"].to_i,date["buy_date(2i)"].to_i,date["buy_date(3i)"].to_i)
+    @buy_date = Date.new(date["buy_date(1i)"].to_i, date["buy_date(2i)"].to_i, date["buy_date(3i)"].to_i)
   end
 end
