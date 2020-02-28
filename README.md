@@ -29,7 +29,7 @@ https://book-bank.work/
 ・画像関連/carrierwave  
 ・グラフ関連/chart.js  
 ・開発環境/Ruby, Ruby on Rails  
-・sns認証/Google API(ローカル環境のみ)
+・コードレビュー/Rubocop
   
   
 
