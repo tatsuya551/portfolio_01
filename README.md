@@ -24,30 +24,29 @@ https://book-bank.work/
 
 # 使用技術一覧
 ### フロントサイド
-##### ・ HTML (haml)  
-##### ・ css (sass)  
-##### ・ JavaScript (Jquery)  
+・HTML (haml)  
+・css (sass)  
+・JavaScript (Jquery)  
 ### バックエンド  
-##### ・ Ruby (2.5.1)  
-##### ・ Rails (5.2.3)  
+・Ruby (2.5.1)  
+・Rails (5.2.3)  
 ### ユーザー関連  
-##### ・ device  
+・device  
 ### 画像関連  
-##### ・ carrierwave  
+・carrierwave  
 ### グラフ関連  
-##### ・ chart.js  
+・chart.js  
 ### サーバー  
-##### ・ Nginx (1.16.1)  
+・Nginx (1.16.1)  
 ### DB  
-##### ・ MySQL(5.6)  
+・MySQL(5.6)  
 ### インフラ・開発環境等  
-##### ・ Docker/docker-compose  
-##### ・ CircleCI (CI/CD)  
-##### ・ Rubocop  
-##### ・ RSpec  
-##### ・ capistrano  
-##### ・ AWS(Route53, ALB, ACM, VPC, EC2, S3)  
-[開発イメージ]  
+・Docker/docker-compose  
+・CircleCI (CI/CD)  
+・Rubocop  
+・RSpec  
+・capistrano  
+・AWS(Route53, ALB, ACM, VPC, EC2, S3)  
 ![develop_image](https://user-images.githubusercontent.com/56828853/76205428-8d37e880-623d-11ea-805b-45fc38e2a56f.png)
 
 
