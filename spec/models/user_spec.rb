@@ -25,8 +25,8 @@ describe User, type: :model do
       end
 
       it "[email] duplication" do
-        user = create(:user)
-        user = build(:user)
+        user = create(:user, email: "test@test.test")
+        user = build(:user, email: "test@test.test")
         user.valid?
         expect(user.errors.messages[:email]).to include("はすでに存在します")
       end
