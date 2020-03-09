@@ -43,7 +43,7 @@ https://book-bank.work/
 ・CircleCI (CI/CD)  
 ・Rubocop  
 ・RSpec  
-・capistrano  
+・Capistrano  
 ・AWS(Route53, ALB, ACM, VPC, EC2, S3)  
 ![develop_image](https://user-images.githubusercontent.com/56828853/76205428-8d37e880-623d-11ea-805b-45fc38e2a56f.png)
 
