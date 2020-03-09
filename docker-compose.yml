@@ -1,0 +1,37 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+      - .:/app
+      - public-data:/app/public
+      - tmp-data:/app/tmp
+      - log-data:/app/log
+    depends_on:
+      - db
+  web:
+    build:
+      context: containers/nginx
+    volumes:
+      - public-data:/app/public
+      - tmp-data:/app/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    tty: true
+    stdin_open: true
+  db:
+    image: mysql:5.6
+    volumes:
+      - db-volume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+volumes:
+  db-volume:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
