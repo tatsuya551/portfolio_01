@@ -23,15 +23,33 @@ https://book-bank.work/
 ・読書履歴の確認機能
 
 # 使用技術一覧
-・インフラ、デプロイ関連/AWS(Route53, ALB, ACM, VPC, EC2, S3)、capistrano, nginx, unicorn  
-・データベース関連/MySQL  
-・ユーザー関連/device  
-・画像関連/carrierwave  
-・グラフ関連/chart.js  
-・開発環境/Ruby, Ruby on Rails  
-・コードレビュー/Rubocop
-  
-  
+### フロントサイド
+#### ・ HTML (haml)  
+#### ・ css (sass)  
+#### ・ JavaScript (Jquery)  
+### バックエンド  
+#### ・ Ruby (2.5.1)  
+#### ・ Rails (5.2.3)  
+### ユーザー関連  
+#### ・ device  
+### 画像関連  
+#### ・ carrierwave  
+### グラフ関連  
+#### ・ chart.js  
+### サーバー  
+#### ・ Nginx (1.16.1)  
+### DB  
+#### ・ MySQL(5.6)  
+### インフラ・開発環境等  
+#### ・ Docker/docker-compose  
+#### ・ CircleCI (CI/CD)  
+#### ・ Rubocop  
+#### ・ RSpec  
+#### ・ capistrano  
+#### ・ AWS(Route53, ALB, ACM, VPC, EC2, S3)  
+開発イメージ
+![develop_image](https://user-images.githubusercontent.com/56828853/76205428-8d37e880-623d-11ea-805b-45fc38e2a56f.png)
+
 
 # 制作背景
 アメリカの格言に「本棚を見ればその人がわかる」とあるように、持っている本を管理して『思考の見える化』が出来るアプリケーションがあったら便利だと思い作成しました。  
