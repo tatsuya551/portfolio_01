@@ -11,5 +11,6 @@ FactoryBot.define do
     knowledge             {"５点"}
     rating                {"５点"}
     reread_timing         {"知識を付けたい時"}
+    created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 end
