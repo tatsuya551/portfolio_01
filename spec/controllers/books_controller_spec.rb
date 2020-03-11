@@ -45,5 +45,18 @@ describe BooksController do
       get :index
       expect(response).to render_template :index
     end
-  end  
+  end
+
+  describe 'GET #follow_book_show' do
+    it "assigns the requested book to @book" do
+      book = create(:book)
+      get :follow_book_show, params: { id: book }
+      expect(assigns(:book)).to eq book
+    end
+    it "renders the :follow_book_show template" do
+      book = create(:book)
+      get :follow_book_show, params: { id: book }
+      expect(response).to render_template :follow_book_show
+    end
+  end
 end
