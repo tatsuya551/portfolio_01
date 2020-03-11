@@ -18,7 +18,7 @@ describe ImpressionsController do
     it "renders the :edit template" do
       impression = create(:impression)
       get :edit, params: { id: impression, book_id: impression.book_id}
-      expect(assigns(:impression)).to render_template :edit
+      expect(response).to render_template :edit
     end
   end
 
@@ -31,7 +31,7 @@ describe ImpressionsController do
     it "renders the :show template" do
       impression = create(:impression)
       get :show, params: { id: impression, book_id: impression.book_id}
-      expect(assigns(:impression)).to render_template :show
+      expect(response).to render_template :show
     end
   end
 

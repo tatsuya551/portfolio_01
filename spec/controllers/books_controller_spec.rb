@@ -17,7 +17,7 @@ describe BooksController do
     it "renders the :edit template" do
       book = create(:book)
       get :edit, params: { id: book }
-      expect(assigns(:book)).to render_template :edit
+      expect(response).to render_template :edit
     end
   end
 
@@ -30,7 +30,7 @@ describe BooksController do
     it "renders the :show template" do
       book = create(:book)
       get :show, params: { id: book }
-      expect(assigns(:book)).to render_template :show
+      expect(response).to render_template :show
     end
   end
 
