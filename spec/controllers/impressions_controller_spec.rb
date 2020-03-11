@@ -4,7 +4,7 @@ describe ImpressionsController do
   describe 'GET #new' do
     it "renders the :new template" do
       book = create(:book)
-      get :new, params: { book_id: book }
+      get :new, params: { book_id: book.id }
       expect(response).to render_template :new
     end
   end
