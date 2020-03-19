@@ -2,7 +2,7 @@
   - if books.present?
     .mypage-book-list__main.box-list
       - books.each do |book|
-        - if book.status == 0
+        - if book.status == "book_impression_none"
           .mypage-book-list__main__box.text-center.book-hover
             = link_to book_path(book), class: "mypage-book-list__main__box__content text-line-none text-black" do
               - if book.category == "小説"

@@ -49,7 +49,7 @@
                     = @followings.count
               .user-box__user__follow__btn
                 = render "shared/follow_btn"
-        - if @user.books.where.not(status:2).present?
+        - if @user.books.where.not(status:"book_following").present?
           .user-box__books{style: "position: relative; height:40vh;width:30vw"}
             %canvas#categoryChart
             :javascript
@@ -59,7 +59,7 @@
             .user-books-text.text-center
               登録数
             .user-books-count.text-center
-              = @user.books.where.not(status:2).count
+              = @user.books.where.not(status:"book_following").count
         - else
           .user-box__book-none.text-gray
             登録がありません

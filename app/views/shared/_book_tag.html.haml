@@ -24,7 +24,7 @@
     - else
       .book-tag__box__category.text-center.background-etc
         = @book.category
-    - if @book.status == 1 && @book.impressions.last.reread_timing != "特になし"
+    - if @book.status == "book_impression_exist" && @book.impressions.last.reread_timing != "特になし"
       .book-tag__box__reread-timing.text-center
         = @book.impressions.last.reread_timing
     - else

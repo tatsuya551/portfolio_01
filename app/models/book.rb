@@ -33,19 +33,25 @@ class Book < ApplicationRecord
     "その他": 8
   }, _prefix: true
 
+  enum status: {
+    "book_impression_none": 0,
+    "book_impression_exist": 1,
+    "book_following": 2,
+  }, _prefix: true
+
   def book_read
-    self.status = 1
+    self.status = "book_impression_exist"
     save
   end
 
   def book_impression_none
-    self.status = 0
+    self.status = "book_impression_none"
     save
   end
 
   def book_following(book, user)
     self.user_id = user.id
-    self.status = 2
+    self.status = "book_following"
     self.buy_date = Date.today
     self.image = book.image.file
     save
