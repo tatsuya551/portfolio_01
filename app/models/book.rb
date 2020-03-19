@@ -36,7 +36,7 @@ class Book < ApplicationRecord
   enum status: {
     "book_impression_none": 0,
     "book_impression_exist": 1,
-    "book_following": 2,
+    "book_following": 2
   }, _prefix: true
 
   def book_read
