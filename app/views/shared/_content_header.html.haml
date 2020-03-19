@@ -133,11 +133,11 @@
                 = link_to book_impressions_path(@book), class: "text-green font-bold text-line-none" do
                   読書情報
             - else
-              - if @book.status == 1
+              - if @book.status == "book_impression_exist"
                 .book-info-list__link
                   = link_to book_impressions_path(@book), class: "text-black text-line-none content-header-btn" do
                     読書情報
-              - elsif @book.status == 0 && current_user == @book.user
+              - elsif @book.status == "book_impression_none" && current_user == @book.user
                 .book-info-list__link
                   = link_to new_book_impression_path(@book), class: "text-black text-line-none content-header-btn" do
                     読書感想の登録
@@ -147,12 +147,12 @@
                 = link_to book_impression_path(@impression.book_id,@impression), class: "text-green font-bold text-line-none" do
                   感想の詳細
             - else
-              - if @book.status == 1 && user_signed_in?
+              - if @book.status == "book_impression_exist" && user_signed_in?
                 .book-info-list__link
                   = link_to book_impression_path(@book,@book.impressions.last), class: "text-black text-line-none content-header-btn" do
                     感想の詳細
               - else
-            - if @book.status == 1 && current_user == @book.user
+            - if @book.status == "book_impression_exist" && current_user == @book.user
               .book-info-list__link
                 = link_to new_book_impression_path(@book), class: "text-black text-line-none content-header-btn" do
                   感想の登録

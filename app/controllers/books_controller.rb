@@ -40,13 +40,13 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    if @book.status == 0 || @book.status == 1
+    if @book.status == "book_impression_none" || @book.status == "book_impression_exist"
       if @book.destroy
         redirect_to user_path(@book.user_id)
       else
         render 'show'
       end
-    elsif @book.status == 2
+    elsif @book.status == "book_following"
       if @book.destroy
         redirect_to follow_book_user_path(@book.user_id)
       else
@@ -57,10 +57,10 @@ class BooksController < ApplicationController
 
   def search
     if user_signed_in?
-      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).where.not(status: 2).order("created_at DESC")
-      @user_books = current_user.books.search(params[:keyword]).where.not(status: 2).order("created_at DESC")
+      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).where.not(status: "book_following").order("created_at DESC")
+      @user_books = current_user.books.search(params[:keyword]).where.not(status: "book_following").order("created_at DESC")
     else
-      @all_books = Book.search(params[:keyword]).where.not(status: 2).order("created_at DESC")
+      @all_books = Book.search(params[:keyword]).where.not(status: "book_following").order("created_at DESC")
     end
     @keyword = params[:keyword]
   end
@@ -70,7 +70,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.where.not(status: 2).order("created_at DESC")
+    @books = Book.where.not(status: "book_following").order("created_at DESC")
   end
 
   private

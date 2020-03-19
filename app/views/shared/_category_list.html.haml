@@ -27,7 +27,7 @@
           = books[0].category
       .category-list__main__box
         .category-list__main__box__list.display-flex
-          - if books[0].status == 1
+          - if books[0].status == "book_impression_exist"
             = link_to book_impressions_path(books[0]), class: "text-line-none text-black" do
               .category-big.book-hover
                 - if books[0].category == "小説"
@@ -62,7 +62,7 @@
                   = image_tag books[0].image.to_s, class: "image-set"
                 .category-big__text.text-center
                   = books[0].title
-          - elsif books[0].status == 0
+          - elsif books[0].status == "book_impression_none"
             = link_to book_path(books[0]), class: "text-line-none text-black" do
               .category-big.book-hover
                 - if books[0].category == "小説"
@@ -96,7 +96,7 @@
           - else
           .category-small.display-flex.box-list
             - books.each.with_index(0) do |book, i|
-              - if i >= 1 && i <= 4 && book.status == 1
+              - if i >= 1 && i <= 4 && book.status == "book_impression_exist"
                 = link_to book_impressions_path(book), class: "text-line-none text-black" do
                   .category-small__box.book-hover
                     - if books[0].category == "小説"
@@ -131,7 +131,7 @@
                       = image_tag book.image.to_s, class: "image-set"
                     .category-small__box__text.text-center
                       = book.title
-              - elsif i >= 1 && i <= 4 && book.status == 0
+              - elsif i >= 1 && i <= 4 && book.status == "book_impression_none"
                 = link_to book_path(book), class: "text-line-none text-black" do
                   .category-small__box.book-hover
                     - if books[0].category == "小説"

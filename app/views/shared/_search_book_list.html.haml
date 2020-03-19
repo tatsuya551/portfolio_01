@@ -4,7 +4,7 @@
       登録された本がありません
   - else
     - books.each do |book|
-      - if book.status == 1
+      - if book.status == "book_impression_exist"
         = link_to book_impressions_path(book), class: "search-book-list__main box-list text-line-none text-black book-hover" do
           .search-book-list__main__book.text-center
             .search-book-list__main__book__box
@@ -47,14 +47,14 @@
               = book.user.nickname
           .search-book-list__main__graph
             .search-book-list__main__graph__category
-              = pie_chart [['小説', book.user.books.category_小説.where.not(status:2).count], 
-                          ['経営・戦略', book.user.books.category_経営・戦略.where.not(status:2).count],
-                          ['政治・経済', book.user.books.category_政治・経済.where.not(status:2).count],
-                          ['ファイナンス', book.user.books.category_金融・ファイナンス.where.not(status:2).count],
-                          ['IT', book.user.books.category_IT.where.not(status:2).count],
-                          ['自己啓発', book.user.books.category_自己啓発.where.not(status:2).count],
-                          ['タレント本', book.user.books.category_タレント本.where.not(status:2).count],
-                          ['その他', book.user.books.category_その他.where.not(status:2).count]], 
+              = pie_chart [['小説', book.user.books.category_小説.where.not(status:"book_following").count], 
+                          ['経営・戦略', book.user.books.category_経営・戦略.where.not(status:"book_following").count],
+                          ['政治・経済', book.user.books.category_政治・経済.where.not(status:"book_following").count],
+                          ['ファイナンス', book.user.books.category_金融・ファイナンス.where.not(status:"book_following").count],
+                          ['IT', book.user.books.category_IT.where.not(status:"book_following").count],
+                          ['自己啓発', book.user.books.category_自己啓発.where.not(status:"book_following").count],
+                          ['タレント本', book.user.books.category_タレント本.where.not(status:"book_following").count],
+                          ['その他', book.user.books.category_その他.where.not(status:"book_following").count]], 
                           colors: ['rgba(209, 46, 31, 0.6)',
                                   'rgba(246, 202, 6, 0.7)',
                                   'rgba(187, 212, 26, 0.7)',
@@ -67,8 +67,8 @@
                           legend: false,
                           width: "100px", height: "100px"
             .search-book-list__main__graph__count.text-line-none.text-black.text-center
-              = book.user.books.where.not(status:2).count
-      - elsif book.status == 0
+              = book.user.books.where.not(status:"book_following").count
+      - elsif book.status == "book_impression_none"
         = link_to book_path(book), class: "search-book-list__main box-list text-line-none text-black book-hover" do
           .search-book-list__main__book.text-center
             .search-book-list__main__book__box
@@ -107,14 +107,14 @@
               = book.user.nickname
           .search-book-list__main__graph
             .search-book-list__main__graph__category
-              = pie_chart [['小説', book.user.books.category_小説.where.not(status:2).count], 
-                          ['経営・戦略', book.user.books.category_経営・戦略.where.not(status:2).count],
-                          ['政治・経済', book.user.books.category_政治・経済.where.not(status:2).count],
-                          ['ファイナンス', book.user.books.category_金融・ファイナンス.where.not(status:2).count],
-                          ['IT', book.user.books.category_IT.where.not(status:2).count],
-                          ['自己啓発', book.user.books.category_自己啓発.where.not(status:2).count],
-                          ['タレント本', book.user.books.category_タレント本.where.not(status:2).count],
-                          ['その他', book.user.books.category_その他.where.not(status:2).count]], 
+              = pie_chart [['小説', book.user.books.category_小説.where.not(status:"book_following").count], 
+                          ['経営・戦略', book.user.books.category_経営・戦略.where.not(status:"book_following").count],
+                          ['政治・経済', book.user.books.category_政治・経済.where.not(status:"book_following").count],
+                          ['ファイナンス', book.user.books.category_金融・ファイナンス.where.not(status:"book_following").count],
+                          ['IT', book.user.books.category_IT.where.not(status:"book_following").count],
+                          ['自己啓発', book.user.books.category_自己啓発.where.not(status:"book_following").count],
+                          ['タレント本', book.user.books.category_タレント本.where.not(status:"book_following").count],
+                          ['その他', book.user.books.category_その他.where.not(status:"book_following").count]], 
                           colors: ['rgba(209, 46, 31, 0.6)',
                                   'rgba(246, 202, 6, 0.7)',
                                   'rgba(187, 212, 26, 0.7)',
@@ -127,6 +127,6 @@
                           legend: false,
                           width: "100px", height: "100px"
             .search-book-list__main__graph__count.text-line-none.text-black.text-center
-              = book.user.books.where.not(status:2).count
+              = book.user.books.where.not(status:"book_following").count
 
     
