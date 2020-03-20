@@ -205,3 +205,15 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  enums:
+    book:
+      category:
+        "-----": "-----"
+        novel: "小説"
+        management: "経営・戦略"
+        economy: "政治・経済"
+        finance: "金融・ファイナンス"
+        it: "IT"
+        motivation: "自己啓発"
+        talent: "タレント本"
+        etc: "その他"

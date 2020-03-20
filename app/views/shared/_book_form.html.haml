@@ -32,7 +32,7 @@
     .book-detail__top.form-content
       ジャンル
     .book-detail__category-input
-      = f.select :category, options_for_select(Book.categories.keys, selected: @book.category), {}, {class: 'select-box'}
+      = f.select :category, options_for_select(Book.categories.keys.map {|k| [I18n.t("enums.book.category.#{k}"), k]}, selected: @book.category), {}, {class: 'select-box'}
     .error-text
       - @book.errors.full_messages_for(:category).each do |message|
         %div

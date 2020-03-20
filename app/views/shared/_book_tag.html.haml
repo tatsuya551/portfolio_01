@@ -1,29 +1,29 @@
 .book-tag
   .book-tag__box
-    - if @book.category == "小説"
+    - if @book.category == "novel"
       .book-tag__box__category.text-center.background-novel
-        = @book.category
-    - elsif @book.category == "経営・戦略"
+        = @book.category_i18n
+    - elsif @book.category == "management"
       .book-tag__box__category.text-center.background-management
-        = @book.category
-    - elsif @book.category == "政治・経済"
+        = @book.category_i18n
+    - elsif @book.category == "economy"
       .book-tag__box__category.text-center.background-economy
-        = @book.category
-    - elsif @book.category == "金融・ファイナンス"
+        = @book.category_i18n
+    - elsif @book.category == "finance"
       .book-tag__box__category.text-center.background-finance
-        = @book.category
-    - elsif @book.category == "IT"
+        = @book.category_i18n
+    - elsif @book.category == "it"
       .book-tag__box__category.text-center.background-it
-        = @book.category
-    - elsif @book.category == "自己啓発"
+        = @book.category_i18n
+    - elsif @book.category == "motivation"
       .book-tag__box__category.text-center.background-motivation
-        = @book.category
-    - elsif @book.category == "タレント本"
+        = @book.category_i18n
+    - elsif @book.category == "talent"
       .book-tag__box__category.text-center.background-talent
-        = @book.category
+        = @book.category_i18n
     - else
       .book-tag__box__category.text-center.background-etc
-        = @book.category
+        = @book.category_i18n
     - if @book.status == "book_impression_exist" && @book.impressions.last.reread_timing != "特になし"
       .book-tag__box__reread-timing.text-center
         = @book.impressions.last.reread_timing

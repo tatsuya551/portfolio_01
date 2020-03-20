@@ -12,31 +12,31 @@ class Book < ApplicationRecord
   validates :buy_date, presence: true
   validates :buy_date, date: true, allow_blank: true
   validates :category,
-            inclusion: { in: ["小説",
-                              "経営・戦略",
-                              "政治・経済",
-                              "金融・ファイナンス",
-                              "IT",
-                              "自己啓発",
-                              "タレント本",
-                              "その他"] }
+            inclusion: { in: ["novel",
+                              "management",
+                              "economy",
+                              "finance",
+                              "it",
+                              "motivation",
+                              "talent",
+                              "etc"] }
 
   enum category: {
     "-----": 0,
-    "小説": 1,
-    "経営・戦略": 2,
-    "政治・経済": 3,
-    "金融・ファイナンス": 4,
-    "IT": 5,
-    "自己啓発": 6,
-    "タレント本": 7,
-    "その他": 8
+    novel: 1,
+    management: 2,
+    economy: 3,
+    finance: 4,
+    it: 5,
+    motivation: 6,
+    talent: 7,
+    etc: 8
   }, _prefix: true
 
   enum status: {
-    "book_impression_none": 0,
-    "book_impression_exist": 1,
-    "book_following": 2
+    book_impression_none: 0,
+    book_impression_exist: 1,
+    book_following: 2
   }, _prefix: true
 
   def book_read

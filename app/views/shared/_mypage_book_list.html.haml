@@ -5,25 +5,25 @@
         - if book.status == "book_impression_none"
           .mypage-book-list__main__box.text-center.book-hover
             = link_to book_path(book), class: "mypage-book-list__main__box__content text-line-none text-black" do
-              - if book.category == "小説"
+              - if book.category == "novel"
                 .book-category-tag.background-novel
                   小説
-              - elsif book.category == "経営・戦略"
+              - elsif book.category == "management"
                 .book-category-tag.background-management
                   経営
-              - elsif book.category == "政治・経済"
+              - elsif book.category == "economy"
                 .book-category-tag.background-economy
                   経済
-              - elsif book.category == "金融・ファイナンス"
+              - elsif book.category == "finance"
                 .book-category-tag.background-finance
                   金融
-              - elsif book.category == "IT"
+              - elsif book.category == "it"
                 .book-category-tag.background-it
                   IT
-              - elsif book.category == "自己啓発"
+              - elsif book.category == "motivation"
                 .book-category-tag.background-motivation
                   自己啓発
-              - elsif book.category == "タレント本"
+              - elsif book.category == "talent"
                 .book-category-tag.background-talent
                   タレント
               - else
@@ -36,25 +36,25 @@
         - else
           .mypage-book-list__main__box.text-center.book-hover
             = link_to follow_book_show_book_path(book), class: "mypage-book-list__main__box__content text-line-none text-black" do
-              - if book.category == "小説"
+              - if book.category == "novel"
                 .book-category-tag.background-novel
                   小説
-              - elsif book.category == "経営・戦略"
+              - elsif book.category == "management"
                 .book-category-tag.background-management
                   経営
-              - elsif book.category == "政治・経済"
+              - elsif book.category == "economy"
                 .book-category-tag.background-economy
                   経済
-              - elsif book.category == "金融・ファイナンス"
+              - elsif book.category == "finance"
                 .book-category-tag.background-finance
                   金融
-              - elsif book.category == "IT"
+              - elsif book.category == "it"
                 .book-category-tag.background-it
                   IT
-              - elsif book.category == "自己啓発"
+              - elsif book.category == "motivation"
                 .book-category-tag.background-motivation
                   自己啓発
-              - elsif book.category == "タレント本"
+              - elsif book.category == "talent"
                 .book-category-tag.background-talent
                   タレント
               - else
