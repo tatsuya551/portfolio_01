@@ -82,6 +82,7 @@ gem 'chart-js-rails', '~> 0.1.4'
 gem "chartkick"
 gem 'devise'
 gem 'dotenv-rails'
+gem 'enum_help'
 gem 'erb2haml'
 gem 'fog-aws'
 gem "font-awesome-sass"

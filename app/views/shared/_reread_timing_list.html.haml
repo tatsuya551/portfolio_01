@@ -7,25 +7,25 @@
         .reread-timing-list__main__box__list.display-flex
           = link_to book_impression_path(impressions[0].book,impressions[0]), class: "text-line-none text-black" do
             .category-big.book-hover
-              - if impressions[0].book.category == "小説"
+              - if impressions[0].book.category == "novel"
                 .category-big__book-category-tag.background-novel.text-center
                   小説
-              - elsif impressions[0].book.category == "経営・戦略"
+              - elsif impressions[0].book.category == "management"
                 .category-big__book-category-tag.background-management.text-center
                   経営
-              - elsif impressions[0].book.category == "政治・経済"
+              - elsif impressions[0].book.category == "economy"
                 .category-big__book-category-tag.background-economy.text-center
                   経済
-              - elsif impressions[0].book.category == "金融・ファイナンス"
+              - elsif impressions[0].book.category == "finance"
                 .category-big__book-category-tag.background-finance.text-center
                   金融
-              - elsif impressions[0].book.category == "IT"
+              - elsif impressions[0].book.category == "it"
                 .category-big__book-category-tag.background-it.text-center
                   IT
-              - elsif impressions[0].book.category == "自己啓発"
+              - elsif impressions[0].book.category == "motivation"
                 .category-big__book-category-tag.background-motivation.text-center
                   自己啓発
-              - elsif impressions[0].book.category == "タレント本"
+              - elsif impressions[0].book.category == "talent"
                 .category-big__book-category-tag.background-talent.text-center
                   タレント
               - else
@@ -44,25 +44,25 @@
               - if i >= 1 && i <= 4
                 = link_to book_impression_path(impression.book, impression), class: "text-line-none text-black" do
                   .category-small__box.book-hover
-                    - if impression.book.category == "小説"
+                    - if impression.book.category == "novel"
                       .category-small__box__book-category-tag.background-novel.text-center
                         小説
-                    - elsif impression.book.category == "経営・戦略"
+                    - elsif impression.book.category == "management"
                       .category-small__box__book-category-tag.background-management.text-center
                         経営
-                    - elsif impression.book.category == "政治・経済"
+                    - elsif impression.book.category == "economy"
                       .category-small__box__book-category-tag.background-economy.text-center
                         経済
-                    - elsif impression.book.category == "金融・ファイナンス"
+                    - elsif impression.book.category == "finance"
                       .category-small__box__book-category-tag.background-finance.text-center
                         金融
-                    - elsif impression.book.category == "IT"
+                    - elsif impression.book.category == "it"
                       .category-small__box__book-category-tag.background-it.text-center
                         IT
-                    - elsif impression.book.category == "自己啓発"
+                    - elsif impression.book.category == "motivation"
                       .category-small__box__book-category-tag.background-motivation.text-center
                         自己啓発
-                    - elsif impression.book.category == "タレント本"
+                    - elsif impression.book.category == "talent"
                       .category-small__box__book-category-tag.background-talent.text-center
                         タレント
                     - else

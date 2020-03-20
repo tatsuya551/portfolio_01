@@ -8,14 +8,14 @@
           = user.nickname
         .user-book
           .user-book__category
-            = pie_chart [['小説', user.books.category_小説.count], 
-                        ['経営・戦略', user.books.category_経営・戦略.count],
-                        ['政治・経済', user.books.category_政治・経済.count],
-                        ['ファイナンス', user.books.category_金融・ファイナンス.count],
-                        ['IT', user.books.category_IT.count],
-                        ['自己啓発', user.books.category_自己啓発.count],
-                        ['タレント本', user.books.category_タレント本.count],
-                        ['その他', user.books.category_その他.count]], 
+            = pie_chart [['小説', user.books.category_novel.count], 
+                        ['経営・戦略', user.books.category_management.count],
+                        ['政治・経済', user.books.category_economy.count],
+                        ['ファイナンス', user.books.category_finance.count],
+                        ['IT', user.books.category_it.count],
+                        ['自己啓発', user.books.category_motivation.count],
+                        ['タレント本', user.books.category_talent.count],
+                        ['その他', user.books.category_etc.count]], 
                         colors: ['rgba(209, 46, 31, 0.6)',
                                 'rgba(246, 202, 6, 0.7)',
                                 'rgba(187, 212, 26, 0.7)',

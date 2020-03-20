@@ -78,43 +78,43 @@ describe Book, type: :model do
       end
 
       it "[category] 経営・戦略" do
-        book = build(:book, category: "経営・戦略")
+        book = build(:book, category: "management")
         book.valid?
         expect(book).to be_valid
       end
 
       it "[category] 政治・経済" do
-        book = build(:book, category: "政治・経済")
+        book = build(:book, category: "economy")
         book.valid?
         expect(book).to be_valid
       end
 
       it "[category] 金融・ファイナンス" do
-        book = build(:book, category: "金融・ファイナンス")
+        book = build(:book, category: "finance")
         book.valid?
         expect(book).to be_valid
       end
 
       it "[category] IT" do
-        book = build(:book, category: "IT")
+        book = build(:book, category: "it")
         book.valid?
         expect(book).to be_valid
       end
 
       it "[category] 自己啓発" do
-        book = build(:book, category: "自己啓発")
+        book = build(:book, category: "motivation")
         book.valid?
         expect(book).to be_valid
       end
 
       it "[category] タレント本" do
-        book = build(:book, category: "タレント本")
+        book = build(:book, category: "talent")
         book.valid?
         expect(book).to be_valid
       end
 
       it "[category] その他" do
-        book = build(:book, category: "その他")
+        book = build(:book, category: "etc")
         book.valid?
         expect(book).to be_valid
       end
