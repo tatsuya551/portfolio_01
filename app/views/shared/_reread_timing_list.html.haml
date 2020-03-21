@@ -2,7 +2,7 @@
   .reread-timing-list.main-font
     .reread-timing-list__main.box-center
       .reread-timing-list__main__title.text-center.font-bold.text-green
-        = impressions[0].reread_timing
+        = impressions[0].reread_timing_i18n
       .reread-timing-list__main__box
         .reread-timing-list__main__box__list.display-flex
           = link_to book_impression_path(impressions[0].book,impressions[0]), class: "text-line-none text-black" do

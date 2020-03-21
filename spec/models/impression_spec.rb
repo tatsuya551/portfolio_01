@@ -84,295 +84,295 @@ describe Impression, type: :model do
       end
 
       it "[read_day] 1日" do
-        impression = build(:impression, read_day: "1日")
+        impression = build(:impression, read_day: "one_day")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[read_day] 2日〜3日" do
-        impression = build(:impression, read_day: "2日〜3日")
+        impression = build(:impression, read_day: "two_three_days")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[read_day] 1週間" do
-        impression = build(:impression, read_day: "1週間")
+        impression = build(:impression, read_day: "one_week")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[read_day] 2週間〜4週間" do
-        impression = build(:impression, read_day: "2週間〜4週間")
+        impression = build(:impression, read_day: "two_four_weeks")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[read_day] 1ヶ月以上" do
-        impression = build(:impression, read_day: "1ヶ月以上")
+        impression = build(:impression, read_day: "one_month_over")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[interest] ５点" do
-        impression = build(:impression, interest: "５点")
+        impression = build(:impression, interest: "five_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[interest] ４点" do
-        impression = build(:impression, interest: "４点")
+        impression = build(:impression, interest: "four_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[interest] ３点" do
-        impression = build(:impression, interest: "３点")
+        impression = build(:impression, interest: "three_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[interest] ２点" do
-        impression = build(:impression, interest: "２点")
+        impression = build(:impression, interest: "two_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[interest] １点" do
-        impression = build(:impression, interest: "１点")
+        impression = build(:impression, interest: "one_point")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[impressed] ５点" do
-        impression = build(:impression, impressed: "５点")
+        impression = build(:impression, impressed: "five_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[impressed] ４点" do
-        impression = build(:impression, impressed: "４点")
+        impression = build(:impression, impressed: "four_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[impressed] ３点" do
-        impression = build(:impression, impressed: "３点")
+        impression = build(:impression, impressed: "three_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[impressed] ２点" do
-        impression = build(:impression, impressed: "２点")
+        impression = build(:impression, impressed: "two_points")
         impression.valid?
         expect(impression).to be_valid
       end
       
       it "[impressed] １点" do
-        impression = build(:impression, impressed: "１点")
+        impression = build(:impression, impressed: "one_point")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[awareness] ５点" do
-        impression = build(:impression, awareness: "５点")
+        impression = build(:impression, awareness: "five_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[awareness] ４点" do
-        impression = build(:impression, awareness: "４点")
+        impression = build(:impression, awareness: "four_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[awareness] ３点" do
-        impression = build(:impression, awareness: "３点")
+        impression = build(:impression, awareness: "three_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[awareness] ２点" do
-        impression = build(:impression, awareness: "２点")
+        impression = build(:impression, awareness: "two_points")
         impression.valid?
         expect(impression).to be_valid
       end
       
       it "[awareness] １点" do
-        impression = build(:impression, awareness: "１点")
+        impression = build(:impression, awareness: "one_point")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[impact] ５点" do
-        impression = build(:impression, impact: "５点")
+        impression = build(:impression, impact: "five_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[impact] ４点" do
-        impression = build(:impression, impact: "４点")
+        impression = build(:impression, impact: "four_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[impact] ３点" do
-        impression = build(:impression, impact: "３点")
+        impression = build(:impression, impact: "three_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[impact] ２点" do
-        impression = build(:impression, impact: "２点")
+        impression = build(:impression, impact: "two_points")
         impression.valid?
         expect(impression).to be_valid
       end
       
       it "[impact] １点" do
-        impression = build(:impression, impact: "１点")
+        impression = build(:impression, impact: "one_point")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[practice] ５点" do
-        impression = build(:impression, practice: "５点")
+        impression = build(:impression, practice: "five_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[practice] ４点" do
-        impression = build(:impression, practice: "４点")
+        impression = build(:impression, practice: "four_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[practice] ３点" do
-        impression = build(:impression, practice: "３点")
+        impression = build(:impression, practice: "three_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[practice] ２点" do
-        impression = build(:impression, practice: "２点")
+        impression = build(:impression, practice: "two_points")
         impression.valid?
         expect(impression).to be_valid
       end
       
       it "[practice] １点" do
-        impression = build(:impression, practice: "１点")
+        impression = build(:impression, practice: "one_point")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[knowledge] ５点" do
-        impression = build(:impression, knowledge: "５点")
+        impression = build(:impression, knowledge: "five_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[knowledge] ４点" do
-        impression = build(:impression, knowledge: "４点")
+        impression = build(:impression, knowledge: "four_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[knowledge] ３点" do
-        impression = build(:impression, knowledge: "３点")
+        impression = build(:impression, knowledge: "three_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[knowledge] ２点" do
-        impression = build(:impression, knowledge: "２点")
+        impression = build(:impression, knowledge: "two_points")
         impression.valid?
         expect(impression).to be_valid
       end
       
       it "[knowledge] １点" do
-        impression = build(:impression, knowledge: "１点")
+        impression = build(:impression, knowledge: "one_point")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[rating] ５点" do
-        impression = build(:impression, rating: "５点")
+        impression = build(:impression, rating: "five_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[rating] ４点" do
-        impression = build(:impression, rating: "４点")
+        impression = build(:impression, rating: "four_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[rating] ３点" do
-        impression = build(:impression, rating: "３点")
+        impression = build(:impression, rating: "three_points")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[rating] ２点" do
-        impression = build(:impression, rating: "２点")
+        impression = build(:impression, rating: "two_points")
         impression.valid?
         expect(impression).to be_valid
       end
       
       it "[rating] １点" do
-        impression = build(:impression, rating: "１点")
+        impression = build(:impression, rating: "one_point")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[reread_timing] 知識を付けたい時" do
-        impression = build(:impression, reread_timing: "知識を付けたい時")
+        impression = build(:impression, reread_timing: "knowledge")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[reread_timing] モチベーションをあげたい時" do
-        impression = build(:impression, reread_timing: "モチベーションをあげたい時")
+        impression = build(:impression, reread_timing: "motivation")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[reread_timing] なにか決断をする時" do
-        impression = build(:impression, reread_timing: "なにか決断をする時")
+        impression = build(:impression, reread_timing: "decision")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[reread_timing] ストレスが溜まっている時" do
-        impression = build(:impression, reread_timing: "ストレスが溜まっている時")
+        impression = build(:impression, reread_timing: "stress")
         impression.valid?
         expect(impression).to be_valid
       end
       
       it "[reread_timing] 落ち込んでいる時" do
-        impression = build(:impression, reread_timing: "落ち込んでいる時")
+        impression = build(:impression, reread_timing: "feel_down")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[reread_timing] 失恋した時" do
-        impression = build(:impression, reread_timing: "失恋した時")
+        impression = build(:impression, reread_timing: "lost_love")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[reread_timing] 気分転換したい時" do
-        impression = build(:impression, reread_timing: "気分転換したい時")
+        impression = build(:impression, reread_timing: "diversion")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[reread_timing] リラックスしたい時" do
-        impression = build(:impression, reread_timing: "リラックスしたい時")
+        impression = build(:impression, reread_timing: "relax")
         impression.valid?
         expect(impression).to be_valid
       end
 
       it "[reread_timing] 特になし" do
-        impression = build(:impression, reread_timing: "特になし")
+        impression = build(:impression, reread_timing: "nothing_special")
         impression.valid?
         expect(impression).to be_valid
       end

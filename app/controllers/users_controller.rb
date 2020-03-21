@@ -103,46 +103,46 @@ class UsersController < ApplicationController
   end
 
   def reread_timing
-    @timing_knowledges = Impression.where(book_id: @user.books.ids).where(reread_timing: "知識を付けたい時")
-    @timing_motivations = Impression.where(book_id: @user.books.ids).where(reread_timing: "モチベーションをあげたい時")
-    @timing_decisions = Impression.where(book_id: @user.books.ids).where(reread_timing: "なにか決断をする時")
-    @timing_stresses = Impression.where(book_id: @user.books.ids).where(reread_timing: "ストレスが溜まっている時")
-    @timing_feel_downs = Impression.where(book_id: @user.books.ids).where(reread_timing: "落ち込んでいる時")
-    @timing_lost_loves = Impression.where(book_id: @user.books.ids).where(reread_timing: "失恋した時")
-    @timing_diversions = Impression.where(book_id: @user.books.ids).where(reread_timing: "気分転換したい時")
-    @timing_relaxes = Impression.where(book_id: @user.books.ids).where(reread_timing: "リラックスしたい時")
+    @timing_knowledges = Impression.where(book_id: @user.books.ids).where(reread_timing: "knowledge")
+    @timing_motivations = Impression.where(book_id: @user.books.ids).where(reread_timing: "motivation")
+    @timing_decisions = Impression.where(book_id: @user.books.ids).where(reread_timing: "decision")
+    @timing_stresses = Impression.where(book_id: @user.books.ids).where(reread_timing: "stress")
+    @timing_feel_downs = Impression.where(book_id: @user.books.ids).where(reread_timing: "feel_down")
+    @timing_lost_loves = Impression.where(book_id: @user.books.ids).where(reread_timing: "lost_love")
+    @timing_diversions = Impression.where(book_id: @user.books.ids).where(reread_timing: "diversion")
+    @timing_relaxes = Impression.where(book_id: @user.books.ids).where(reread_timing: "relax")
   end
 
   def timing_knowledge
-    @timing_knowledges = Impression.where(book_id: @user.books.ids).where(reread_timing: "知識を付けたい時").order("created_at DESC")
+    @timing_knowledges = Impression.where(book_id: @user.books.ids).where(reread_timing: "knowledge").order("created_at DESC")
   end
 
   def timing_motivation
-    @timing_motivations = Impression.where(book_id: @user.books.ids).where(reread_timing: "モチベーションをあげたい時").order("created_at DESC")
+    @timing_motivations = Impression.where(book_id: @user.books.ids).where(reread_timing: "motivation").order("created_at DESC")
   end
 
   def timing_decision
-    @timing_decisions = Impression.where(book_id: @user.books.ids).where(reread_timing: "なにか決断をする時").order("created_at DESC")
+    @timing_decisions = Impression.where(book_id: @user.books.ids).where(reread_timing: "decision").order("created_at DESC")
   end
 
   def timing_stress
-    @timing_stresses = Impression.where(book_id: @user.books.ids).where(reread_timing: "ストレスが溜まっている時").order("created_at DESC")
+    @timing_stresses = Impression.where(book_id: @user.books.ids).where(reread_timing: "stress").order("created_at DESC")
   end
 
   def timing_feel_down
-    @timing_feel_downs = Impression.where(book_id: @user.books.ids).where(reread_timing: "落ち込んでいる時").order("created_at DESC")
+    @timing_feel_downs = Impression.where(book_id: @user.books.ids).where(reread_timing: "feel_down").order("created_at DESC")
   end
 
   def timing_lost_love
-    @timing_lost_loves = Impression.where(book_id: @user.books.ids).where(reread_timing: "失恋した時").order("created_at DESC")
+    @timing_lost_loves = Impression.where(book_id: @user.books.ids).where(reread_timing: "lost_love").order("created_at DESC")
   end
 
   def timing_diversion
-    @timing_diversions = Impression.where(book_id: @user.books.ids).where(reread_timing: "気分転換したい時").order("created_at DESC")
+    @timing_diversions = Impression.where(book_id: @user.books.ids).where(reread_timing: "diversion").order("created_at DESC")
   end
 
   def timing_relax
-    @timing_relaxes = Impression.where(book_id: @user.books.ids).where(reread_timing: "リラックスしたい時").order("created_at DESC")
+    @timing_relaxes = Impression.where(book_id: @user.books.ids).where(reread_timing: "relax").order("created_at DESC")
   end
 
   def all_books

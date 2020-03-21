@@ -21,127 +21,127 @@ class ImpressionsController < ApplicationController
   def index
     @impressions = Impression.where(book_id: @book.id).order("created_at DESC")
     # 総合評価の平均点の計算
-    @rating =       ((@book.impressions.rating_１点.count +
-                     @book.impressions.rating_２点.count * 2 +
-                     @book.impressions.rating_３点.count * 3 +
-                     @book.impressions.rating_４点.count * 4 +
-                     @book.impressions.rating_５点.count * 5) / @book.impressions.count.to_f).round(2)
+    @rating =       ((@book.impressions.rating_one_point.count +
+                     @book.impressions.rating_two_points.count * 2 +
+                     @book.impressions.rating_three_points.count * 3 +
+                     @book.impressions.rating_four_points.count * 4 +
+                     @book.impressions.rating_five_points.count * 5) / @book.impressions.count.to_f).round(2)
     # クラフ用の各平均点の計算
-    gon.interest =  ((@book.impressions.interest_１点.count +
-                     @book.impressions.interest_２点.count * 2 +
-                     @book.impressions.interest_３点.count * 3 +
-                     @book.impressions.interest_４点.count * 4 +
-                     @book.impressions.interest_５点.count * 5) / @book.impressions.count.to_f).round(2)
-    gon.impressed =  ((@book.impressions.impressed_１点.count +
-                     @book.impressions.impressed_２点.count * 2 +
-                     @book.impressions.impressed_３点.count * 3 +
-                     @book.impressions.impressed_４点.count * 4 +
-                     @book.impressions.impressed_５点.count * 5) / @book.impressions.count.to_f).round(2)
-    gon.awareness =  ((@book.impressions.awareness_１点.count +
-                     @book.impressions.awareness_２点.count * 2 +
-                     @book.impressions.awareness_３点.count * 3 +
-                     @book.impressions.awareness_４点.count * 4 +
-                     @book.impressions.awareness_５点.count * 5) / @book.impressions.count.to_f).round(2)
-    gon.impact =     ((@book.impressions.impact_１点.count +
-                      @book.impressions.impact_２点.count * 2 +
-                      @book.impressions.impact_３点.count * 3 +
-                      @book.impressions.impact_４点.count * 4 +
-                      @book.impressions.impact_５点.count * 5) / @book.impressions.count.to_f).round(2)
-    gon.practice =    ((@book.impressions.practice_１点.count +
-                       @book.impressions.practice_２点.count * 2 +
-                       @book.impressions.practice_３点.count * 3 +
-                       @book.impressions.practice_４点.count * 4 +
-                       @book.impressions.practice_５点.count * 5) / @book.impressions.count.to_f).round(2)
-    gon.knowledge =   ((@book.impressions.knowledge_１点.count +
-                      @book.impressions.knowledge_２点.count * 2 +
-                      @book.impressions.knowledge_３点.count * 3 +
-                      @book.impressions.knowledge_４点.count * 4 +
-                      @book.impressions.knowledge_５点.count * 5) / @book.impressions.count.to_f).round(2)
+    gon.interest =  ((@book.impressions.interest_one_point.count +
+                     @book.impressions.interest_two_points.count * 2 +
+                     @book.impressions.interest_three_points.count * 3 +
+                     @book.impressions.interest_four_points.count * 4 +
+                     @book.impressions.interest_five_points.count * 5) / @book.impressions.count.to_f).round(2)
+    gon.impressed =  ((@book.impressions.impressed_one_point.count +
+                     @book.impressions.impressed_two_points.count * 2 +
+                     @book.impressions.impressed_three_points.count * 3 +
+                     @book.impressions.impressed_four_points.count * 4 +
+                     @book.impressions.impressed_five_points.count * 5) / @book.impressions.count.to_f).round(2)
+    gon.awareness =  ((@book.impressions.awareness_one_point.count +
+                     @book.impressions.awareness_two_points.count * 2 +
+                     @book.impressions.awareness_three_points.count * 3 +
+                     @book.impressions.awareness_four_points.count * 4 +
+                     @book.impressions.awareness_five_points.count * 5) / @book.impressions.count.to_f).round(2)
+    gon.impact =     ((@book.impressions.impact_one_point.count +
+                      @book.impressions.impact_two_points.count * 2 +
+                      @book.impressions.impact_three_points.count * 3 +
+                      @book.impressions.impact_four_points.count * 4 +
+                      @book.impressions.impact_five_points.count * 5) / @book.impressions.count.to_f).round(2)
+    gon.practice =    ((@book.impressions.practice_one_point.count +
+                       @book.impressions.practice_two_points.count * 2 +
+                       @book.impressions.practice_three_points.count * 3 +
+                       @book.impressions.practice_four_points.count * 4 +
+                       @book.impressions.practice_five_points.count * 5) / @book.impressions.count.to_f).round(2)
+    gon.knowledge =   ((@book.impressions.knowledge_one_point.count +
+                      @book.impressions.knowledge_two_points.count * 2 +
+                      @book.impressions.knowledge_three_points.count * 3 +
+                      @book.impressions.knowledge_four_points.count * 4 +
+                      @book.impressions.knowledge_five_points.count * 5) / @book.impressions.count.to_f).round(2)
   end
 
   def show
     @impressions = Impression.where(book_id: @book.id).order("created_at DESC")
     # 総合評価の値の取り出し
-    @rating = if @impression.rating == "１点"
+    @rating = if @impression.rating == "one_point"
                 1
-              elsif @impression.rating == "２点"
+              elsif @impression.rating == "two_points"
                 2
-              elsif @impression.rating == "３点"
+              elsif @impression.rating == "three_points"
                 3
-              elsif @impression.rating == "４点"
+              elsif @impression.rating == "four_points"
                 4
               else
                 5
               end
 
     # グラフ用の値の取り出し
-    gon.interest = if @impression.interest == "１点"
+    gon.interest = if @impression.interest == "one_point"
                      1
-                   elsif @impression.interest == "２点"
+                   elsif @impression.interest == "two_points"
                      2
-                   elsif @impression.interest == "３点"
+                   elsif @impression.interest == "three_points"
                      3
-                   elsif @impression.interest == "４点"
+                   elsif @impression.interest == "four_points"
                      4
                    else
                      5
                    end
 
-    gon.impressed = if @impression.impressed == "１点"
+    gon.impressed = if @impression.impressed == "one_point"
                       1
-                    elsif @impression.impressed == "２点"
+                    elsif @impression.impressed == "two_points"
                       2
-                    elsif @impression.impressed == "３点"
+                    elsif @impression.impressed == "three_points"
                       3
-                    elsif @impression.impressed == "４点"
+                    elsif @impression.impressed == "four_points"
                       4
                     else
                       5
                     end
 
-    gon.awareness = if @impression.awareness == "１点"
+    gon.awareness = if @impression.awareness == "one_point"
                       1
-                    elsif @impression.awareness == "２点"
+                    elsif @impression.awareness == "two_points"
                       2
-                    elsif @impression.awareness == "３点"
+                    elsif @impression.awareness == "three_points"
                       3
-                    elsif @impression.awareness == "４点"
+                    elsif @impression.awareness == "four_points"
                       4
                     else
                       5
                     end
 
-    gon.impact = if @impression.impact == "１点"
+    gon.impact = if @impression.impact == "one_point"
                    1
-                 elsif @impression.impact == "２点"
+                 elsif @impression.impact == "two_points"
                    2
-                 elsif @impression.impact == "３点"
+                 elsif @impression.impact == "three_points"
                    3
-                 elsif @impression.impact == "４点"
+                 elsif @impression.impact == "four_points"
                    4
                  else
                    5
                  end
 
-    gon.practice = if @impression.practice == "１点"
+    gon.practice = if @impression.practice == "one_point"
                      1
-                   elsif @impression.practice == "２点"
+                   elsif @impression.practice == "two_points"
                      2
-                   elsif @impression.practice == "３点"
+                   elsif @impression.practice == "three_points"
                      3
-                   elsif @impression.practice == "４点"
+                   elsif @impression.practice == "four_points"
                      4
                    else
                      5
                    end
 
-    gon.knowledge = if @impression.knowledge == "１点"
+    gon.knowledge = if @impression.knowledge == "one_point"
                       1
-                    elsif @impression.knowledge == "２点"
+                    elsif @impression.knowledge == "two_points"
                       2
-                    elsif @impression.knowledge == "３点"
+                    elsif @impression.knowledge == "three_points"
                       3
-                    elsif @impression.knowledge == "４点"
+                    elsif @impression.knowledge == "four_points"
                       4
                     else
                       5
