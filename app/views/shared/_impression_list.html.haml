@@ -13,7 +13,7 @@
             .note-date.text-green.font-bold
               = simple_time(impression.created_at)
             .note-reread-timing.box-center.text-center.background-green.text-white
-              = impression.reread_timing
+              = impression.reread_timing_i18n
             - if impression.note.present?
               .note-content.text-black
                 = impression.note
@@ -26,7 +26,7 @@
             .note-date.text-green.font-bold
               = simple_time(impression.created_at)
             .note-reread-timing.box-center.text-center.background-green.text-white
-              = impression.reread_timing
+              = impression.reread_timing_i18n
             - if impression.note.present?
               .note-content.text-black
                 = impression.note
@@ -47,7 +47,7 @@
           .note-date.text-orange.font-bold
             = simple_time(impression.created_at)
           .note-reread-timing.box-center.text-center.background-orange.text-white
-            = impression.reread_timing
+            = impression.reread_timing_i18n
           - if impression.note.present?
             .note-content.text-black
               = impression.note
@@ -60,7 +60,7 @@
             .note-date.text-green.font-bold
               = simple_time(impression.created_at)
             .note-reread-timing.box-center.text-center.background-green.text-white
-              = impression.reread_timing
+              = impression.reread_timing_i18n
             - if impression.note.present?
               .note-content.text-black
                 = impression.note

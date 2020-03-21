@@ -4,11 +4,11 @@ class Impression < ApplicationRecord
 
   validates :note, length: { maximum: 300, message: "300 文字以下で入力してください" }
   validates :read_day,
-            inclusion: { in: ["1日",
-                              "2日〜3日",
-                              "1週間",
-                              "2週間〜4週間",
-                              "1ヶ月以上"] }
+            inclusion: { in: ["one_day",
+                              "two_three_days",
+                              "one_week",
+                              "two_four_weeks",
+                              "one_month_over"] }
   validates :interest,
             :impressed,
             :awareness,
@@ -16,104 +16,104 @@ class Impression < ApplicationRecord
             :practice,
             :knowledge,
             :rating,
-            inclusion: { in: ["５点",
-                              "４点",
-                              "３点",
-                              "２点",
-                              "１点"] }
+            inclusion: { in: ["one_point",
+                              "two_points",
+                              "three_points",
+                              "four_points",
+                              "five_points"] }
   validates :reread_timing,
-            inclusion: { in: ["知識を付けたい時",
-                              "モチベーションをあげたい時",
-                              "なにか決断をする時",
-                              "ストレスが溜まっている時",
-                              "落ち込んでいる時",
-                              "失恋した時",
-                              "気分転換したい時",
-                              "リラックスしたい時",
-                              "特になし"] }
+            inclusion: { in: ["knowledge",
+                              "motivation",
+                              "decision",
+                              "stress",
+                              "feel_down",
+                              "lost_love",
+                              "diversion",
+                              "relax",
+                              "nothing_special"] }
 
   enum read_day: {
     "-----": 0,
-    "1日": 1,
-    "2日〜3日": 2,
-    "1週間": 3,
-    "2週間〜4週間": 4,
-    "1ヶ月以上": 5
+    one_day: 1,
+    two_three_days: 2,
+    one_week: 3,
+    two_four_weeks: 4,
+    one_month_over: 5
   }, _prefix: true
 
   enum interest: {
     "-----": 0,
-    "５点": 5,
-    "４点": 4,
-    "３点": 3,
-    "２点": 2,
-    "１点": 1
+    one_point: 1,
+    two_points: 2,
+    three_points: 3,
+    four_points: 4,
+    five_points: 5
   }, _prefix: true
 
   enum impressed: {
     "-----": 0,
-    "５点": 5,
-    "４点": 4,
-    "３点": 3,
-    "２点": 2,
-    "１点": 1
+    one_point: 1,
+    two_points: 2,
+    three_points: 3,
+    four_points: 4,
+    five_points: 5
   }, _prefix: true
 
   enum awareness: {
     "-----": 0,
-    "５点": 5,
-    "４点": 4,
-    "３点": 3,
-    "２点": 2,
-    "１点": 1
+    one_point: 1,
+    two_points: 2,
+    three_points: 3,
+    four_points: 4,
+    five_points: 5
   }, _prefix: true
 
   enum impact: {
     "-----": 0,
-    "５点": 5,
-    "４点": 4,
-    "３点": 3,
-    "２点": 2,
-    "１点": 1
+    one_point: 1,
+    two_points: 2,
+    three_points: 3,
+    four_points: 4,
+    five_points: 5
   }, _prefix: true
 
   enum practice: {
     "-----": 0,
-    "５点": 5,
-    "４点": 4,
-    "３点": 3,
-    "２点": 2,
-    "１点": 1
+    one_point: 1,
+    two_points: 2,
+    three_points: 3,
+    four_points: 4,
+    five_points: 5
   }, _prefix: true
 
   enum knowledge: {
     "-----": 0,
-    "５点": 5,
-    "４点": 4,
-    "３点": 3,
-    "２点": 2,
-    "１点": 1
+    one_point: 1,
+    two_points: 2,
+    three_points: 3,
+    four_points: 4,
+    five_points: 5
   }, _prefix: true
 
   enum rating: {
     "-----": 0,
-    "５点": 5,
-    "４点": 4,
-    "３点": 3,
-    "２点": 2,
-    "１点": 1
+    one_point: 1,
+    two_points: 2,
+    three_points: 3,
+    four_points: 4,
+    five_points: 5
   }, _prefix: true
 
   enum reread_timing: {
     "-----": 0,
-    "知識を付けたい時": 1,
-    "モチベーションをあげたい時": 2,
-    "なにか決断をする時": 3,
-    "ストレスが溜まっている時": 4,
-    "落ち込んでいる時": 5,
-    "失恋した時": 6,
-    "気分転換したい時": 7,
-    "リラックスしたい時": 8,
-    "特になし": 9
+    knowledge: 1,
+    motivation: 2,
+    decision: 3,
+    stress: 4,
+    feel_down: 5,
+    lost_love: 6,
+    diversion: 7,
+    relax: 8,
+    nothing_special: 9
   }, _prefix: true
 end

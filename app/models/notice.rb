@@ -8,8 +8,8 @@ class Notice < ApplicationRecord
   validates :status, presence: true
 
   enum status: {
-    "book_register": 0,
-    "impression_register": 1
+    book_register: 0,
+    impression_register: 1
   }, _prefix: true
 
   def notice_book_followers(user, book)
