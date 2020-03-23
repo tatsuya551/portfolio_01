@@ -31,3 +31,5 @@ public/uploads/*
 
 #APIキーを非公開にする
 /.env
+
+/.DS_Store
