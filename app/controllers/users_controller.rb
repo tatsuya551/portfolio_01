@@ -44,19 +44,19 @@ class UsersController < ApplicationController
   def show
     @followers = @user.followers
     @followings = @user.followings
-    @buy_books = @user.books.where(status: "book_impression_none").order("created_at DESC").limit(5)
-    @read_books_impressions = @impressions.order("created_at DESC").limit(5)
-    @will_read_books = @user.books.where(status: "book_following").order("created_at DESC").limit(5)
-    @read_count_impressions = @impressions.group(:book_id).order("count(book_id) DESC").order("created_at DESC").limit(5)
+    @buy_books = @user.books.impression_none.sorted.limit(5)
+    @read_books_impressions = @impressions.sorted.limit(5)
+    @will_read_books = @user.books.book_following.sorted.limit(5)
+    @read_count_impressions = @impressions.read_count.sorted.limit(5)
     # グラフ用の値の取り出し
-    gon.novel = @user.books.category_novel.where.not(status: "book_following").count
-    gon.management = @user.books.category_management.where.not(status: "book_following").count
-    gon.economy = @user.books.category_economy.where.not(status: "book_following").count
-    gon.finance = @user.books.category_finance.where.not(status: "book_following").count
-    gon.it = @user.books.category_it.where.not(status: "book_following").count
-    gon.motivation = @user.books.category_motivation.where.not(status: "book_following").count
-    gon.talent = @user.books.category_talent.where.not(status: "book_following").count
-    gon.etc = @user.books.category_etc.where.not(status: "book_following").count
+    gon.novel = @user.books.category_novel.no_book_following.count
+    gon.management = @user.books.category_management.no_book_following.count
+    gon.economy = @user.books.category_economy.no_book_following.count
+    gon.finance = @user.books.category_finance.no_book_following.count
+    gon.it = @user.books.category_it.no_book_following.count
+    gon.motivation = @user.books.category_motivation.no_book_following.count
+    gon.talent = @user.books.category_talent.no_book_following.count
+    gon.etc = @user.books.category_etc.no_book_following.count
   end
 
   def edit; end
@@ -71,105 +71,105 @@ class UsersController < ApplicationController
   end
 
   def category
-    @novels = @user.books.category_novel.where.not(status: "book_following").order("created_at DESC").limit(5)
-    @managements = @user.books.category_management.where.not(status: "book_following").order("created_at DESC").limit(5)
-    @economys = @user.books.category_economy.where.not(status: "book_following").order("created_at DESC").limit(5)
-    @finances = @user.books.category_finance.where.not(status: "book_following").order("created_at DESC").limit(5)
-    @its = @user.books.category_it.where.not(status: "book_following").order("created_at DESC").limit(5)
-    @motivations = @user.books.category_motivation.where.not(status: "book_following").order("created_at DESC").limit(5)
-    @talents = @user.books.category_talent.where.not(status: "book_following").order("created_at DESC").limit(5)
-    @etcs = @user.books.category_etc.where.not(status: "book_following").order("created_at DESC").limit(5)
+    @novels = @user.books.category_novel.no_book_following.sorted.limit(5)
+    @managements = @user.books.category_management.no_book_following.sorted.limit(5)
+    @economys = @user.books.category_economy.no_book_following.sorted.limit(5)
+    @finances = @user.books.category_finance.no_book_following.sorted.limit(5)
+    @its = @user.books.category_it.no_book_following.sorted.limit(5)
+    @motivations = @user.books.category_motivation.no_book_following.sorted.limit(5)
+    @talents = @user.books.category_talent.no_book_following.sorted.limit(5)
+    @etcs = @user.books.category_etc.no_book_following.sorted.limit(5)
   end
 
   def novel
-    @novels = @user.books.category_novel.where.not(status: "book_following").order("created_at DESC")
+    @novels = @user.books.category_novel.no_book_following.sorted
   end
 
   def management
-    @managements = @user.books.category_management.where.not(status: "book_following").order("created_at DESC")
+    @managements = @user.books.category_management.no_book_following.sorted
   end
 
   def economy
-    @economys = @user.books.category_economy.where.not(status: "book_following").order("created_at DESC")
+    @economys = @user.books.category_economy.no_book_following.sorted
   end
 
   def finance
-    @finances = @user.books.category_finance.where.not(status: "book_following").order("created_at DESC")
+    @finances = @user.books.category_finance.no_book_following.sorted
   end
 
   def it
-    @its = @user.books.category_it.where.not(status: "book_following").order("created_at DESC")
+    @its = @user.books.category_it.no_book_following.sorted
   end
 
   def motivation
-    @motivations = @user.books.category_motivation.where.not(status: "book_following").order("created_at DESC")
+    @motivations = @user.books.category_motivation.no_book_following.sorted
   end
 
   def talent
-    @talents = @user.books.category_talent.where.not(status: "book_following").order("created_at DESC")
+    @talents = @user.books.category_talent.no_book_following.sorted
   end
 
   def etc
-    @etcs = @user.books.category_etc.where.not(status: "book_following").order("created_at DESC")
+    @etcs = @user.books.category_etc.no_book_following.sorted
   end
 
   def reread_timing
-    @timing_knowledges = @impressions.where(reread_timing: "knowledge")
-    @timing_motivations = @impressions.where(reread_timing: "motivation")
-    @timing_decisions = @impressions.where(reread_timing: "decision")
-    @timing_stresses = @impressions.where(reread_timing: "stress")
-    @timing_feel_downs = @impressions.where(reread_timing: "feel_down")
-    @timing_lost_loves = @impressions.where(reread_timing: "lost_love")
-    @timing_diversions = @impressions.where(reread_timing: "diversion")
-    @timing_relaxes = @impressions.where(reread_timing: "relax")
+    @timing_knowledges = @impressions.knowledge
+    @timing_motivations = @impressions.motivation
+    @timing_decisions = @impressions.decision
+    @timing_stresses = @impressions.stress
+    @timing_feel_downs = @impressions.feel_down
+    @timing_lost_loves = @impressions.lost_love
+    @timing_diversions = @impressions.diversion
+    @timing_relaxes = @impressions.relax
   end
 
   def timing_knowledge
-    @timing_knowledges = @impressions.where(reread_timing: "knowledge").order("created_at DESC")
+    @timing_knowledges = @impressions.knowledge.sorted
   end
 
   def timing_motivation
-    @timing_motivations = @impressions.where(reread_timing: "motivation").order("created_at DESC")
+    @timing_motivations = @impressions.motivation.sorted
   end
 
   def timing_decision
-    @timing_decisions = @impressions.where(reread_timing: "decision").order("created_at DESC")
+    @timing_decisions = @impressions.decision.sorted
   end
 
   def timing_stress
-    @timing_stresses = @impressions.where(reread_timing: "stress").order("created_at DESC")
+    @timing_stresses = @impressions.stress.sorted
   end
 
   def timing_feel_down
-    @timing_feel_downs = @impressions.where(reread_timing: "feel_down").order("created_at DESC")
+    @timing_feel_downs = @impressions.feel_down.sorted
   end
 
   def timing_lost_love
-    @timing_lost_loves = @impressions.where(reread_timing: "lost_love").order("created_at DESC")
+    @timing_lost_loves = @impressions.lost_love.sorted
   end
 
   def timing_diversion
-    @timing_diversions = @impressions.where(reread_timing: "diversion").order("created_at DESC")
+    @timing_diversions = @impressions.diversion.sorted
   end
 
   def timing_relax
-    @timing_relaxes = @impressions.where(reread_timing: "relax").order("created_at DESC")
+    @timing_relaxes = @impressions.relax.sorted
   end
 
   def all_books
-    @all_books = @user.books.where.not(status: "book_following").order("created_at DESC")
+    @all_books = @user.books.no_book_following.sorted
   end
 
   def read_books
-    @read_books = @user.books.where(status: "book_impression_exist").order("created_at DESC")
+    @read_books = @user.books.impression_exist.sorted
   end
 
   def will_read_books
-    @will_read_books = @user.books.where(status: "book_impression_none").order("created_at DESC")
+    @will_read_books = @user.books.impression_none.sorted
   end
 
   def follow_book
-    @follow_books = @user.books.where(status: "book_following").order("created_at DESC")
+    @follow_books = @user.books.book_following.sorted
   end
 
   def followings
@@ -181,13 +181,13 @@ class UsersController < ApplicationController
   end
 
   def read_count_books
-    @read_once_impressions = @impressions.group(:book_id).having("count(book_id) = 1").order("created_at DESC")
-    @read_twice_impressions = @impressions.group(:book_id).having("count(book_id) = 2").order("created_at DESC")
-    @read_three_impressions = @impressions.group(:book_id).having("count(book_id) >= 3").order("created_at DESC")
+    @read_once_impressions = @impressions.read_once.sorted
+    @read_twice_impressions = @impressions.read_twice.sorted
+    @read_three_impressions = @impressions.read_three.sorted
   end
 
   def read_history
-    @historys = Notice.where(user_id: @user.id).where(status: "impression_register").order("created_at DESC")
+    @historys = Notice.search_user(@user.id).impression_register_exist.sorted
   end
 
   private
@@ -201,7 +201,7 @@ class UsersController < ApplicationController
   end
 
   def set_user_notice
-    @notices = Notice.where(user_id: @user.following_ids).where(date: Date.today - 7..Date.today).order("created_at DESC").limit(10)
+    @notices = Notice.search_user(@user.following_ids).last_seven_days.sorted.limit(10)
   end
 
   def set_user_impression

@@ -21,6 +21,9 @@ class User < ApplicationRecord
   validates :birth_day, presence: true
   validates :birth_day, date: true, allow_blank: true
 
+  scope :sorted, -> { order("created_at DESC") }
+
+
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end

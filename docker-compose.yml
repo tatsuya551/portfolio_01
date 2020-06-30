@@ -9,6 +9,8 @@ services:
       - public-data:/app/public
       - tmp-data:/app/tmp
       - log-data:/app/log
+    tty: true
+    stdin_open: true
     depends_on:
       - db
   web:
@@ -27,6 +29,8 @@ services:
     image: mysql:5.6
     volumes:
       - db-volume:/var/lib/mysql
+    ports:
+      - 4306:3306
     environment:
       MYSQL_ROOT_PASSWORD: password
 volumes:

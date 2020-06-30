@@ -39,6 +39,12 @@ class Book < ApplicationRecord
     book_following: 2
   }, _prefix: true
 
+  scope :impression_none, -> { where(status: "book_impression_none") }
+  scope :impression_exist, -> { where(status: "book_impression_exist") }
+  scope :book_following, -> { where(status: "book_following") }
+  scope :no_book_following, -> { where.not(status: "book_following") }
+  scope :sorted, -> { order("created_at DESC") }
+
   def book_read
     self.status = "book_impression_exist"
     save

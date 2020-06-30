@@ -57,10 +57,10 @@ class BooksController < ApplicationController
 
   def search
     if user_signed_in?
-      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).where.not(status: "book_following").order("created_at DESC")
-      @user_books = current_user.books.search(params[:keyword]).where.not(status: "book_following").order("created_at DESC")
+      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).no_book_following.sorted
+      @user_books = current_user.books.search(params[:keyword]).no_book_following.sorted
     else
-      @all_books = Book.search(params[:keyword]).where.not(status: "book_following").order("created_at DESC")
+      @all_books = Book.search(params[:keyword]).no_book_following.sorted
     end
     @keyword = params[:keyword]
   end
@@ -70,7 +70,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.where.not(status: "book_following").order("created_at DESC")
+    @books = Book.no_book_following.sorted
   end
 
   private
@@ -91,7 +91,7 @@ class BooksController < ApplicationController
   end
 
   def set_user_notice
-    @notices = Notice.where(user_id: @book.user.following_ids).where(date: Date.today - 7..Date.today).order("created_at DESC").limit(10)
+    @notices = Notice.search_user(@book.user.following_ids).last_seven_days.sorted.limit(10)
   end
 
   def buydate_add

@@ -12,6 +12,12 @@ class Notice < ApplicationRecord
     impression_register: 1
   }, _prefix: true
 
+  scope :sorted, -> { order("created_at DESC") }
+  scope :last_seven_days, -> { where(date: Date.today - 7..Date.today) }
+  scope :search_user, -> (ids) { where(user_id: (ids)) }
+  scope :impression_register_exist, -> { where(status: "impression_register") }
+
+
   def notice_book_followers(user, book)
     self.user_id = user.id
     self.book_id = book.id
