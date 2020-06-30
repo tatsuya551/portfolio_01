@@ -116,4 +116,33 @@ class Impression < ApplicationRecord
     relax: 8,
     nothing_special: 9
   }, _prefix: true
+
+  scope :knowledge, -> { where(reread_timing: "knowledge") }
+  scope :motivation, -> { where(reread_timing: "motivation") }
+  scope :decision, -> { where(reread_timing: "decision") }
+  scope :stress, -> { where(reread_timing: "stress") }
+  scope :feel_down, -> { where(reread_timing: "feel_down") }
+  scope :lost_love, -> { where(reread_timing: "lost_love") }
+  scope :diversion, -> { where(reread_timing: "diversion") }
+  scope :relax, -> { where(reread_timing: "relax") }
+  scope :sorted, -> { order("created_at DESC") }
+  scope :read_count, -> { group(:book_id).order("count(book_id) DESC") }
+  scope :read_once, -> { group(:book_id).having("count(book_id) = 1") }
+  scope :read_twice, -> { group(:book_id).having("count(book_id) = 2") }
+  scope :read_three, -> { group(:book_id).having("count(book_id) >= 3") }
+  scope :search_book, ->(ids) { where(book_id: ids) }
+
+  def get_point(item)
+    if item == "one_point"
+      1
+    elsif item == "two_points"
+      2
+    elsif item == "three_points"
+      3
+    elsif item == "four_points"
+      4
+    else
+      5
+    end
+  end
 end
