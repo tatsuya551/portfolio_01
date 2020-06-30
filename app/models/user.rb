@@ -23,7 +23,6 @@ class User < ApplicationRecord
 
   scope :sorted, -> { order("created_at DESC") }
 
-
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end

@@ -130,7 +130,7 @@ class Impression < ApplicationRecord
   scope :read_once, -> { group(:book_id).having("count(book_id) = 1") }
   scope :read_twice, -> { group(:book_id).having("count(book_id) = 2") }
   scope :read_three, -> { group(:book_id).having("count(book_id) >= 3") }
-  scope :search_book, -> (ids) { where(book_id: (ids)) }
+  scope :search_book, ->(ids) { where(book_id: ids) }
 
   def get_point(item)
     if item == "one_point"

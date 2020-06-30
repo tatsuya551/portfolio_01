@@ -21,7 +21,7 @@ class ImpressionsController < ApplicationController
   def index
     @impressions = @book.impressions.sorted
     # 各合計点の計算
-    point_hash = { rating: 0, interest: 0, impressed: 0, awareness: 0, impact: 0, practice: 0, knowledge: 0}
+    point_hash = { rating: 0, interest: 0, impressed: 0, awareness: 0, impact: 0, practice: 0, knowledge: 0 }
     @impressions.each do |imp|
       point_hash[:rating] += imp.get_point(imp.rating)
       point_hash[:interest] += imp.get_point(imp.interest)
@@ -108,6 +108,6 @@ class ImpressionsController < ApplicationController
   end
 
   def point_avg(point_value)
-    ((point_value) / @impressions.count.to_f).round(2)
+    (point_value / @impressions.count.to_f).round(2)
   end
 end
