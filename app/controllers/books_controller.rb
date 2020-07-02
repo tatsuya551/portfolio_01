@@ -57,7 +57,7 @@ class BooksController < ApplicationController
 
   def search
     if user_signed_in?
-      @all_books = Book.search(params[:keyword]).where.not(user_id: current_user.id).no_book_following.sorted
+      @all_books = Book.search(params[:keyword]).exclude_user(current_user.id).no_book_following.sorted
       @user_books = current_user.books.search(params[:keyword]).no_book_following.sorted
     else
       @all_books = Book.search(params[:keyword]).no_book_following.sorted

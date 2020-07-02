@@ -20,38 +20,27 @@ class ImpressionsController < ApplicationController
 
   def index
     @impressions = @book.impressions.sorted
-    # 各合計点の計算
-    point_hash = { rating: 0, interest: 0, impressed: 0, awareness: 0, impact: 0, practice: 0, knowledge: 0 }
-    @impressions.each do |imp|
-      point_hash[:rating] += imp.get_point(imp.rating)
-      point_hash[:interest] += imp.get_point(imp.interest)
-      point_hash[:impressed] += imp.get_point(imp.impressed)
-      point_hash[:awareness] += imp.get_point(imp.awareness)
-      point_hash[:impact] += imp.get_point(imp.impact)
-      point_hash[:practice] += imp.get_point(imp.practice)
-      point_hash[:knowledge] += imp.get_point(imp.knowledge)
-    end
     # 各平均点の計算
-    @rating = point_avg(point_hash[:rating])
-    gon.interest = point_avg(point_hash[:interest])
-    gon.impressed = point_avg(point_hash[:impressed])
-    gon.awareness = point_avg(point_hash[:awareness])
-    gon.impact = point_avg(point_hash[:impact])
-    gon.practice = point_avg(point_hash[:practice])
-    gon.knowledge = point_avg(point_hash[:knowledge])
+    @rating = @impressions.get_avg_point(:rating)
+    gon.interest = @impressions.get_avg_point(:interest)
+    gon.impressed = @impressions.get_avg_point(:impressed)
+    gon.awareness = @impressions.get_avg_point(:awareness)
+    gon.impact = @impressions.get_avg_point(:impact)
+    gon.practice = @impressions.get_avg_point(:practice)
+    gon.knowledge = @impressions.get_avg_point(:knowledge)
   end
 
   def show
     @impressions = @book.impressions.sorted
     # 総合評価の値の取り出し
-    @rating = @impression.get_point(@impression.rating)
+    @rating = @impression.get_point(:rating)
     # グラフ用の値の取り出し
-    gon.interest = @impression.get_point(@impression.interest)
-    gon.impressed = @impression.get_point(@impression.impressed)
-    gon.awareness = @impression.get_point(@impression.awareness)
-    gon.practice = @impression.get_point(@impression.practice)
-    gon.impact = @impression.get_point(@impression.impact)
-    gon.knowledge = @impression.get_point(@impression.knowledge)
+    gon.interest = @impression.get_point(:interest)
+    gon.impressed = @impression.get_point(:impressed)
+    gon.awareness = @impression.get_point(:awareness)
+    gon.practice = @impression.get_point(:practice)
+    gon.impact = @impression.get_point(:impact)
+    gon.knowledge = @impression.get_point(:knowledge)
   end
 
   def edit; end
@@ -105,9 +94,5 @@ class ImpressionsController < ApplicationController
 
   def set_impression
     @impression = Impression.find(params[:id])
-  end
-
-  def point_avg(point_value)
-    (point_value / @impressions.count.to_f).round(2)
   end
 end

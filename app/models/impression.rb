@@ -133,16 +133,24 @@ class Impression < ApplicationRecord
   scope :search_book, ->(ids) { where(book_id: ids) }
 
   def get_point(item)
-    if item == "one_point"
+    if self[item] == "one_point"
       1
-    elsif item == "two_points"
+    elsif self[item] == "two_points"
       2
-    elsif item == "three_points"
+    elsif self[item] == "three_points"
       3
-    elsif item == "four_points"
+    elsif self[item] == "four_points"
       4
     else
       5
     end
+  end
+
+  def self.get_avg_point(item)
+    sum_point = 0
+    all.each do |impression|
+      sum_point += impression.get_point(item)
+    end
+    (sum_point / count.to_f).round(2)
   end
 end
