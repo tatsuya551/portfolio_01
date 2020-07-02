@@ -43,6 +43,7 @@ class Book < ApplicationRecord
   scope :impression_exist, -> { where(status: "book_impression_exist") }
   scope :book_following, -> { where(status: "book_following") }
   scope :no_book_following, -> { where.not(status: "book_following") }
+  scope :exclude_user, ->(ids) { where.not(user_id: ids) }
   scope :sorted, -> { order("created_at DESC") }
 
   def book_read
@@ -66,12 +67,12 @@ class Book < ApplicationRecord
   def self.search(search)
     return " " unless search
 
-    Book.where('title LIKE(?)', "%#{search}%")
+    self.where('title LIKE(?)', "%#{search}%")
         .or(
-          Book.where('author LIKE(?)', "%#{search}%")
+          self.where('author LIKE(?)', "%#{search}%")
         )
         .or(
-          Book.where('publisher LIKE(?)', "%#{search}%")
+          self.where('publisher LIKE(?)', "%#{search}%")
         )
   end
 end

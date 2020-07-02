@@ -1,31 +1,31 @@
 .book-tag
   .book-tag__box
-    - if @book.category == "novel"
+    - if book.category == "novel"
       .book-tag__box__category.text-center.background-novel
-        = @book.category_i18n
-    - elsif @book.category == "management"
+        = book.category_i18n
+    - elsif book.category == "management"
       .book-tag__box__category.text-center.background-management
-        = @book.category_i18n
-    - elsif @book.category == "economy"
+        = book.category_i18n
+    - elsif book.category == "economy"
       .book-tag__box__category.text-center.background-economy
-        = @book.category_i18n
-    - elsif @book.category == "finance"
+        = book.category_i18n
+    - elsif book.category == "finance"
       .book-tag__box__category.text-center.background-finance
-        = @book.category_i18n
-    - elsif @book.category == "it"
+        = book.category_i18n
+    - elsif book.category == "it"
       .book-tag__box__category.text-center.background-it
-        = @book.category_i18n
-    - elsif @book.category == "motivation"
+        = book.category_i18n
+    - elsif book.category == "motivation"
       .book-tag__box__category.text-center.background-motivation
-        = @book.category_i18n
-    - elsif @book.category == "talent"
+        = book.category_i18n
+    - elsif book.category == "talent"
       .book-tag__box__category.text-center.background-talent
-        = @book.category_i18n
+        = book.category_i18n
     - else
       .book-tag__box__category.text-center.background-etc
-        = @book.category_i18n
-    - if @book.status == "book_impression_exist" && @book.impressions.last.reread_timing != "nothing_special"
+        = book.category_i18n
+    - if book.status == "book_impression_exist" && book.impressions.last.reread_timing != "nothing_special"
       .book-tag__box__reread-timing.text-center
-        = @book.impressions.last.reread_timing_i18n
+        = book.impressions.last.reread_timing_i18n
     - else
 
