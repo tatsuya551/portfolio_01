@@ -67,12 +67,12 @@ class Book < ApplicationRecord
   def self.search(search)
     return " " unless search
 
-    self.where('title LIKE(?)', "%#{search}%")
-        .or(
-          self.where('author LIKE(?)', "%#{search}%")
-        )
-        .or(
-          self.where('publisher LIKE(?)', "%#{search}%")
-        )
+    where('title LIKE(?)', "%#{search}%")
+      .or(
+        where('author LIKE(?)', "%#{search}%")
+      )
+      .or(
+        where('publisher LIKE(?)', "%#{search}%")
+      )
   end
 end

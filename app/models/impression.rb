@@ -148,9 +148,9 @@ class Impression < ApplicationRecord
 
   def self.get_avg_point(item)
     sum_point = 0
-    self.all.each do |impression|
+    all.each do |impression|
       sum_point += impression.get_point(item)
     end
-    (sum_point / self.count.to_f).round(2)
+    (sum_point / count.to_f).round(2)
   end
 end
