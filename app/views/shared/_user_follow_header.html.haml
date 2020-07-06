@@ -7,37 +7,37 @@
         .follow-info-list.display-flex
           - if params[:controller] == "users" && params[:action] == "followings"
             .follow-info-list__link
-              = link_to followings_user_path(@user), class: "text-green font-bold text-line-none" do
+              = link_to followings_user_path(user), class: "text-green font-bold text-line-none" do
                 フォロー
           - else
             .follow-info-list__link
-              = link_to followings_user_path(@user), class: "text-black text-line-none content-header-btn" do
+              = link_to followings_user_path(user), class: "text-black text-line-none content-header-btn" do
                 フォロー
           - if params[:controller] == "users" && params[:action] == "followers"
             .follow-info-list__link
-              = link_to followers_user_path(@user), class: "text-green font-bold text-line-none" do
+              = link_to followers_user_path(user), class: "text-green font-bold text-line-none" do
                 フォロワー
           - else params[:controller] == "users" && params[:action] == "followers"
             .follow-info-list__link
-              = link_to followers_user_path(@user), class: "text-black text-line-none content-header-btn" do
+              = link_to followers_user_path(user), class: "text-black text-line-none content-header-btn" do
                 フォロワー
           .user-link.display-flex
             .user-link__nickname-icon.text-orange
               = icon 'fas', 'user', class: 'icon-user-link'
             .user-link__nickname
-              = link_to user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
-                = @user.nickname
+              = link_to user_path(user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.nickname
             .user-link__followings-icon.text-orange
               = icon 'fas', 'heart', class: 'icon-user-link'
             .user-link__followings.text-center
-              = link_to followings_user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
-                = @user.followings.count
+              = link_to followings_user_path(user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.followings.count
             .user-link__followers-icon.text-orange
               = icon 'fas', 'check', class: 'icon-user-link'
             .user-link__followers.text-center
-              = link_to followers_user_path(@user), class: "text-black text-orange text-line-none content-header-user-btn" do
-                = @user.followers.count
-            - if current_user == @user
+              = link_to followers_user_path(user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.followers.count
+            - if current_user == user
               .user-link__news-icon.text-blue.news-list.text-center
                 = icon 'fas', 'bell', class: 'icon-user-link'
               = render "shared/news_list"

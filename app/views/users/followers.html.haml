@@ -1,8 +1,8 @@
-= render "shared/user_follow_header"
+= render "shared/user_follow_header", user: @user
 .followings-top.main-font
   - if @users.present?
     .followings-top__main.box-list.box-center
-      = render partial: "shared/follow_user_list", locals: {users: @users}
+      = render "shared/follow_user_list", users: @users
   - else
     .followings-top__none.text-center
       登録がありません
