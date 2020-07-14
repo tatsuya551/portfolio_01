@@ -48,7 +48,7 @@ class Impression < ApplicationRecord
     three_points: 3,
     four_points: 4,
     five_points: 5
-  }
+  }.freeze
   enum interest: POINT_HASH, _prefix: true
   enum impressed: POINT_HASH, _prefix: true
   enum awareness: POINT_HASH, _prefix: true
