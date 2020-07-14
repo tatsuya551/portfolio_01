@@ -41,68 +41,21 @@ class Impression < ApplicationRecord
     one_month_over: 5
   }, _prefix: true
 
-  enum interest: {
+  POINT_HASH = {
     "-----": 0,
     one_point: 1,
     two_points: 2,
     three_points: 3,
     four_points: 4,
     five_points: 5
-  }, _prefix: true
-
-  enum impressed: {
-    "-----": 0,
-    one_point: 1,
-    two_points: 2,
-    three_points: 3,
-    four_points: 4,
-    five_points: 5
-  }, _prefix: true
-
-  enum awareness: {
-    "-----": 0,
-    one_point: 1,
-    two_points: 2,
-    three_points: 3,
-    four_points: 4,
-    five_points: 5
-  }, _prefix: true
-
-  enum impact: {
-    "-----": 0,
-    one_point: 1,
-    two_points: 2,
-    three_points: 3,
-    four_points: 4,
-    five_points: 5
-  }, _prefix: true
-
-  enum practice: {
-    "-----": 0,
-    one_point: 1,
-    two_points: 2,
-    three_points: 3,
-    four_points: 4,
-    five_points: 5
-  }, _prefix: true
-
-  enum knowledge: {
-    "-----": 0,
-    one_point: 1,
-    two_points: 2,
-    three_points: 3,
-    four_points: 4,
-    five_points: 5
-  }, _prefix: true
-
-  enum rating: {
-    "-----": 0,
-    one_point: 1,
-    two_points: 2,
-    three_points: 3,
-    four_points: 4,
-    five_points: 5
-  }, _prefix: true
+  }.freeze
+  enum interest: POINT_HASH, _prefix: true
+  enum impressed: POINT_HASH, _prefix: true
+  enum awareness: POINT_HASH, _prefix: true
+  enum impact: POINT_HASH, _prefix: true
+  enum practice: POINT_HASH, _prefix: true
+  enum knowledge: POINT_HASH, _prefix: true
+  enum rating: POINT_HASH, _prefix: true
 
   enum reread_timing: {
     "-----": 0,
