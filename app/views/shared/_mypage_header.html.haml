@@ -1,0 +1,101 @@
+.content-headdr.main-font
+  .content-headdr__main
+    .content-headdr__main__box.box-center
+      .content-headdr__main__box__list.display-flex
+        .mypage-title.font-bold
+          MYPAGE
+        .mypage-list.display-flex
+          - if params[:controller] == "users" && params[:action] == "show"
+            .mypage-list__link
+              = link_to user_path(user), class: "text-green font-bold text-line-none" do
+                トップ
+          - else
+            .mypage-list__link
+              = link_to user_path(user), class: "text-black text-line-none content-header-btn" do
+                トップ
+          - if params[:controller] == "users" && params[:action] == "read_history"
+            .mypage-list__link
+              = link_to read_history_user_path(user), class: "text-green font-bold text-line-none" do
+                読書履歴
+          - else
+            .mypage-list__link
+              = link_to read_history_user_path(user), class: "text-black text-line-none content-header-btn" do
+                読書履歴
+          - if params[:action] == "all_books" || params[:action] == "read_books" || params[:action] == "will_read_books"
+            .mypage-list__link
+              = link_to all_books_user_path(user), class: "text-green font-bold text-line-none" do
+                登録本
+          - else
+            .mypage-list__link
+              = link_to all_books_user_path(user), class: "text-black text-line-none content-header-btn" do
+                登録本
+          - if params[:action] == "read_count_books"
+            .mypage-list__link
+              = link_to read_count_books_user_path(user), class: "text-green font-bold text-line-none" do
+                読書回数
+          - else
+            .mypage-list__link
+              = link_to read_count_books_user_path(user), class: "text-black text-line-none content-header-btn" do
+                読書回数
+          - if params[:controller] == "users" && params[:action] == "category" || params[:action] == "novel" || params[:action] == "management" || params[:action] == "economy" || params[:action] == "finance" || params[:action] == "it" || params[:action] == "motivation" || params[:action] == "talent" || params[:action] == "etc" 
+            .mypage-list__link
+              = link_to category_user_path(user), class: "text-green font-bold text-line-none" do
+                ジャンル
+          - else
+            .mypage-list__link
+              = link_to category_user_path(user), class: "text-black text-line-none content-header-btn" do
+                ジャンル
+          - if params[:controller] == "users" && params[:action] == "reread_timing" || params[:action] == "timing_knowledge" || params[:action] == "timing_motivation" || params[:action] == "timing_decision" || params[:action] == "timing_stress" || params[:action] == "timing_feel_down" || params[:action] == "timing_lost_love" || params[:action] == "timing_diversion" || params[:action] == "timing_relax"
+            .mypage-list__link
+              = link_to reread_timing_user_path(user), class: "text-green font-bold text-line-none" do
+                また読みたい時
+          - else
+            .mypage-list__link
+              = link_to reread_timing_user_path(user), class: "text-black text-line-none content-header-btn" do
+                また読みたい時
+          - if params[:controller] == "users" && params[:action] == "follow_book" || params[:controller] == "books" && params[:action] == "follow_book_show"
+            .mypage-list__link
+              = link_to follow_book_user_path(user), class: "text-green font-bold text-line-none" do
+                読みたいリスト
+          - else
+            .mypage-list__link
+              = link_to follow_book_user_path(user), class: "text-black text-line-none content-header-btn" do
+                読みたいリスト
+        - if user_signed_in?
+          .user-link.display-flex
+            .user-link__nickname-icon.text-orange
+              = icon 'fas', 'user', class: 'icon-user-link'
+            .user-link__nickname
+              = link_to user_path(user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.nickname
+            .user-link__followings-icon.text-orange
+              = icon 'fas', 'heart', class: 'icon-user-link'
+            .user-link__followings.text-center
+              = link_to followings_user_path(user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.followings.count
+            .user-link__followers-icon.text-orange
+              = icon 'fas', 'check', class: 'icon-user-link'
+            .user-link__followers.text-center
+              = link_to followers_user_path(user), class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.followers.count
+            - if current_user == user
+              .user-link__news-icon.text-blue.news-list.text-center
+                = icon 'fas', 'bell', class: 'icon-user-link'
+              = render "shared/news_list"
+        - else
+          .user-link.display-flex
+            .user-link__nickname-icon.text-orange
+              = icon 'fas', 'user', class: 'icon-user-link'
+            .user-link__nickname
+              = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.nickname
+            .user-link__followings-icon.text-orange
+              = icon 'fas', 'heart', class: 'icon-user-link'
+            .user-link__followings.text-center
+              = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.followings.count
+            .user-link__followers-icon.text-orange
+              = icon 'fas', 'check', class: 'icon-user-link'
+            .user-link__followers.text-center
+              = link_to start_app_signup_index_path, class: "text-black text-orange text-line-none content-header-user-btn" do
+                = user.followers.count
