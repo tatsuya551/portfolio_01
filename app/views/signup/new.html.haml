@@ -44,10 +44,6 @@
             - @user.errors.full_messages_for(:password).each do |message|
               %div
                 = message
-          .user-detail__top.form-content
-            パスワード(確認用)
-          .user-detail__password-input
-            = f.password_field :password_confirmation, placeholder: "> password", class:"text-input"
       .btn-box.display-flex
         .btn-box__user-new
           = f.submit " 新規登録する ", class: "submit-btn text-line-none"

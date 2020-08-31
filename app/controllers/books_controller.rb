@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   def create
     params[:book][:buy_date] = @buy_date.to_s
     @book = Book.new(book_params)
-    if @book.save(book_params)
+    if @book.save
       notice = Notice.new
       notice.notice_book_followers(@book.user, @book)
       redirect_to user_path(@book.user_id)
