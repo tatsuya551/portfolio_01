@@ -90,7 +90,7 @@ GEM
       mini_mime (>= 0.1.3)
     chart-js-rails (0.1.7)
       railties (> 3.1)
-    chartkick (3.3.1)
+    chartkick (3.4.0)
     childprocess (3.0.0)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
