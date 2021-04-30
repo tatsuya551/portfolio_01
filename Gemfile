@@ -86,7 +86,7 @@ gem 'enum_help'
 gem 'erb2haml'
 gem 'fog-aws'
 gem "font-awesome-sass"
-gem 'gon', '~> 6.2.0'
+gem 'gon', '~> 6.4.0'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mini_magick'
