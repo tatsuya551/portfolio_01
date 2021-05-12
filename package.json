@@ -2,6 +2,6 @@
   "name": "portfolio_01",
   "private": true,
   "dependencies": {
-    "chart.js": "^2.7.1"
+    "chart.js": "^2.9.4"
   }
 }
